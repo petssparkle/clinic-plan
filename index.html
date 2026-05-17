@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clinic AI · Phase 1 Plan — May → Dec 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --panel: #ffffff;
+    --panel-soft: #f6f8fc;
+    --border: #e6e8ef;
+    --text: #0f172a;
+    --muted: #475569;
+    --brand: #0d9488;
+    --brand-2: #14b8a6;
+    --accent: #ec4899;
+    --accent-2: #f59e0b;
+    --warn: #ef4444;
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 22px 60px; }
+
+  .hero {
+    position: relative;
+    background: radial-gradient(1200px 600px at 10% 0%, rgba(20,184,166,0.28), transparent 60%),
+                radial-gradient(900px 500px at 100% 20%, rgba(236,72,153,0.20), transparent 60%),
+                linear-gradient(135deg, #0b1020 0%, #134e4a 60%, #0d9488 120%);
+    color: white;
+    border-radius: 20px;
+    padding: 40px 38px;
+    box-shadow: var(--shadow);
+  }
+  .hero h1 { font-size: 36px; line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .hero h1 span { background: linear-gradient(90deg, #5eead4, #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: 16px; max-width: 740px; color: #cbd5e1; margin: 0 0 18px; }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 18px; color: #cbd5e1; font-size: 13px; }
+  .hero .meta strong { color: white; }
+  .pill { display: inline-block; padding: 5px 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; color: #e2e8f0; }
+
+  .hero-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 22px; }
+  .phase-chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 10px; padding: 12px 14px; }
+  .phase-chip .when { font-size: 10.5px; color: #5eead4; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
+  .phase-chip .what { font-size: 15px; font-weight: 800; color: white; margin: 4px 0 2px; line-height: 1.15; }
+  .phase-chip .sub { font-size: 11.5px; color: #cbd5e1; line-height: 1.35; }
+  @media (max-width: 768px) {
+    .hero-timeline { grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 14px 0 18px; }
+    .phase-chip { padding: 10px 12px; }
+    .phase-chip .what { font-size: 13.5px; }
+  }
+  @media (max-width: 380px) {
+    .hero-timeline { grid-template-columns: 1fr; }
+  }
+
+  section { margin-top: 38px; }
+  h2 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; color: var(--text); }
+  h2 .num { display: inline-block; min-width: 30px; height: 30px; line-height: 30px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 8px; font-size: 13px; margin-right: 10px; vertical-align: middle; font-weight: 700; }
+  h3 { font-size: 16px; margin: 14px 0 4px; color: var(--text); }
+  h4 { font-size: 12.5px; margin: 12px 0 4px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  p { color: var(--muted); margin: 5px 0; font-size: 14px; }
+  .section-sub { color: var(--muted); font-size: 14px; margin-bottom: 14px; max-width: 880px; }
+
+  .grid { display: grid; gap: 14px; }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  @media (max-width: 900px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .hero { padding: 28px 20px; border-radius: 16px; }
+    .hero h1 { font-size: 24px; }
+    .wrap { padding: 18px 12px 40px; }
+  }
+
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+
+  .kpi { display: flex; flex-direction: column; gap: 2px; padding: 14px; }
+  .kpi .label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+  .kpi .value { font-size: 24px; font-weight: 800; color: var(--text); line-height: 1.1; }
+  .kpi .delta { font-size: 12px; color: var(--brand); font-weight: 600; }
+  .kpi.brand .value { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kpi.accent .value { color: var(--accent); }
+
+  ul.clean { list-style: none; padding-left: 0; margin: 3px 0; }
+  ul.clean li { position: relative; padding: 4px 0 4px 18px; color: var(--muted); font-size: 13.5px; }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
+
+  .month-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 90px;
+    gap: 14px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 8px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .month-row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+  .month-row.foundation::before { background: linear-gradient(180deg, #94a3b8, #475569); }
+  .month-row.build::before { background: linear-gradient(180deg, var(--brand), var(--brand-2)); }
+  .month-row.launch::before { background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+  .month-row.scale::before { background: linear-gradient(180deg, #ef4444, var(--accent)); }
+  @media (max-width: 768px) {
+    .month-row { grid-template-columns: 1fr; padding: 12px 14px; gap: 4px; }
+  }
+  .month-row .when { font-weight: 700; font-size: 12px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.05em; }
+  .month-row .what { font-size: 13.5px; color: var(--text); }
+  .month-row .what strong { color: var(--text); font-size: 14px; }
+  .month-row .what .sub { color: var(--muted); font-size: 12.5px; margin-top: 2px; display: block; }
+  .month-row .goal { text-align: right; font-weight: 700; color: var(--accent); font-size: 13.5px; }
+  @media (max-width: 768px) { .month-row .goal { text-align: left; } }
+
+  table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  table.tbl th, table.tbl td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.tbl tr:last-child td { border-bottom: none; }
+
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 900px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .price-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; box-shadow: var(--shadow); position: relative; display:flex; flex-direction:column; }
+  .price-card.featured { border: 2px solid var(--accent); }
+  .price-card .name { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  .price-card .price { font-size: 26px; font-weight: 800; color: var(--text); margin: 4px 0; }
+  .price-card .price small { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .price-card .desc { color: var(--muted); font-size: 11.5px; line-height: 1.4; margin-bottom: 8px; }
+  .price-card .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 9.5px; padding: 3px 8px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
+  .price-card .feat { list-style:none; padding:0; margin:6px 0 0; text-align:left; }
+  .price-card .feat li { font-size: 11.5px; color: var(--muted); padding: 3px 0 3px 14px; position: relative; line-height: 1.4; }
+  .price-card .feat li::before { content: "✓"; position: absolute; left: 0; top: 2px; color: var(--brand); font-weight: 700; font-size: 11px; }
+  .price-card .feat li.head { font-weight: 700; color: var(--text); padding-left: 0; font-size: 11.5px; margin-top: 4px; }
+  .price-card .feat li.head::before { content: ""; }
+
+  .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 2px; font-size: 14.5px; }
+  .chart-card .sub { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .chart-wrap { position: relative; height: 240px; }
+
+  .tag { display: inline-block; padding: 3px 8px; background: #ccfbf1; color: #0f766e; border-radius: 999px; font-size: 11.5px; margin: 2px 3px 2px 0; font-weight: 500; }
+  .tag.accent { background: #fce7f3; color: #9d174d; }
+
+  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 12px 14px; border-radius: 10px; color: #7c2d12; margin-top: 12px; font-size: 13.5px; }
+  .callout strong { color: #7c2d12; }
+  .callout.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #6ee7b7; color: #065f46; }
+  .callout.green strong { color: #065f46; }
+  .callout.blue { background: linear-gradient(135deg, #f0fdfa, #ccfbf1); border-color: #5eead4; color: #134e4a; }
+  .callout.blue strong { color: #134e4a; }
+
+  .funnel-row { display: grid; grid-template-columns: 180px 1fr 60px; align-items: center; gap: 10px; padding: 5px 0; }
+  @media (max-width: 768px) { .funnel-row { grid-template-columns: 1fr; gap: 3px; } }
+  .funnel-label { font-weight: 600; color: var(--text); font-size: 13px; }
+  .funnel-bar-wrap { background: #ccfbf1; border-radius: 999px; height: 18px; overflow: hidden; }
+  .funnel-bar { height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); display: flex; align-items: center; padding-left: 9px; color: white; font-size: 11px; font-weight: 600; }
+  .funnel-count { text-align: right; font-weight: 700; color: var(--text); font-size: 13px; }
+
+  .channel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-top: 6px;
+  }
+  @media (max-width: 768px) { .channel { grid-template-columns: 1fr; gap: 4px; } }
+  .channel .rank { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+  .channel .body strong { color: var(--text); display: block; font-size: 14px; }
+  .channel .body span { color: var(--muted); font-size: 12.5px; }
+  .channel .target { text-align: right; font-weight: 700; color: var(--accent); font-size: 13px; white-space: nowrap; }
+  @media (max-width: 768px) { .channel .target { text-align: left; } }
+
+  .v2-card {
+    background: linear-gradient(135deg, #0b1020 0%, #134e4a 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow);
+  }
+  .v2-card h3 { color: white; font-size: 18px; margin: 0 0 8px; }
+  .v2-card p { color: #cbd5e1; }
+  .v2-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+  @media (max-width: 768px) { .v2-grid { grid-template-columns: 1fr; } }
+  .v2-tile { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 14px; }
+  .v2-tile h4 { color: #5eead4; font-size: 11px; margin: 0 0 6px; }
+  .v2-tile strong { color: white; font-size: 15px; display: block; margin-bottom: 4px; }
+  .v2-tile span { color: #cbd5e1; font-size: 12.5px; }
+
+  footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 12px; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 22px; }
+    .hero .meta { gap: 6px 14px; flex-direction: column; font-size: 12px; }
+    h2 { font-size: 18px; }
+    h2 .num { min-width: 26px; height: 26px; line-height: 26px; font-size: 12px; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .kpi { padding: 10px; }
+    .kpi .value { font-size: 17px; }
+    .kpi .label { font-size: 10px; }
+    .kpi .delta { font-size: 11px; }
+    .chart-wrap { height: 200px; }
+    table.tbl { font-size: 12.5px; }
+    table.tbl th, table.tbl td { padding: 9px 11px; white-space: normal; overflow-wrap: anywhere; line-height: 1.4; vertical-align: top; }
+    table.tbl th { font-size: 11px; }
+    .callout { padding: 12px 14px; font-size: 13.5px; line-height: 1.5; }
+    .v2-card { padding: 18px 16px; border-radius: 14px; }
+    .v2-card h3 { font-size: 16px; }
+    .v2-card p { font-size: 13.5px; line-height: 1.55; }
+    .v2-tile { padding: 12px 14px; }
+    .v2-tile h4 { font-size: 10px; margin-bottom: 4px; }
+    .v2-tile strong { font-size: 14px; }
+    .v2-tile span { font-size: 12.5px; line-height: 1.55; }
+    .price-card { padding: 12px 10px; }
+    .price-card .price { font-size: 22px; }
+    .price-card .desc { font-size: 11px; }
+    .price-card .feat li { font-size: 11px; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 20px; }
+    .kpi .value { font-size: 15px; }
+    .v2-card { padding: 16px 14px; }
+    .v2-tile { padding: 10px 12px; }
+    table.tbl { font-size: 12px; }
+    table.tbl th, table.tbl td { padding: 8px 9px; }
+  }
+  @media print {
+    body { background: white; font-size: 12px; }
+    .wrap { padding: 14px; }
+    .hero, .v2-card { background: #0b1020 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero { padding: 24px; border-radius: 12px; }
+    .hero h1 { font-size: 24px; }
+    section { margin-top: 18px; page-break-inside: avoid; }
+    h2 { font-size: 16px; }
+    .chart-wrap { height: 180px; }
+    .card, .channel, .month-row, .chart-card, .price-card, table.tbl { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <span class="pill">Clinic AI · Phase 1 · May 17 → Dec 31, 2026</span>
+  <h1>One Dashboard. <span>AI Books the Patient.</span></h1>
+  <p class="lead">An AI customer-support agent for clinics — unified inbox for Instagram DM, Facebook Messenger, WhatsApp · auto-replies in the clinic's voice · books appointments straight into the calendar. Two co-founders + Claude · bootstrapped under $1,000 · pure free inbound · UAE/Dubai (primary) + US (secondary).</p>
+
+  <div class="hero-timeline">
+    <div class="phase-chip"><div class="when">May–Jun</div><div class="what">Build + Social Seed</div><div class="sub">$0 cash · pre-launch content only</div></div>
+    <div class="phase-chip"><div class="when">Mid-July</div><div class="what">Site Live</div><div class="sub">Incorporate · inbound starts</div></div>
+    <div class="phase-chip"><div class="when">Aug 1</div><div class="what">Full Launch</div><div class="sub">All channels switched on</div></div>
+    <div class="phase-chip"><div class="when">Aug–Dec</div><div class="what">20 Clinics</div><div class="sub">5 months · ~4/month</div></div>
+  </div>
+
+  <div class="meta">
+    <div><strong>Mahmoud</strong> · Marketing, partnerships &amp; inbound — manages demos via commission-only sales partner</div>
+    <div><strong>Belal</strong> · Product &amp; engineering — backend, AI, integrations, infra</div>
+    <div><strong>Claude</strong> · The third partner — Code for the build, API for AI replies, content &amp; ops</div>
+  </div>
+</div>
+
+<!-- KPIs -->
+<section>
+  <div class="grid grid-4">
+    <div class="card kpi brand">
+      <div class="label">Paying clinics</div>
+      <div class="value">20</div>
+      <div class="delta">By Dec 31, 2026</div>
+    </div>
+    <div class="card kpi brand">
+      <div class="label">Public launch</div>
+      <div class="value">Aug 1, 2026</div>
+      <div class="delta">Build May–Jul · iterate Aug–Dec</div>
+    </div>
+    <div class="card kpi accent">
+      <div class="label">Year-end MRR</div>
+      <div class="value">~$1,200</div>
+      <div class="delta">20 clinics · per-location pricing</div>
+    </div>
+    <div class="card kpi accent">
+      <div class="label">Cash needed</div>
+      <div class="value">&lt;$1,000</div>
+      <div class="delta">$500 each · paid mid-July</div>
+    </div>
+  </div>
+
+  <div class="callout blue" style="margin-top:14px;">
+    <strong>How the $1,000 gets funded:</strong> <strong>Mahmoud $500 · Belal $500</strong> — paid mid-July when we incorporate. Splits into <strong>~$600 calculated expenses</strong> (US company papers $300 · Claude Code ~$150 · Claude API ~$100–150 · domain $15 · misc) and <strong>~$400 buffer</strong> (extra Claude API if usage spikes, surprises). Stripe, Mercury (US bank), Wise = all free once US entity exists. No salaries, no ads.
+  </div>
+</section>
+
+<!-- §1 V1 + PRICING -->
+<section>
+  <h2><span class="num">01</span>The Product &amp; Pricing</h2>
+  <p class="section-sub">Belal ships V1 by <strong>Aug 1</strong> using Claude Code. The product replaces 60–80% of a clinic receptionist's workload by handling DMs, answering pricing questions, and booking appointments automatically.</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h4 style="color:var(--brand);">Ship by Aug 1</h4>
+      <ul class="clean">
+        <li><strong>Unified Inbox</strong> — Instagram DM + Facebook Messenger + WhatsApp + Google Business Messages, all in one dashboard</li>
+        <li><strong>AI Auto-Reply</strong> — trained on the clinic's services, prices, hours, FAQs · answers in the clinic's voice · multilingual (EN + AR)</li>
+        <li><strong>Calendar Booking</strong> — AI checks availability and books appointments directly into Google Calendar / Outlook / clinic's own scheduler</li>
+        <li><strong>Lead Capture</strong> — every inquiry becomes a contact record · auto-tagged by service, source, urgency</li>
+        <li><strong>Human Handoff</strong> — escalate to staff when the AI is unsure or the patient asks · one-click intervention</li>
+        <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, response time, channel volume</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--warn);">Not in V1 — cut on purpose</h4>
+      <ul class="clean">
+        <li>Voice / phone-call AI agent (text only in V1)</li>
+        <li>Custom AI fine-tuning per clinic</li>
+        <li>Native mobile app</li>
+        <li>EHR / patient-record integration</li>
+        <li>Billing &amp; insurance processing</li>
+        <li>Multi-clinic team management</li>
+        <li>Marketing campaign automation</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px;">Pricing — per clinic location, tiered</h3>
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="name">Starter</div>
+      <div class="price">$29<small>/mo</small></div>
+      <div class="desc">1 location<br/>Solo clinic / single chair</div>
+      <ul class="feat">
+        <li>Unified Inbox (3 channels)</li>
+        <li>AI auto-reply basics</li>
+        <li>Calendar booking</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="name">Growth</div>
+      <div class="price">$59<small>+/mo</small></div>
+      <div class="desc">1–2 locations<br/>$59 for 1 · $89 for 2</div>
+      <ul class="feat">
+        <li class="head">Everything in Starter, plus</li>
+        <li>All 5 channels (+ Google Business, web chat)</li>
+        <li>Custom AI training on clinic FAQs</li>
+        <li>Human handoff + team inbox</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <div class="badge">Most popular</div>
+      <div class="name">Pro</div>
+      <div class="price">$99<small>+/mo</small></div>
+      <div class="desc">Up to 5 locations<br/>$99 base · +$25 per add'l</div>
+      <ul class="feat">
+        <li class="head">Everything in Growth, plus</li>
+        <li>Multi-location dashboard</li>
+        <li>Advanced analytics + reports</li>
+        <li>Lead-source attribution</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="name">Ultimate</div>
+      <div class="price">$199<small>+/mo</small></div>
+      <div class="desc">Up to 20 locations<br/>$199 base · +$30 per add'l</div>
+      <ul class="feat">
+        <li class="head">Everything in Pro, plus</li>
+        <li>Priority support &amp; SLA</li>
+        <li>Custom AI persona &amp; tone</li>
+        <li>API access + integrations</li>
+      </ul>
+    </div>
+
+  </div>
+  <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Enterprise · 20+ locations</strong> — custom pricing, handled case-by-case</p>
+
+  <div class="callout blue">
+    <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>7-day free trial</strong> on every plan, no card upfront.
+  </div>
+
+  <div class="callout green">
+    <strong>Why year-end MRR can exceed $1,000:</strong> per-location pricing scales with the clinic. Example 20-clinic mix: 4 Starters ($116) + 7 Growth at avg 1.3 locations ($455) + 7 Pro at avg 2 locations ($868) + 2 Ultimate at avg 3 locations ($518) = <strong>~$1,957 MRR</strong>. Conservative range: <strong>$1,200–$2,000 MRR</strong>.
+  </div>
+
+  <p style="margin-top:10px;">
+    <span class="tag accent">Claude Code (build)</span>
+    <span class="tag">Next.js</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">Postgres</span>
+    <span class="tag">Vercel</span>
+    <span class="tag">Stripe + Tap</span>
+    <span class="tag">Claude API (AI replies)</span>
+    <span class="tag">Meta WhatsApp Business API</span>
+    <span class="tag">Instagram Graph API</span>
+    <span class="tag">Google Calendar API</span>
+    <span class="tag">PostHog + Sentry</span>
+  </p>
+</section>
+
+<!-- §2 ACQUISITION -->
+<section>
+  <h2><span class="num">02</span>How We Win 20 Clinics — Inbound Only</h2>
+  <p class="section-sub"><strong>Acquisition starts mid-July</strong> when the site is live. May–June are pure build + pre-launch social seeding. UAE/Dubai is the primary market — aesthetic clinics there get the most social-media inquiry volume on Earth. Demo bookings are managed by Mahmoud, run by a commission-only sales partner.</p>
+
+  <div class="chart-card">
+    <div class="title">The funnel — 400 inbound conversations → 20 paying clinics</div>
+    <div class="sub">Aug–Dec window. Two paths: <strong>demo-booked</strong> (sales partner closes) and <strong>7-day free trial</strong> (self-serve). ~70% UAE / 30% US.</div>
+    <div style="margin-top:8px;">
+      <div class="funnel-row"><div class="funnel-label">Inbound conversations</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">400</div></div><div class="funnel-count">400</div></div>
+      <div class="funnel-row"><div class="funnel-label">Demos booked / trials started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:35%;">35%</div></div><div class="funnel-count">140</div></div>
+      <div class="funnel-row"><div class="funnel-label">Engaged (demo attended or trial activated)</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:25%;">25%</div></div><div class="funnel-count">100</div></div>
+      <div class="funnel-row"><div class="funnel-label">Pilots / trial conversions</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:13%;">13%</div></div><div class="funnel-count">50</div></div>
+      <div class="funnel-row"><div class="funnel-label">Paying clinics (12 via demo + 8 via trial)</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:5%;">5%</div></div><div class="funnel-count">20</div></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px;">Six inbound channels — Dubai aesthetic-clinic focus</h3>
+
+  <div class="channel"><div class="rank">1</div><div class="body"><strong>Dubai clinic network &amp; warm intros</strong><span>List 50 clinic owners we know directly or via friends-of-friends in Dubai. Loom + individual message. Aesthetic clinics first (highest pain).</span></div><div class="target">→ 5 clinics</div></div>
+
+  <div class="channel"><div class="rank">2</div><div class="body"><strong>Instagram DM outreach to clinic accounts</strong><span>Scrape aesthetic / dental / beauty clinic accounts in Dubai with high follower counts and active DMs. Personalized message referencing their actual inquiries.</span></div><div class="target">→ 5 clinics</div></div>
+
+  <div class="channel"><div class="rank">3</div><div class="body"><strong>LinkedIn content &amp; clinic-owner outreach</strong><span>Mahmoud posts 3×/wk — "how AI handled 200 DMs for a Dubai clinic last week" style content. DM clinic owners + medical directors directly.</span></div><div class="target">→ 4 clinics</div></div>
+
+  <div class="channel"><div class="rank">4</div><div class="body"><strong>Affiliate &amp; aesthetic-industry partnerships</strong><span>Clinic marketing agencies, photographers, equipment vendors, derma supply reps. 20% rev-share on first year. Each partner has 5–20 clinic clients.</span></div><div class="target">→ 3 clinics</div></div>
+
+  <div class="channel"><div class="rank">5</div><div class="body"><strong>Organic Google / SEO</strong><span>2 blog posts/week from Week 1. Keywords: "AI receptionist for clinics", "Instagram DM auto-reply clinic", "WhatsApp booking aesthetic clinic Dubai".</span></div><div class="target">→ 2 clinics</div></div>
+
+  <div class="channel"><div class="rank">6</div><div class="body"><strong>Clinic-owner communities</strong><span>Aesthetic-medicine Telegram &amp; WhatsApp groups in UAE · Aesthetic Bootcamp, ASCDAS &amp; similar US groups · Reddit r/medspa. Be useful 30 days before pitching.</span></div><div class="target">→ 1 clinic</div></div>
+
+  <div class="grid grid-2" style="margin-top:14px;">
+    <div class="card">
+      <h4>Demo process — Mahmoud manages, sales partner runs</h4>
+      <ul class="clean">
+        <li>Mahmoud books and qualifies; sales partner runs the demo</li>
+        <li>Sales partner paid <strong>only on close</strong> — <strong>50% of one month's subscription</strong> (one-time), funded from revenue</li>
+        <li>Pre-call: 2-min Loom showing AI replying to a real DM + booking an appointment</li>
+        <li>30 min: 5 discover → 15 demo (live AI vs their actual Instagram inbox) → 5 pricing → 5 commit</li>
+        <li>Proposal within 24h, 7-day deadline</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>First-clinic success</h4>
+      <ul class="clean">
+        <li>White-glove onboarding: 60-min Zoom · we train the AI on their services together</li>
+        <li>Day 3 check-in: review every AI message, tune the tone</li>
+        <li>Day 7 / 30 / 60 / 90 calls — track inquiries answered + appointments booked</li>
+        <li>Day 90: case-study interview + referral ask · "X appointments booked while you slept"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- §3 PLAN -->
+<section>
+  <h2><span class="num">03</span>The 7-Month Plan</h2>
+  <p class="section-sub">One focus per month. Hit it or stop and re-plan.</p>
+
+  <div class="month-row foundation"><div class="when">May 17–31</div><div class="what"><strong>Pure Build · $0 cash · No marketing</strong><span class="sub"><strong>Belal:</strong> repo + DB schema + start the product (auth, dashboard skeleton, channel-connector framework). <strong>Mahmoud:</strong> marketing website draft, brand basics, business plan, content queue. <em>Nothing public, no legal entity yet.</em></span></div><div class="goal">0 clinics</div></div>
+
+  <div class="month-row build"><div class="when">June · M1</div><div class="what"><strong>Build Sprint 1 + Pre-launch Social · $0 cash</strong><span class="sub"><strong>Belal:</strong> Instagram + WhatsApp + Messenger connectors · AI reply engine prototype (Claude API). <strong>Mahmoud:</strong> plan &amp; build the entire marketing website + 8–10 SEO blog pages · draft marketing plan + company docs · build prospect list of 50 clinics · 5 partnership intros lined up. <strong>Pre-launch social goes live:</strong> create company LinkedIn / Instagram / X accounts · post 2–3×/week (clinic-owner tips, build-in-public, teasers · no sales pitch). Goal: 200+ followers seeded.</span></div><div class="goal">0 clinics</div></div>
+
+  <div class="month-row build"><div class="when">July · M2</div><div class="what"><strong>Finish Build → Go Live → Adjust</strong><span class="sub"><strong>Jul 1–14:</strong> Belal finishes calendar booking + lead capture + human handoff + end-to-end test on a mock clinic. Mahmoud polishes site, finalizes SEO blogs, locks marketing plan, finalizes company docs, sets up CRM. <strong>Social ramp:</strong> 3–4 posts/week, product teasers. <strong>Jul 15:</strong> incorporate (Stripe Atlas $300), domain, Stripe live, <strong>marketing site &amp; blog go live</strong>, inbound begins. <strong>Jul 15–31:</strong> Mahmoud publishes queued LinkedIn posts + SEO blogs + first Instagram DM outreach + partnership outreach. Belal squashes bugs. <em>V1 stable by Jul 28 · full launch Aug 1.</em></span></div><div class="goal">0 paying</div></div>
+
+  <div class="month-row launch"><div class="when">Aug 1 · M3</div><div class="what"><strong>🚀 V1 LIVE — Acquisition Begins</strong><span class="sub">App live + 7-day free trial open + 5 design-partner clinics onboarded free. All 6 inbound channels at full volume. <strong>Mahmoud:</strong> full-time on clinic acquisition (Instagram DMs, LinkedIn, partnerships, SEO). <strong>Belal:</strong> ships fixes from beta + trains each clinic's AI personally.</span></div><div class="goal">5 design partners</div></div>
+
+  <div class="month-row launch"><div class="when">Sep · M4</div><div class="what"><strong>First Paying Clinics</strong><span class="sub">Convert 2 design partners + acquire 3 new paid pilots (50% off, 6 months) · Stripe/Tap live · Day-7/30 check-ins. <strong>Belal:</strong> ships 2 features from beta feedback + joins demos to answer technical questions.</span></div><div class="goal">5 paying</div></div>
+
+  <div class="month-row launch"><div class="when">Oct · M5</div><div class="what"><strong>Public Launch Push</strong><span class="sub">Pricing live · press to 3 publications (Aesthetic Medicine, Medspa.com, regional clinic blogs) · LinkedIn daily · 4–5 partnerships active · 1st case study ("Dubai clinic booked X appointments in 30 days via AI"). Belal ships 2 more features.</span></div><div class="goal">10 paying</div></div>
+
+  <div class="month-row scale"><div class="when">Nov · M6</div><div class="what"><strong>Scale What's Working</strong><span class="sub">Double-down on winning channel · 2 features from clinic requests · 2nd–3rd case study · BFCM promo · first investor warm intros. Belal still helps onboard each new clinic.</span></div><div class="goal">15 paying</div></div>
+
+  <div class="month-row scale"><div class="when">Dec · M7</div><div class="what"><strong>Close the Year</strong><span class="sub">5 more clinics · year-end review · product polish week · finalize investor deck · sign LOIs · Phase 2 hiring brief.</span></div><div class="goal">20 paying</div></div>
+
+  <div class="grid grid-2" style="margin-top:14px;">
+    <div class="chart-card">
+      <div class="title">Paying clinics by month</div>
+      <div class="sub">Cumulative</div>
+      <div class="chart-wrap"><canvas id="customerChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="title">Monthly cash spend (USD)</div>
+      <div class="sub">No salaries, no ads — total under $1k</div>
+      <div class="chart-wrap"><canvas id="burnChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 CASH + RISKS -->
+<section>
+  <h2><span class="num">04</span>Cash &amp; Risks</h2>
+  <p class="section-sub">Total Phase 1 spend is under $1,000. Free tiers cover everything else.</p>
+
+  <div class="grid grid-2">
+    <div>
+      <h4>Phase 1 cash plan — $1,000 funded ($500 each, by mid-July)</h4>
+      <table class="tbl">
+        <thead><tr><th>Line item</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>US company docs (Stripe Atlas) — Stripe, Mercury, Wise are all free once the company exists</td><td>$300 once</td></tr>
+          <tr><td>Claude Code subscription (shared)</td><td>$20/mo · ~$150</td></tr>
+          <tr><td>Claude API (AI replies, light usage early)</td><td>~$100–150</td></tr>
+          <tr><td>Domain (.com via Namecheap)</td><td>$15/yr</td></tr>
+          <tr><td>Hosting (Vercel + Neon + PostHog + Sentry + Resend)</td><td>$0 free tiers</td></tr>
+          <tr><td>Marketing tools &amp; ads</td><td>$0</td></tr>
+          <tr><td>Sales partner commission (only on close)</td><td>From revenue</td></tr>
+          <tr><td><strong>Subtotal — calculated expenses</strong></td><td><strong>~$600</strong></td></tr>
+          <tr><td>Buffer for surprises (extra Claude API, unexpected small tools)</td><td>~$400</td></tr>
+          <tr><td><strong>Total Phase 1 cash · $500 from each co-founder</strong></td><td><strong>$1,000</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h4>Top 3 risks</h4>
+      <div class="card" style="padding:14px;">
+        <p style="margin:4px 0;"><strong>1 — AI confidence + tone.</strong> If the AI hallucinates a price or books a wrong slot, clinic owners pull the plug. Belal builds a confidence threshold + human-handoff fallback before any clinic goes live. Every reply is logged and reviewable.</p>
+        <p style="margin:8px 0 4px;"><strong>2 — Slipping the Aug 1 launch.</strong> Belal solo on the build (with Claude). Cut scope before missing the date — V1 ships even if a non-essential channel (e.g. Google Business Messages) is dropped.</p>
+        <p style="margin:8px 0 4px;"><strong>3 — Channel API access.</strong> Meta/Instagram WhatsApp Business onboarding can take 2–4 weeks. Apply for accounts in May, not July. Have manual-handoff fallback ready if a channel is pending approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 V2 -->
+<section>
+  <h2><span class="num">05</span>After V1 — 2027 &amp; 2028</h2>
+  <div class="v2-card">
+    <p style="color:#e2e8f0; font-size:15px; margin:0 0 14px;">
+      Investor closes Jan 2027 with <strong style="color:#5eead4;">$30,000</strong>. We hire 5 at <strong style="color:#5eead4;">$800/mo</strong> each (bumping to $1,000 in H2): <strong style="color:white;">1 developer · 1 marketer · 3 sales reps</strong> (outbound cold calls + demos). Goal of 2027: 250 paying clinics and a path to profitability. Goal of 2028: full operational shift to UAE.
+    </p>
+
+    <div class="v2-grid">
+      <div class="v2-tile">
+        <h4>H1 2027 · Jan–Jun</h4>
+        <strong>100 paying clinics</strong>
+        <span>
+          • End-of-H1 MRR: ~$6,000/mo<br/>
+          • Founders: <strong style="color:white;">$1,000/mo</strong> each<br/>
+          • 5 hires @ <strong style="color:white;">$800/mo</strong> each<br/>
+          • Claude (team-wide): $300/mo<br/>
+          • <strong style="color:white;">Burn ~$6,800/mo</strong>
+        </span>
+      </div>
+      <div class="v2-tile">
+        <h4>H2 2027 · Jul–Dec</h4>
+        <strong>250 paying clinics</strong>
+        <span>
+          • End-of-year MRR: ~$15,000/mo<br/>
+          • Founders bump to <strong style="color:white;">$1,500/mo</strong><br/>
+          • Hires bump to <strong style="color:white;">$1,000/mo</strong><br/>
+          • Claude: $300/mo<br/>
+          • <strong style="color:white;">Burn ~$8,800/mo → revenue covers</strong>
+        </span>
+      </div>
+      <div class="v2-tile">
+        <h4>2028 · The UAE Shift</h4>
+        <strong>Operations to UAE</strong>
+        <span>
+          • Full operations move to UAE<br/>
+          • Open <strong style="color:white;">Dubai office</strong><br/>
+          • Hybrid team (in-office + remote)<br/>
+          • Deeper focus on UAE market<br/>
+          • Add voice/phone AI &amp; EHR
+        </span>
+      </div>
+    </div>
+
+    <p style="color:#e2e8f0; font-size:14px; margin:14px 0 0;">
+      <strong style="color:white;">Survival math:</strong> $30k ÷ $6,800 H1 burn = ~4.4 months gross runway. With revenue offsetting (~$3k MRR by Month 4), stretches to <strong style="color:white;">~6–7 months</strong>. By end of H2, MRR (~$15k) covers burn → at or near profitable. Bridge round optional mid-2027 if growth slips.
+    </p>
+    <p style="color:#e2e8f0; font-size:14px; margin:8px 0 0;">
+      <strong style="color:white;">Translation:</strong> pressure is on H1 sales velocity — ~13 new clinics/month to hit 100 by June. 2028 is the real geographic pivot: full UAE operations, Dubai office, local market dominance, plus voice/phone AI for receptionists who answer calls too.
+    </p>
+    <p style="color:#e2e8f0; font-size:13.5px; margin:10px 0 0; padding-top:10px; border-top:1px solid rgba(255,255,255,0.12);">
+      <strong style="color:#5eead4;">Phase 2 hosting &amp; infra costs (new in 2027):</strong> as we cross ~50 paying clinics we exit most free tiers. Expect <strong style="color:white;">~$50–250/mo</strong> in new infra (Vercel Pro $20 · Neon Launch $19 · PostHog $50–100 · Sentry $26 · Resend $20+) plus growing Claude API usage (AI replies scale with conversation volume). Other Phase 2 expenses to watch: office rent (~$2–3k/mo when we open Dubai), recruiting, payroll &amp; banking, accounting/legal retainer, Meta WhatsApp message fees at volume, Google Workspace.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Clinic AI · Phase 1 Plan · May 17 → December 31, 2026 · Mahmoud &amp; Belal
+</footer>
+
+</div>
+
+<script>
+  const palette = { brand: '#0d9488', brand2: '#14b8a6', accent: '#ec4899', gold: '#f59e0b', gray: '#94a3b8' };
+  Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  Chart.defaults.color = '#475569';
+  Chart.defaults.borderColor = '#e6e8ef';
+  const months = ['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  new Chart(document.getElementById('customerChart'), {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [{
+        label: 'Paying clinics',
+        data: [0, 0, 0, 0, 5, 10, 15, 20],
+        backgroundColor: ctx => {
+          const c = ctx.chart.ctx.createLinearGradient(0, 0, 0, 220);
+          c.addColorStop(0, palette.accent);
+          c.addColorStop(1, palette.brand);
+          return c;
+        },
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { stepSize: 5 } } }
+    }
+  });
+
+  new Chart(document.getElementById('burnChart'), {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [
+        { label: 'Claude Code ($20/mo)', data: [10, 20, 20, 20, 20, 20, 20, 20], backgroundColor: palette.accent, stack: 's' },
+        { label: 'Claude API (usage)', data: [0, 0, 10, 20, 25, 30, 35, 40], backgroundColor: palette.brand2, stack: 's' },
+        { label: 'Incorporation + domain + Stripe', data: [0, 0, 315, 0, 0, 0, 0, 0], backgroundColor: palette.gray, stack: 's' },
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true, ticks: { callback: v => '$' + v } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
