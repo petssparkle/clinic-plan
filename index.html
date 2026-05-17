@@ -158,6 +158,18 @@
   .funnel-bar { height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); display: flex; align-items: center; padding-left: 9px; color: white; font-size: 11px; font-weight: 600; }
   .funnel-count { text-align: right; font-weight: 700; color: var(--text); font-size: 13px; }
 
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; }
+  .flow-step { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px 10px; box-shadow: var(--shadow); position: relative; }
+  .flow-step::after { content: "→"; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); color: var(--brand); font-weight: 700; font-size: 14px; z-index: 1; }
+  .flow-step:last-child::after { content: ""; }
+  .flow-step .step-num { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; margin-bottom: 6px; }
+  .flow-step strong { display: block; font-size: 12.5px; color: var(--text); margin-bottom: 3px; line-height: 1.2; }
+  .flow-step span { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
+  @media (max-width: 768px) {
+    .flow { grid-template-columns: 1fr; gap: 8px; }
+    .flow-step::after { content: "↓"; right: 50%; top: auto; bottom: -14px; transform: translateX(50%); }
+  }
+
   .channel {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -250,7 +262,7 @@
 <div class="hero">
   <span class="pill">Clinic AI · Phase 1 · May 17 → Dec 31, 2026</span>
   <h1>The Chatbot That <span>Converts &amp; Fills Calendars.</span></h1>
-  <p class="lead">For clinics: a smart auto-responder that turns every Instagram DM, Messenger and WhatsApp inquiry into a booking. <strong style="color:#fff;">Bilingual EN + AR</strong> · the AI matches each message to the clinic's <strong style="color:#fff;">own fixed reply list</strong> and pushes appointments straight into the calendar. No chatbot conversation — owner writes every word that goes out. Two co-founders + Claude · bootstrapped · <strong style="color:#fff;">based in the UAE</strong> · inbound + warm connections · <strong style="color:#fff;">starting in Egypt + Gulf, then expanding to include US</strong>.</p>
+  <p class="lead">A fixed-reply chatbot for clinics. The clinic <strong style="color:#fff;">writes the reply list</strong> — the bot only matches each inbound Messenger / WhatsApp / Instagram DM to the right pre-written reply and sends it, until the patient is ready to book. Then it sends the doctor's <strong style="color:#fff;">free slots</strong> straight from the calendar, the patient picks one, and the bot books the appointment. <strong style="color:#fff;">Bilingual EN + AR</strong>. No AI-generated text. No chatbot conversation. Two co-founders + Claude · bootstrapped · <strong style="color:#fff;">based in the UAE</strong> · inbound + warm connections · <strong style="color:#fff;">starting in Egypt + Gulf, then expanding to include US</strong>.</p>
 
   <div class="hero-timeline">
     <div class="phase-chip"><div class="when">May–Jun</div><div class="what">Build + Social Seed</div><div class="sub">$0 cash · pre-launch content only</div></div>
@@ -346,7 +358,7 @@
         <li><strong>Unified Inbox</strong> — Instagram DM + Facebook Messenger + WhatsApp + Google Business Messages in one dashboard</li>
         <li><strong>Fixed-Reply Library (EN + AR)</strong> — the clinic <strong>writes its own list of replies</strong> for every common scenario (pricing, hours, services, "saw your ad" follow-ups, post-booking confirmations). AI's only job is to <strong>match the inbound message to the right reply and send it</strong>. <em>Not a chatbot conversation. No AI-generated text. Owner controls every word that goes out.</em></li>
         <li><strong>Ad-Reply Automation</strong> — when a patient DMs after seeing a Meta or Google ad, AI detects the ad source and fires the clinic's pre-set reply with the offer, price, and booking link</li>
-        <li><strong>Calendar Booking</strong> — AI checks availability and books appointments directly into Google Calendar / Outlook / the clinic's scheduler</li>
+        <li><strong>Calendar Booking</strong> — once the patient says they want to book, the bot pulls the doctor's <strong>specific free slots</strong> from Google Calendar / Outlook / the clinic's scheduler, sends them as a fixed reply, the patient picks one, and the bot books it instantly. No staff involved.</li>
         <li><strong>Lead Capture</strong> — every inquiry becomes a contact record · auto-tagged by service, source, urgency</li>
         <li><strong>Human Handoff</strong> — when intent is unclear or the patient asks for a human, one-click hand-off to staff</li>
         <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, response time, channel volume</li>
@@ -366,13 +378,43 @@
     </div>
   </div>
 
-  <h3 style="margin-top:18px;">Scenarios the AI handles out of the box</h3>
+  <h3 style="margin-top:18px;">How it works in 5 steps</h3>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <strong>Patient DMs</strong>
+      <span>Instagram, WhatsApp, or Messenger</span>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <strong>Bot matches intent</strong>
+      <span>"Price?" · "Book?" · "Saw ad" · etc.</span>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <strong>Sends fixed reply</strong>
+      <span>From the clinic's pre-written list</span>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">4</div>
+      <strong>Sends free slots</strong>
+      <span>When patient is ready to book — pulled live from the doctor's calendar</span>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">5</div>
+      <strong>Books appointment</strong>
+      <span>Patient picks slot → bot adds them to the calendar</span>
+    </div>
+  </div>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:8px;"><em>The bot never writes its own messages. It just classifies, picks from the clinic's reply list, and sends. The only "live" data it inserts is the doctor's free time slots.</em></p>
+
+  <h3 style="margin-top:18px;">Reply intents the bot recognizes out of the box</h3>
   <p style="margin:4px 0;">
     <span class="tag">Pricing inquiry</span>
     <span class="tag">Services menu</span>
     <span class="tag">Hours &amp; location</span>
-    <span class="tag accent">"Saw your ad" auto-reply</span>
-    <span class="tag">Available slots → book now</span>
+    <span class="tag accent">"Saw your ad"</span>
+    <span class="tag">Wants to book → send free slots</span>
     <span class="tag">Before/after photos</span>
     <span class="tag">Reschedule / cancel</span>
     <span class="tag">Post-treatment follow-up</span>
@@ -380,7 +422,7 @@
     <span class="tag">Multilingual greeting (EN/AR auto-detect)</span>
     <span class="tag">Human handoff request</span>
   </p>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Every scenario is a clinic-configured template. The AI's only job is to classify the inbound message and pick the right reply — predictable, on-brand, no hallucination.</p>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message, picks the matching reply, and sends it — no generation, no improvisation.</p>
 
   <h3 style="margin-top:18px;">Pricing — per clinic location, tiered · monthly &amp; annual</h3>
   <div class="pricing-grid">
