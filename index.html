@@ -250,7 +250,7 @@
 <div class="hero">
   <span class="pill">Clinic AI · Phase 1 · May 17 → Dec 31, 2026</span>
   <h1>One Dashboard. <span>AI Books the Patient.</span></h1>
-  <p class="lead">An AI customer-support agent for clinics — unified inbox for Instagram DM, Facebook Messenger, WhatsApp · <strong style="color:#fff;">bilingual EN + AR</strong> · auto-replies in the clinic's voice · books appointments straight into the calendar. Two co-founders + Claude · bootstrapped under $1,000 · pure free inbound · <strong style="color:#fff;">Gulf countries + Egypt (primary) + US (secondary)</strong>.</p>
+  <p class="lead">An AI customer-support agent for clinics — unified inbox for Instagram DM, Facebook Messenger, WhatsApp · <strong style="color:#fff;">bilingual EN + AR</strong> · the AI sends <strong style="color:#fff;">fixed pre-set replies</strong> the clinic configures (price, hours, ad responses, booking) and pushes appointments into the calendar. Two co-founders + Claude · bootstrapped under $1,000 · pure inbound · <strong style="color:#fff;">Gulf countries + Egypt (primary) + US (secondary)</strong>.</p>
 
   <div class="hero-timeline">
     <div class="phase-chip"><div class="when">May–Jun</div><div class="what">Build + Social Seed</div><div class="sub">$0 cash · pre-launch content only</div></div>
@@ -305,11 +305,12 @@
     <div class="card">
       <h4 style="color:var(--brand);">Ship by Aug 1</h4>
       <ul class="clean">
-        <li><strong>Unified Inbox</strong> — Instagram DM + Facebook Messenger + WhatsApp + Google Business Messages, all in one dashboard</li>
-        <li><strong>Bilingual AI Auto-Reply (EN + AR)</strong> — trained on the clinic's services, prices, hours, FAQs · answers in the clinic's voice · auto-detects the patient's language and replies in kind</li>
-        <li><strong>Calendar Booking</strong> — AI checks availability and books appointments directly into Google Calendar / Outlook / clinic's own scheduler</li>
+        <li><strong>Unified Inbox</strong> — Instagram DM + Facebook Messenger + WhatsApp + Google Business Messages in one dashboard</li>
+        <li><strong>Fixed-Reply Library (EN + AR)</strong> — the clinic pre-configures a library of canned replies for every common scenario (pricing, hours, services, "saw your ad" follow-ups, post-booking confirmations). AI classifies the incoming patient message and sends the matching pre-set reply. <em>Predictable, no hallucination, fully clinic-controlled.</em></li>
+        <li><strong>Ad-Reply Automation</strong> — when a patient DMs after seeing a Meta or Google ad, AI detects the ad source and fires the clinic's pre-set reply with the offer, price, and booking link</li>
+        <li><strong>Calendar Booking</strong> — AI checks availability and books appointments directly into Google Calendar / Outlook / the clinic's scheduler</li>
         <li><strong>Lead Capture</strong> — every inquiry becomes a contact record · auto-tagged by service, source, urgency</li>
-        <li><strong>Human Handoff</strong> — escalate to staff when the AI is unsure or the patient asks · one-click intervention</li>
+        <li><strong>Human Handoff</strong> — when intent is unclear or the patient asks for a human, one-click hand-off to staff</li>
         <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, response time, channel volume</li>
       </ul>
     </div>
@@ -327,16 +328,16 @@
     </div>
   </div>
 
-  <h3 style="margin-top:18px;">Pricing — per clinic location, tiered</h3>
+  <h3 style="margin-top:18px;">Pricing — per clinic location, tiered · monthly &amp; annual</h3>
   <div class="pricing-grid">
 
     <div class="price-card">
       <div class="name">Starter</div>
       <div class="price">$29<small>/mo</small></div>
-      <div class="desc">1 location<br/>Solo clinic / single chair</div>
+      <div class="desc">1 location · Solo clinic<br/><span style="color:var(--brand);">or $290/yr (save $58)</span></div>
       <ul class="feat">
         <li>Unified Inbox (3 channels)</li>
-        <li>AI auto-reply basics</li>
+        <li>Fixed-Reply Library basics</li>
         <li>Calendar booking</li>
       </ul>
     </div>
@@ -344,11 +345,11 @@
     <div class="price-card">
       <div class="name">Growth</div>
       <div class="price">$59<small>+/mo</small></div>
-      <div class="desc">1–2 locations<br/>$59 for 1 · $89 for 2</div>
+      <div class="desc">1–2 locations · $59/$89<br/><span style="color:var(--brand);">or $590/$890 yr (save 2 mo)</span></div>
       <ul class="feat">
         <li class="head">Everything in Starter, plus</li>
         <li>All 5 channels (+ Google Business, web chat)</li>
-        <li>Custom AI training on clinic FAQs</li>
+        <li>Ad-reply automation</li>
         <li>Human handoff + team inbox</li>
       </ul>
     </div>
@@ -357,7 +358,7 @@
       <div class="badge">Most popular</div>
       <div class="name">Pro</div>
       <div class="price">$99<small>+/mo</small></div>
-      <div class="desc">Up to 5 locations<br/>$99 base · +$25 per add'l</div>
+      <div class="desc">Up to 5 locations · +$25/add'l<br/><span style="color:var(--accent);">or $990+/yr (save 2 mo)</span></div>
       <ul class="feat">
         <li class="head">Everything in Growth, plus</li>
         <li>Multi-location dashboard</li>
@@ -369,11 +370,11 @@
     <div class="price-card">
       <div class="name">Ultimate</div>
       <div class="price">$199<small>+/mo</small></div>
-      <div class="desc">Up to 20 locations<br/>$199 base · +$30 per add'l</div>
+      <div class="desc">Up to 20 locations · +$30/add'l<br/><span style="color:var(--brand);">or $1,990+/yr (save 2 mo)</span></div>
       <ul class="feat">
         <li class="head">Everything in Pro, plus</li>
         <li>Priority support &amp; SLA</li>
-        <li>Custom AI persona &amp; tone</li>
+        <li>Custom reply tone &amp; persona</li>
         <li>API access + integrations</li>
       </ul>
     </div>
@@ -382,7 +383,7 @@
   <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Enterprise · 20+ locations</strong> — custom pricing, handled case-by-case</p>
 
   <div class="callout blue">
-    <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>7-day free trial</strong> on every plan, no card upfront.
+    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>7-day free trial</strong> on every plan, no card upfront.
   </div>
 
   <div class="callout green">
