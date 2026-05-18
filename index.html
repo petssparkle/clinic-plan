@@ -414,8 +414,9 @@
     <div class="card">
       <h4 style="color:var(--brand);">How we win in V1 (today)</h4>
       <ul class="clean">
-        <li><strong>Full patient lifecycle in one product</strong> — DM → FAQ → booking → reminders → no-show prevention → post-visit follow-up. Competitors only solve one slice.</li>
+        <li><strong>Full patient lifecycle in one product</strong> — DM → FAQ → booking → reminders → no-show prevention → post-visit follow-up → feedback. Competitors only solve one slice.</li>
         <li><strong>Calendar fulfillment built in</strong> — sends free slots, books, auto-reuses cancellations. No Calendly stack on top.</li>
+        <li><strong>CRM &amp; Google Sheet auto-sync</strong> — every action lands where the clinic already works. No manual data entry, ever.</li>
         <li><strong>Bilingual EN + AR</strong> — most competitors are English-only or have weak Arabic</li>
         <li><strong>Fixed-reply mechanic</strong> — owner controls every word · bot can't go off-script</li>
         <li><strong>$14/mo starter</strong> — cheapest clinic-specific option in the market</li>
@@ -425,9 +426,17 @@
     <div class="card">
       <h4 style="color:var(--accent);">What we add in V2 (later)</h4>
       <ul class="clean">
-        <li><strong>Voice/phone AI receptionist</strong> — answers phone calls too, not just DMs</li>
-        <li><strong>EHR / patient record integration</strong> — push contacts to existing clinic software</li>
-        <li><strong>Custom AI training per clinic</strong> — handle niche scenarios with clinic-specific data</li>
+        <li><strong>Voice/phone AI receptionist</strong> — answers phone calls too, not just DMs (Calls + Call Forward + Multiple Numbers)</li>
+        <li><strong>Visual Smart-Flow Automation Builder</strong> — drag-and-drop builder for clinic-specific patient journeys</li>
+        <li><strong>Make.com / Zapier integration</strong> — connect to anything (EHR, accounting, marketing tools)</li>
+        <li><strong>Public API + Webhooks</strong> — clinic-specific custom integrations</li>
+        <li><strong>AI Vision</strong> — patient sends before-photo, bot can identify treatment area</li>
+        <li><strong>Whisper transcription</strong> — voice messages converted to text + handled like normal DMs</li>
+        <li><strong>Multiple AI Assistants per workspace</strong> — separate bots for derma, dental, aesthetic etc.</li>
+        <li><strong>Custom AI training per clinic</strong> — feed PDFs, website data, treatment manuals</li>
+        <li><strong>Round-Robin distribution</strong> — route inbounds across multiple receptionists/staff</li>
+        <li><strong>Tasks Management</strong> — assign follow-up tasks to staff per patient</li>
+        <li><strong>EHR / patient record integration</strong> — direct sync with clinic management software</li>
         <li><strong>Multi-clinic team management</strong> — sub-accounts, role permissions, audit logs</li>
         <li><strong>Marketing automation</strong> — re-engage past patients with promo campaigns</li>
         <li><strong>Reputation management</strong> — request &amp; manage Google reviews</li>
@@ -456,6 +465,12 @@
         <li><strong>No-Show Prevention Flow</strong> — full sequence: booking confirmation → 48h reminder → 24h confirm/reschedule → 2h reminder → if missed, follow-up to rebook</li>
         <li><strong>Post-Visit Follow-up</strong> — after the visit is marked complete: care instructions, medication reminder schedule, return-appointment suggestion, satisfaction survey — all via WhatsApp on the right cadence</li>
         <li><strong>Patient Communication Hub</strong> — complete message history per patient across all channels · notes · tags · follow-up reminders</li>
+        <li><strong>Outreach from Dashboard (with AI Magic-Wand)</strong> — contact any patient directly from the dashboard. AI magic-wand helps draft the message in the clinic's tone, then you send. Useful for extra instructions, follow-ups, or one-off updates outside the automated flows.</li>
+        <li><strong>Instant Email Notification on Booking</strong> — the owner gets a direct email the second any new appointment is booked into the calendar</li>
+        <li><strong>CRM &amp; Google Sheets Integration</strong> — every appointment + patient + status update gets pushed in real-time to your CRM (HubSpot, Pipedrive, Salesforce) or a Google Sheet. Status auto-progresses through the lifecycle: <em>lead → booked → confirmed → visited → followed-up</em>. <strong>Satisfaction survey responses</strong> also pushed back to the sheet so you have everything in one place — no manual data entry.</li>
+        <li><strong>Instagram Story Mention &amp; Comment Reply</strong> — when a patient tags the clinic in a story or comments on a post/reel, the bot auto-DMs them with the clinic's matching reply (and can pivot to booking)</li>
+        <li><strong>WhatsApp Interactive Buttons</strong> — Confirm / Reschedule / Cancel buttons in every reminder · CTA buttons for "Book now" / "Call us" · interactive list messages for service menus</li>
+        <li><strong>Service Carousel Messages</strong> — showcase the clinic's services with photo cards in WhatsApp + Messenger (great for "what do you offer?" inquiries)</li>
         <li><strong>Lead Capture</strong> — every inquiry becomes a contact record · auto-tagged by service, source, urgency</li>
         <li><strong>Human Handoff</strong> — when intent is unclear or the patient asks for a human, one-click hand-off to staff</li>
         <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, no-show rate, response time, channel volume</li>
@@ -524,6 +539,9 @@
     <span class="tag">Satisfaction survey</span>
     <span class="tag">Before/after photos</span>
     <span class="tag">Multilingual greeting (EN/AR auto-detect)</span>
+    <span class="tag">Story-mention auto-reply</span>
+    <span class="tag">Post/Reel comment → auto-DM</span>
+    <span class="tag">Service carousel showcase</span>
     <span class="tag">Human handoff request</span>
   </p>
   <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message (or triggers on time/event for reminders), picks the matching reply, and sends it — no generation, no improvisation.</p>
@@ -534,65 +552,74 @@
     <div class="price-card">
       <div class="name">Starter</div>
       <div class="price">$14<small>/mo</small></div>
-      <div class="desc">1 location · Solo clinic<br/><span style="color:var(--brand); font-weight:600;">$140/yr · save 17%</span></div>
+      <div class="desc"><strong style="color:var(--text);">For solo doctors / 1-location clinics</strong><br/><span style="color:var(--brand); font-weight:600;">$140/yr · save 17%</span></div>
       <ul class="feat">
-        <li><strong style="color:var(--text);">200 AI replies / month</strong></li>
-        <li>Unified Inbox (3 channels)</li>
+        <li><strong style="color:var(--text);">500 contacts in CRM</strong></li>
+        <li>1 workspace · 1 human agent</li>
+        <li>3 channels (IG · Messenger · WhatsApp)</li>
         <li>Fixed-Reply Library basics</li>
-        <li>Calendar booking</li>
+        <li>Calendar booking + email notification</li>
       </ul>
     </div>
 
     <div class="price-card">
       <div class="name">Growth</div>
-      <div class="price">$59<small>+/mo</small></div>
-      <div class="desc">1–2 locations · $59/$89<br/><span style="color:var(--brand); font-weight:600;">$590+/yr · save 17%</span></div>
+      <div class="price">$59<small>/mo</small></div>
+      <div class="desc"><strong style="color:var(--text);">For small clinics · 1–2 locations</strong><br/><span style="color:var(--brand); font-weight:600;">$590/yr · save 17%</span></div>
       <ul class="feat">
-        <li><strong style="color:var(--text);">1,000 AI replies / month</strong></li>
+        <li><strong style="color:var(--text);">1,000 contacts in CRM</strong></li>
         <li class="head">Everything in Starter, plus</li>
-        <li>All 5 channels (+ Google Business, web chat)</li>
-        <li>Ad-reply automation</li>
-        <li>Human handoff + team inbox</li>
+        <li>1 workspace · 5 human agents</li>
+        <li>All 5 channels (+ Google Business + web chat)</li>
+        <li>Ad-reply automation · Smart reminders</li>
+        <li>Patient Communication Hub</li>
+        <li>Outreach from dashboard (AI magic-wand)</li>
       </ul>
     </div>
 
     <div class="price-card featured">
       <div class="badge">Most popular</div>
-      <div class="name">Pro</div>
-      <div class="price">$99<small>+/mo</small></div>
-      <div class="desc">Up to 5 locations · +$25/add'l<br/><span style="color:var(--accent); font-weight:600;">$990+/yr · save 17%</span></div>
+      <div class="name">Agency / Pro</div>
+      <div class="price">$199<small>/mo</small></div>
+      <div class="desc"><strong style="color:var(--text);">For clinic chains, multi-location practices &amp; marketing agencies</strong><br/><span style="color:var(--accent); font-weight:600;">$1,990/yr · save 17%</span></div>
       <ul class="feat">
-        <li><strong style="color:var(--text);">5,000 AI replies / month</strong></li>
+        <li><strong style="color:var(--text);">3,000 contacts per workspace</strong></li>
         <li class="head">Everything in Growth, plus</li>
-        <li>Multi-location dashboard</li>
-        <li>Advanced analytics + reports</li>
-        <li>Lead-source attribution</li>
+        <li>15 workspaces included ($19 each additional)</li>
+        <li>15 human agents per workspace</li>
+        <li>9 AI Assistants per workspace ($4 each add'l)</li>
+        <li><strong>Agency White Label</strong> — included for every workspace · resell &amp; keep all profit</li>
+        <li>Full No-Show Prevention + Post-Visit flow</li>
+        <li>Advanced analytics + lead-source attribution</li>
       </ul>
     </div>
 
     <div class="price-card">
-      <div class="name">Ultimate</div>
-      <div class="price">$199<small>+/mo</small></div>
-      <div class="desc">Up to 20 locations · +$30/add'l<br/><span style="color:var(--brand); font-weight:600;">$1,990+/yr · save 17%</span></div>
+      <div class="name">Enterprise</div>
+      <div class="price">$399<small>/mo</small></div>
+      <div class="desc"><strong style="color:var(--text);">For large agencies, hospital groups &amp; resellers</strong><br/><span style="color:var(--brand); font-weight:600;">$3,990/yr · save 17%</span></div>
       <ul class="feat">
-        <li><strong style="color:var(--text);">25,000 AI replies / month</strong></li>
-        <li class="head">Everything in Pro, plus</li>
+        <li><strong style="color:var(--text);">10,000 contacts per workspace</strong></li>
+        <li class="head">Everything in Agency, plus</li>
+        <li>25 workspaces included ($16 each additional)</li>
+        <li>25 human agents per workspace</li>
+        <li>White Label resale across every workspace</li>
+        <li>Premium 1:1 product onboarding</li>
+        <li>API access + custom integrations</li>
         <li>Priority support &amp; SLA</li>
-        <li>Custom reply tone &amp; persona</li>
-        <li>API access + integrations</li>
       </ul>
     </div>
 
   </div>
-  <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Enterprise · 20+ locations · unlimited AI replies</strong> — custom pricing, handled case-by-case</p>
-  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px;"><em>Overage:</em> $5 per 100 extra AI replies beyond the plan limit, or auto-upgrade to the next tier mid-month.</p>
+  <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Beyond Enterprise</strong> — 25+ workspaces or 10,000+ contacts/workspace · custom pricing, handled case-by-case</p>
+  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px;"><em>Overage:</em> hit your contact limit and you can either upgrade mid-month or buy extra contact packs ($10 per 500 extra).</p>
 
   <div class="callout blue">
     <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>7-day free trial</strong> on every plan, no card upfront.
   </div>
 
   <div class="callout green">
-    <strong>Why year-end MRR can exceed $1,000:</strong> per-location pricing scales with the clinic. Example 20-clinic mix: 4 Starters ($56) + 7 Growth at avg 1.3 locations ($476) + 7 Pro at avg 2 locations ($868) + 2 Ultimate at avg 3 locations ($518) = <strong>~$1,918 MRR</strong>. Conservative range: <strong>$1,000–$1,900 MRR</strong>. Yearly upfront contracts pull cash in faster — at 17% off, every annual deal locks 10 months of revenue on Day 1.
+    <strong>Why year-end MRR can exceed $1,000:</strong> the four-tier mix scales fast even with just 20 clinics. Example: 6 Starter ($84) + 8 Growth ($472) + 5 Agency ($995) + 1 Enterprise ($399) = <strong>~$1,950 MRR</strong>. Realistic range: <strong>$1,000–$2,500 MRR</strong> depending on Agency/Enterprise mix. Yearly upfront contracts pull cash in faster — at 17% off, every annual deal locks 10 months of revenue on Day 1.
   </div>
 
   <p style="margin-top:10px;">
