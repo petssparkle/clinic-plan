@@ -536,7 +536,7 @@
         <li><strong>Fixed-Reply FAQ Library (EN + AR)</strong> — clinic writes its own list of replies for pricing, services, location, hours, booking, common procedure questions. <em>Avoids hallucination and builds trust — owner controls every word.</em></li>
         <li><strong>Intent Matching</strong> — bot classifies each inbound message into the right bucket: pricing · location · services · booking · hours · before/after photo · human handoff</li>
         <li><strong>Booking Flow</strong> — patient signals booking intent → bot sends the doctor's available slots → patient picks one → bot confirms</li>
-        <li><strong>Google Calendar Sync</strong> — bot reads &amp; writes to Google Calendar so manually-entered appointments (walk-ins, phone calls) are respected automatically. Fast to ship, single source of truth.</li>
+        <li><strong>Google Calendar Sync + Email Alert on Booking</strong> — bot reads &amp; writes to Google Calendar, so manually-entered appointments (walk-ins, phone calls) are respected automatically. Single source of truth. Owner also gets an instant email the moment any new appointment lands.</li>
         <li><strong>Appointment Reminders</strong> — auto-sent 24h and 1h before each appointment to reduce no-shows. Simple and effective.</li>
         <li><strong>Human Handoff</strong> — when intent is unclear or the patient asks for a human, one-click hand-off to receptionist/staff via the dashboard</li>
         <li><strong>Google Sheet Sync</strong> — every inquiry + booking + reminder gets logged to a Google Sheet the clinic owns. Categorized columns (lead source, service, status). No CRM needed in V1.</li>
@@ -552,6 +552,7 @@
         <li><strong>Full CRM integration</strong> — HubSpot / Pipedrive / Salesforce sync · Google Sheet is enough for V1</li>
         <li><strong>Advanced analytics dashboard</strong> — graphs, tag-segmented filters, most-services charts, re-targeting lists · keep it simple in V1</li>
         <li><strong>AI Magic-Wand outreach from dashboard</strong> — assisted message drafting · not core to V1</li>
+        <li><strong>Patient Communication Hub</strong> — full per-patient message history across all channels · notes · tags · follow-up reminders · turns into a mini-CRM view. V1 logs to Google Sheet only; the rich hub waits for V2.</li>
         <li><strong>Smart Follow-up Automation</strong> — rule-based "send X to anyone tagged Y after N days" · Phase 2 add-on</li>
         <li><strong>Post-visit medication &amp; care flows</strong> — care instructions, medication reminders, satisfaction survey, return-appointment suggestion · later</li>
         <li><strong>No-Show Prevention multi-step sequence</strong> — V1 has basic 24h + 1h reminders only · the 48h + recovery + rebook flow waits</li>
