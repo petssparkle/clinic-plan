@@ -756,30 +756,20 @@
 <section style="margin-top:30px;">
   <h2><span class="num">·</span>Competitive Landscape — Same-Feature Tools</h2>
   <p class="section-sub">What clinics could buy instead, what those tools charge, and where they fall short. The gaps below are the wedges we ship.</p>
+
+  <div class="callout green" style="margin-bottom:14px;">
+    <strong>The whitespace:</strong> we didn't find any major SaaS competitor built specifically for <em>medical clinic chatbots</em>. The three regional tools below are the closest direct competition. For <em>general</em> chatbots there are many big players — <strong>Manychat, Chatfuel, Wati, Respond.io</strong> — but none of them is clinic-specific or full-lifecycle (DM → booking → reminders → post-visit). <strong>This is our opening.</strong>
+  </div>
   <table class="tbl">
     <thead>
       <tr><th>Tool</th><th>Category</th><th>Region · Focus market</th><th>Pricing</th><th>Gap for clinics</th></tr>
     </thead>
     <tbody>
 
-      <!-- Egypt + Gulf — priority region (no SaaS, just default options) -->
-      <tr style="background:#ecfdf5;"><td colspan="5" style="text-align:center; padding:8px 14px; font-size:11px; color:#065f46; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">Egypt + Gulf · Priority region</td></tr>
-      <tr><td colspan="5" style="text-align:center; padding:10px 14px; font-style:italic; color:var(--muted); font-size:13px;">No major clinic-specific SaaS exists yet in Egypt or the Gulf. Clinics here default to a receptionist + spreadsheet + Calendly. <strong>This is the whitespace we're entering.</strong></td></tr>
-      <tr><td><strong>Receptionist hiring</strong></td><td>The actual default in MENA clinics</td><td>UAE/KSA/EG · regional</td><td>$800–$1,500/mo</td><td>Human limits · doesn't scale across locations · no data sync · weekend &amp; after-hours gaps · re-typing the same answers all day</td></tr>
-
-      <!-- United States -->
-      <tr style="background:#eff6ff;"><td colspan="5" style="text-align:center; padding:8px 14px; font-size:11px; color:#1e3a8a; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">United States</td></tr>
-      <tr><td><strong>Klara</strong></td><td>Patient communication for medical practices</td><td>US · US</td><td>$249+/mo</td><td>US-only · expensive · medical (not aesthetic) focus · no Arabic · no calendar fulfillment via DM · enterprise feel</td></tr>
-      <tr><td><strong>Saima.ai · Heyday Health</strong></td><td>AI receptionist for clinics</td><td>US · US</td><td>$99+/mo</td><td>US-focused · text + voice but no Arabic · weak Egypt + Gulf fit · no fixed-reply mechanic</td></tr>
-      <tr><td><strong>PatientPop</strong></td><td>Clinic marketing + reputation</td><td>US · US</td><td>$399+/mo</td><td>US-focused · expensive · light on actual bot · weak DM auto-reply · no Arabic</td></tr>
-      <tr><td><strong>Demandforce</strong></td><td>Clinic marketing automation</td><td>US · US</td><td>Custom enterprise</td><td>Old-school · enterprise-only · weak modern channels (no IG/WhatsApp) · no fixed-reply chatbot</td></tr>
-      <tr><td><strong>Cliniko · Practice Better · Jane</strong></td><td>Clinic management software</td><td>AU/CA · Global (mostly US/EU)</td><td>$39–$129/mo</td><td>No AI replies · basic booking only · not built for DMs · no IG/WhatsApp inbox</td></tr>
-      <tr><td><strong>Solv Health · Zocdoc</strong></td><td>Patient booking marketplaces</td><td>US · US</td><td>Listing / commission</td><td>Listing platform model · no auto-reply · no DM handling · patients go to the platform, not the clinic</td></tr>
-
-      <!-- Europe -->
-      <tr style="background:#fef3c7;"><td colspan="5" style="text-align:center; padding:8px 14px; font-size:11px; color:#7c2d12; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">Europe</td></tr>
-      <tr><td><strong>Doctolib</strong></td><td>Clinic booking + practice management</td><td>France · FR/DE/IT</td><td>€100–€300/mo</td><td>EU-only · booking-focused · no DM auto-reply · weak Arabic · no IG/WhatsApp inbox · no AI</td></tr>
-      <tr><td><strong>TopDoctors</strong></td><td>Patient discovery + booking</td><td>Spain · UK/ES/IT</td><td>£99–£299/mo</td><td>Listing/SEO-driven · no automated DM replies · no calendar fulfillment via chat</td></tr>
+      <!-- The 3 actual clinic-chatbot competitors we found in MENA -->
+      <tr><td><strong>HalaFlow</strong></td><td>Clinic chatbot · regional</td><td>UAE · Gulf</td><td>TBD — validate in Week 1</td><td>Limited public info · likely lighter feature set · likely no integrated CRM/Sheet sync · likely no EN+AR bilingual depth · scope to confirm</td></tr>
+      <tr><td><strong>Shamz AI</strong></td><td>Clinic chatbot · regional</td><td>Gulf · Gulf</td><td>TBD — validate in Week 1</td><td>Limited public info · likely Gulf-only reach · likely no Egypt traction · feature parity to confirm</td></tr>
+      <tr><td><strong>Leadly Egypt</strong></td><td>Clinic chatbot · regional</td><td>Egypt · Egypt</td><td>TBD — validate in Week 1</td><td>Limited public info · Egypt-focused · likely no Gulf or US reach · scope &amp; pricing to confirm</td></tr>
 
       <tr style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.16));">
         <td style="background:transparent;"><strong>Us — AI Receptionist for Clinics</strong></td>
@@ -790,7 +780,7 @@
       </tr>
     </tbody>
   </table>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:6px;"><em>Note: regional names (WideBot, Twixor, Saima.ai, etc.) should be verified during the Week-1 validation sprint — the agency/local-tool landscape in Egypt and the Gulf changes fast, and clinic-specific newcomers can pop up anywhere.</em></p>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:6px;"><em>Note: HalaFlow, Shamz AI, and Leadly Egypt all need full validation in Week 1 — pricing, feature scope, real customer counts, and gaps to confirm before we anchor positioning to them. The MENA clinic-chatbot landscape is small and changing fast.</em></p>
 
   <div class="grid grid-2" style="margin-top:14px;">
     <div class="card">
