@@ -394,11 +394,14 @@
     <div class="card">
       <h4>The pain</h4>
       <ul class="clean">
-        <li>100–500 DMs/week on Instagram, WhatsApp, Messenger</li>
-        <li>80% are the same 5 questions: price, hours, availability, location, "send photos"</li>
-        <li>Receptionists spend most of the day re-typing the same answers</li>
-        <li>Inquiries arriving after-hours / weekends go cold</li>
-        <li>Ad-driven leads (Meta/Google) wait hours for a reply — they book elsewhere</li>
+        <li><strong>Leads are lost</strong> — when a patient doesn't book on first contact, no automated follow-up is sent back · they drift away</li>
+        <li><strong>No-shows pile up</strong> — no automated confirmation before the appointment so patients forget and don't show up</li>
+        <li><strong>No post-visit follow-up</strong> — care instructions, Google review requests, return appointments all skipped</li>
+        <li><strong>Social channels scattered</strong> — Instagram DMs, WhatsApp, Messenger, comments — each in its own app, nothing centralized</li>
+        <li><strong>No patient tagging</strong> — can't easily go back to past leads or patients with targeted offers</li>
+        <li><strong>No data sync</strong> — nothing flows automatically to a Google Sheet or CRM, no categorization, manual entry every time</li>
+        <li><strong>Volume overwhelm</strong> — 100–500 DMs/week, 80% the same 5 questions (price, hours, slots, location, photos)</li>
+        <li><strong>Receptionists burn out</strong> — most of the day re-typing the same answers · after-hours and weekend inquiries go cold</li>
       </ul>
     </div>
     <div class="card">
@@ -430,26 +433,40 @@
   <p class="section-sub">What clinics could buy instead, what those tools charge, and where they fall short. The gaps below are the wedges we ship.</p>
   <table class="tbl">
     <thead>
-      <tr><th>Tool</th><th>Category</th><th>Pricing</th><th>What's missing for clinics</th></tr>
+      <tr><th>Tool</th><th>Category · Region</th><th>Pricing</th><th>What's missing for clinics</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>ReplyAgent</strong></td><td>Multi-channel chatbot + agency CRM</td><td>Free → $599/mo</td><td>Generic platform · agency-first · DIY setup · no clinic templates · no calendar fulfillment · no Arabic-first</td></tr>
+      <tr style="background:#ecfdf5;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:#065f46; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🌍 Egypt + Gulf · Priority region</td></tr>
+      <tr><td><strong>WideBot</strong></td><td>Arabic conversational AI · Egypt</td><td>Custom (enterprise)</td><td>Generic platform · enterprise-focused · no clinic templates · no calendar fulfillment · DIY setup · pricey for SMB clinics</td></tr>
+      <tr><td><strong>Twixor</strong></td><td>Multi-channel AI · UAE</td><td>Custom (enterprise)</td><td>Enterprise-focused · no clinic-specific intents · no fixed-reply mechanic · agency-style implementation</td></tr>
+      <tr><td><strong>Local Gulf/Egypt service agencies</strong></td><td>Custom WhatsApp bots · per-project</td><td>$500–$5k setup + retainer</td><td>One-off custom builds · no SaaS UX · no calendar fulfillment · no upgrade path · rebuilt per clinic · no shared product</td></tr>
+      <tr><td><strong>Receptionist hiring</strong></td><td>The actual default · MENA</td><td>$800–$1,500/mo</td><td>Human limits (sleep, weekends, mistakes, sick days) · doesn't scale across multiple locations · no data sync</td></tr>
+
+      <tr style="background:#eff6ff;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:#1e3a8a; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🇺🇸 United States</td></tr>
+      <tr><td><strong>ReplyAgent</strong></td><td>Multi-channel chatbot + agency CRM · US</td><td>Free → $599/mo</td><td>Generic · agency-first · DIY setup · no clinic templates · no calendar fulfillment · no Arabic-first</td></tr>
+      <tr><td><strong>Klara</strong></td><td>Patient communication for medical practices · US</td><td>$249+/mo</td><td>US-only · expensive · medical (not aesthetic) focus · no Arabic · enterprise-feel</td></tr>
+      <tr><td><strong>PatientPop</strong></td><td>Clinic marketing + reputation · US</td><td>$399+/mo</td><td>US-focused · expensive · light on actual bot · weak DM handling</td></tr>
+      <tr><td><strong>Demandforce</strong></td><td>Clinic marketing automation · US</td><td>Custom enterprise</td><td>Old-school · enterprise-only · weak modern channels (no IG/WhatsApp)</td></tr>
+      <tr><td><strong>Saima.ai / Heyday Health</strong></td><td>AI receptionist for US clinics</td><td>$99+/mo</td><td>US-focused · text + voice but no Arabic · weak Gulf + Egypt fit</td></tr>
+      <tr><td><strong>Birdeye · Podium</strong></td><td>Reputation + business messaging · US</td><td>$299–$399+/mo</td><td>Expensive · enterprise-focused · weak Arabic · overkill for SMB clinics · US-centric</td></tr>
+      <tr><td><strong>Solv Health · Zocdoc</strong></td><td>Patient booking marketplaces · US</td><td>Listing fee / commission</td><td>Listing platform model · no auto-reply · no DM handling · clinic has to send patients there</td></tr>
+
+      <tr style="background:#fef3c7;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:#7c2d12; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🇪🇺 Europe</td></tr>
+      <tr><td><strong>Doctolib</strong></td><td>Clinic booking + practice mgmt · France/Germany/Italy</td><td>€100–€300/mo</td><td>EU-only · booking-focused · no DM auto-reply · weak Arabic · no IG/WhatsApp inbox</td></tr>
+      <tr><td><strong>TopDoctors</strong></td><td>Patient discovery + booking · UK/Spain/IT</td><td>£99–£299/mo</td><td>Listing/SEO-driven · no automated DM replies · no calendar fulfillment via chat</td></tr>
+
+      <tr style="background:#f1f5f9;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🌐 Global generic tools (used everywhere)</td></tr>
       <tr><td><strong>Manychat</strong></td><td>Generic chatbot · IG/Messenger</td><td>$15–$45/mo</td><td>No clinic templates · no calendar booking · weak Arabic · DIY tone</td></tr>
       <tr><td><strong>Chatfuel</strong></td><td>Generic chatbot</td><td>$15–$300/mo</td><td>Same gaps as Manychat · steeper learning curve</td></tr>
       <tr><td><strong>Wati</strong></td><td>WhatsApp Business platform</td><td>$39+/mo</td><td>Single channel · no booking · no clinic focus</td></tr>
       <tr><td><strong>Respond.io</strong></td><td>Multi-channel inbox + AI</td><td>$79–$499/mo</td><td>Generic · no clinic templates · no AR-first · enterprise UX</td></tr>
-      <tr style="background:#f6f8fc;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">↓ Clinic-specific competitors ↓</td></tr>
-      <tr><td><strong>Klara</strong></td><td>Patient communication (medical practices)</td><td>$249+/mo</td><td>US-only · expensive · medical (not aesthetic) focus · no Arabic · enterprise-feel</td></tr>
       <tr><td><strong>Cliniko / Practice Better / Jane</strong></td><td>Clinic management software</td><td>$39–$129/mo</td><td>No AI replies · basic booking only · not built for DMs</td></tr>
-      <tr><td><strong>PatientPop</strong></td><td>Clinic marketing + reputation</td><td>$399+/mo</td><td>US-focused · expensive · light on actual bot</td></tr>
-      <tr><td><strong>Demandforce</strong></td><td>Clinic marketing automation</td><td>Custom enterprise</td><td>Old-school · enterprise-only · weak modern channels (no IG/WhatsApp)</td></tr>
-      <tr><td><strong>Saima.ai / Heyday Health</strong></td><td>AI receptionist (US clinics)</td><td>$99+/mo</td><td>US-focused · text + voice but no Arabic · weak Gulf + Egypt fit</td></tr>
-      <tr><td><strong>Birdeye</strong></td><td>Reputation + messaging</td><td>$299+/mo</td><td>Expensive · enterprise-focused · weak Arabic · overkill for SMB clinics</td></tr>
-      <tr><td><strong>Podium</strong></td><td>Business messaging + reviews</td><td>$399+/mo</td><td>Same as Birdeye · US-centric</td></tr>
       <tr><td><strong>Calendly · SimplyBook · Acuity</strong></td><td>Booking widget</td><td>$10–$70/mo</td><td>Just booking · no DM handling · no auto-reply · no Instagram/WhatsApp</td></tr>
-      <tr><td style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(20,184,166,0.10));"><strong>Us (Clinic Agent)</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(20,184,166,0.10));"><strong>Fixed-reply bot + booking, clinic-specific</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(20,184,166,0.10));"><strong>$14–$199/mo</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(20,184,166,0.10));">—</td></tr>
+
+      <tr><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));"><strong>Us (Clinic Agent)</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));"><strong>Fixed-reply bot + booking, clinic-specific · UAE + Egypt + US</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));"><strong>Free → $399/mo</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));">—</td></tr>
     </tbody>
   </table>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:6px;"><em>Note: regional names (WideBot, Twixor, etc.) should be verified during the Week-1 validation sprint — agency / local-tool landscape in Egypt and the Gulf changes fast.</em></p>
 
   <div class="grid grid-2" style="margin-top:14px;">
     <div class="card">
@@ -748,7 +765,7 @@
   </div>
 
   <div class="callout green">
-    <strong>Why year-end MRR can exceed $1,000:</strong> the four-tier mix scales fast even with just 20 clinics. Example: 6 Starter ($84) + 8 Growth ($472) + 5 Agency ($995) + 1 Enterprise ($399) = <strong>~$1,950 MRR</strong>. Realistic range: <strong>$1,000–$2,500 MRR</strong> depending on Agency/Enterprise mix. Yearly upfront contracts pull cash in faster — at 17% off, every annual deal locks 10 months of revenue on Day 1.
+    <strong>Why year-end MRR can exceed $1,000:</strong> the five-tier mix scales fast even with just 20 paying clinics. Example: 6 Starter at $15 ($90) + 8 Growth at $59 ($472) + 5 Agency at $199 ($995) + 1 Enterprise at $399 ($399) = <strong>~$1,956 MRR</strong>. Realistic range: <strong>$1,200–$2,500 MRR</strong> depending on Agency/Enterprise mix. Free-tier users sit on top — each one is a future upgrade. Yearly upfront contracts pull cash in faster — at 17% off, every annual deal locks 10 months of revenue on Day 1.
   </div>
 
   <p style="margin-top:10px;">
