@@ -415,13 +415,15 @@
       </ul>
     </div>
     <div class="card">
-      <h4>What changes for the clinic</h4>
+      <h4>What changes for the clinic (each pain → V1 fix)</h4>
       <ul class="clean">
-        <li>Every patient message gets an instant, on-brand reply</li>
-        <li>Ad-driven DMs auto-respond with the matching offer + booking link</li>
-        <li>Appointments book into the calendar without staff lifting a finger</li>
-        <li>24/7 coverage, even peak inquiry hours in Egypt + Gulf (evenings &amp; weekends)</li>
-        <li><strong>Replies come from the clinic's own fixed list</strong> — AI doesn't chat with patients, just picks the matching reply and sends it. No surprises, no hallucinations.</li>
+        <li><strong>Lost leads come back</strong> — Smart Follow-up Automation triggers when a patient doesn't book on first contact · tagged sequences for ad-source, abandoned-booking, win-back</li>
+        <li><strong>No-shows drop</strong> — 48h / 24h / 2h reminders with confirm-reschedule buttons + missed-visit auto-rebook flow</li>
+        <li><strong>Reviews &amp; repeat visits captured</strong> — Post-Visit Follow-up sends care notes, asks for satisfaction survey, suggests the return appointment</li>
+        <li><strong>One inbox for everything</strong> — Instagram, Messenger, WhatsApp, Telegram, SMS, web chat, Google Business — all in one dashboard</li>
+        <li><strong>Every patient tagged</strong> — full profile with notes · tags · history · turn any tag into a re-targeting list in one click</li>
+        <li><strong>Auto data sync</strong> — every booking, status change, and survey result lands in your Google Sheet or CRM, fully categorized</li>
+        <li><strong>Owner stays in control</strong> — bot only sends pre-approved replies the clinic wrote · never invents text · no hallucinations</li>
       </ul>
     </div>
   </div>
@@ -433,40 +435,59 @@
   <p class="section-sub">What clinics could buy instead, what those tools charge, and where they fall short. The gaps below are the wedges we ship.</p>
   <table class="tbl">
     <thead>
-      <tr><th>Tool</th><th>Category · Region</th><th>Pricing</th><th>What's missing for clinics</th></tr>
+      <tr><th>Tool</th><th>Category</th><th>Region · Focus market</th><th>Pricing</th><th>Gap for clinics</th></tr>
     </thead>
     <tbody>
-      <tr style="background:#ecfdf5;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:#065f46; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🌍 Egypt + Gulf · Priority region</td></tr>
-      <tr><td><strong>WideBot</strong></td><td>Arabic conversational AI · Egypt</td><td>Custom (enterprise)</td><td>Generic platform · enterprise-focused · no clinic templates · no calendar fulfillment · DIY setup · pricey for SMB clinics</td></tr>
-      <tr><td><strong>Twixor</strong></td><td>Multi-channel AI · UAE</td><td>Custom (enterprise)</td><td>Enterprise-focused · no clinic-specific intents · no fixed-reply mechanic · agency-style implementation</td></tr>
-      <tr><td><strong>Local Gulf/Egypt service agencies</strong></td><td>Custom WhatsApp bots · per-project</td><td>$500–$5k setup + retainer</td><td>One-off custom builds · no SaaS UX · no calendar fulfillment · no upgrade path · rebuilt per clinic · no shared product</td></tr>
-      <tr><td><strong>Receptionist hiring</strong></td><td>The actual default · MENA</td><td>$800–$1,500/mo</td><td>Human limits (sleep, weekends, mistakes, sick days) · doesn't scale across multiple locations · no data sync</td></tr>
 
-      <tr style="background:#eff6ff;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:#1e3a8a; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🇺🇸 United States</td></tr>
-      <tr><td><strong>ReplyAgent</strong></td><td>Multi-channel chatbot + agency CRM · US</td><td>Free → $599/mo</td><td>Generic · agency-first · DIY setup · no clinic templates · no calendar fulfillment · no Arabic-first</td></tr>
-      <tr><td><strong>Klara</strong></td><td>Patient communication for medical practices · US</td><td>$249+/mo</td><td>US-only · expensive · medical (not aesthetic) focus · no Arabic · enterprise-feel</td></tr>
-      <tr><td><strong>PatientPop</strong></td><td>Clinic marketing + reputation · US</td><td>$399+/mo</td><td>US-focused · expensive · light on actual bot · weak DM handling</td></tr>
-      <tr><td><strong>Demandforce</strong></td><td>Clinic marketing automation · US</td><td>Custom enterprise</td><td>Old-school · enterprise-only · weak modern channels (no IG/WhatsApp)</td></tr>
-      <tr><td><strong>Saima.ai / Heyday Health</strong></td><td>AI receptionist for US clinics</td><td>$99+/mo</td><td>US-focused · text + voice but no Arabic · weak Gulf + Egypt fit</td></tr>
-      <tr><td><strong>Birdeye · Podium</strong></td><td>Reputation + business messaging · US</td><td>$299–$399+/mo</td><td>Expensive · enterprise-focused · weak Arabic · overkill for SMB clinics · US-centric</td></tr>
-      <tr><td><strong>Solv Health · Zocdoc</strong></td><td>Patient booking marketplaces · US</td><td>Listing fee / commission</td><td>Listing platform model · no auto-reply · no DM handling · clinic has to send patients there</td></tr>
+      <!-- ===== CLINIC-SPECIALIZED ===== -->
+      <tr style="background:linear-gradient(90deg,#0d9488,#14b8a6);"><td colspan="5" style="text-align:center; padding:10px 14px; font-size:12px; color:white; letter-spacing:0.06em; text-transform:uppercase; font-weight:800;">⚕ Clinic-Specialized — these compete most directly</td></tr>
 
-      <tr style="background:#fef3c7;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:#7c2d12; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🇪🇺 Europe</td></tr>
-      <tr><td><strong>Doctolib</strong></td><td>Clinic booking + practice mgmt · France/Germany/Italy</td><td>€100–€300/mo</td><td>EU-only · booking-focused · no DM auto-reply · weak Arabic · no IG/WhatsApp inbox</td></tr>
-      <tr><td><strong>TopDoctors</strong></td><td>Patient discovery + booking · UK/Spain/IT</td><td>£99–£299/mo</td><td>Listing/SEO-driven · no automated DM replies · no calendar fulfillment via chat</td></tr>
+      <tr style="background:#ecfdf5;"><td colspan="5" style="text-align:center; padding:7px 14px; font-size:11px; color:#065f46; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">Egypt + Gulf — priority region</td></tr>
+      <tr><td colspan="5" style="text-align:center; padding:10px 14px; font-style:italic; color:var(--muted); font-size:13px;">No major clinic-specific SaaS exists yet in Egypt or the Gulf — most clinics use a receptionist + Calendly + generic chatbots. <strong>This is the whitespace we're entering.</strong></td></tr>
 
-      <tr style="background:#f1f5f9;"><td colspan="4" style="text-align:center; padding:8px 14px; font-size:11.5px; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">🌐 Global generic tools (used everywhere)</td></tr>
-      <tr><td><strong>Manychat</strong></td><td>Generic chatbot · IG/Messenger</td><td>$15–$45/mo</td><td>No clinic templates · no calendar booking · weak Arabic · DIY tone</td></tr>
-      <tr><td><strong>Chatfuel</strong></td><td>Generic chatbot</td><td>$15–$300/mo</td><td>Same gaps as Manychat · steeper learning curve</td></tr>
-      <tr><td><strong>Wati</strong></td><td>WhatsApp Business platform</td><td>$39+/mo</td><td>Single channel · no booking · no clinic focus</td></tr>
-      <tr><td><strong>Respond.io</strong></td><td>Multi-channel inbox + AI</td><td>$79–$499/mo</td><td>Generic · no clinic templates · no AR-first · enterprise UX</td></tr>
-      <tr><td><strong>Cliniko / Practice Better / Jane</strong></td><td>Clinic management software</td><td>$39–$129/mo</td><td>No AI replies · basic booking only · not built for DMs</td></tr>
-      <tr><td><strong>Calendly · SimplyBook · Acuity</strong></td><td>Booking widget</td><td>$10–$70/mo</td><td>Just booking · no DM handling · no auto-reply · no Instagram/WhatsApp</td></tr>
+      <tr style="background:#eff6ff;"><td colspan="5" style="text-align:center; padding:7px 14px; font-size:11px; color:#1e3a8a; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">United States</td></tr>
+      <tr><td><strong>Klara</strong></td><td>Patient communication for medical practices</td><td>US · US</td><td>$249+/mo</td><td>US-only · expensive · medical (not aesthetic) focus · no Arabic · no calendar fulfillment via DM · enterprise feel</td></tr>
+      <tr><td><strong>Saima.ai · Heyday Health</strong></td><td>AI receptionist for clinics</td><td>US · US</td><td>$99+/mo</td><td>US-focused · text + voice but no Arabic · weak Egypt + Gulf fit · no fixed-reply mechanic</td></tr>
+      <tr><td><strong>PatientPop</strong></td><td>Clinic marketing + reputation</td><td>US · US</td><td>$399+/mo</td><td>US-focused · expensive · light on actual bot · weak DM auto-reply · no Arabic</td></tr>
+      <tr><td><strong>Demandforce</strong></td><td>Clinic marketing automation</td><td>US · US</td><td>Custom enterprise</td><td>Old-school · enterprise-only · weak modern channels (no IG/WhatsApp) · no fixed-reply chatbot</td></tr>
+      <tr><td><strong>Cliniko · Practice Better · Jane</strong></td><td>Clinic management software</td><td>AU/CA · Global (mostly US/EU)</td><td>$39–$129/mo</td><td>No AI replies · basic booking only · not built for DMs · no IG/WhatsApp inbox</td></tr>
+      <tr><td><strong>Solv Health · Zocdoc</strong></td><td>Patient booking marketplaces</td><td>US · US</td><td>Listing / commission</td><td>Listing platform model · no auto-reply · no DM handling · patients go to the platform, not the clinic</td></tr>
 
-      <tr><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));"><strong>Us (Clinic Agent)</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));"><strong>Fixed-reply bot + booking, clinic-specific · UAE + Egypt + US</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));"><strong>Free → $399/mo</strong></td><td style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.14));">—</td></tr>
+      <tr style="background:#fef3c7;"><td colspan="5" style="text-align:center; padding:7px 14px; font-size:11px; color:#7c2d12; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">Europe</td></tr>
+      <tr><td><strong>Doctolib</strong></td><td>Clinic booking + practice management</td><td>France · FR/DE/IT</td><td>€100–€300/mo</td><td>EU-only · booking-focused · no DM auto-reply · weak Arabic · no IG/WhatsApp inbox · no AI</td></tr>
+      <tr><td><strong>TopDoctors</strong></td><td>Patient discovery + booking</td><td>Spain · UK/ES/IT</td><td>£99–£299/mo</td><td>Listing/SEO-driven · no automated DM replies · no calendar fulfillment via chat</td></tr>
+
+
+      <!-- ===== GENERIC ===== -->
+      <tr style="background:linear-gradient(90deg,#475569,#94a3b8);"><td colspan="5" style="text-align:center; padding:10px 14px; font-size:12px; color:white; letter-spacing:0.06em; text-transform:uppercase; font-weight:800;">🛠 Generic — used in clinics but not built for them</td></tr>
+
+      <tr style="background:#ecfdf5;"><td colspan="5" style="text-align:center; padding:7px 14px; font-size:11px; color:#065f46; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">Egypt + Gulf</td></tr>
+      <tr><td><strong>WideBot</strong></td><td>Arabic conversational AI</td><td>Egypt · MENA + Global</td><td>Custom enterprise</td><td>No clinic templates · enterprise-pricing · DIY setup · no calendar fulfillment</td></tr>
+      <tr><td><strong>Twixor</strong></td><td>Multi-channel conversational AI</td><td>UAE · MENA + Asia</td><td>Custom enterprise</td><td>No clinic-specific intents · enterprise-only · agency-style implementation</td></tr>
+      <tr><td><strong>Local service agencies</strong></td><td>Custom WhatsApp bots (per-project)</td><td>Egypt/UAE/KSA · MENA</td><td>$500–$5k setup + retainer</td><td>One-off custom builds · no SaaS UX · no calendar fulfillment · rebuilt per clinic</td></tr>
+      <tr><td><strong>Receptionist hiring</strong></td><td>The actual default in MENA</td><td>UAE/KSA/EG · regional</td><td>$800–$1,500/mo</td><td>Human limits · doesn't scale across locations · no data sync · weekend gaps</td></tr>
+
+      <tr style="background:#eff6ff;"><td colspan="5" style="text-align:center; padding:7px 14px; font-size:11px; color:#1e3a8a; letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">United States</td></tr>
+      <tr><td><strong>ReplyAgent</strong></td><td>Multi-channel chatbot + agency CRM</td><td>US · Global</td><td>Free → $599/mo</td><td>Agency-first · DIY · no clinic templates · no Arabic-first</td></tr>
+      <tr><td><strong>Birdeye · Podium</strong></td><td>Reputation + business messaging</td><td>US · US / Global</td><td>$299–$399+/mo</td><td>Enterprise-focused · weak Arabic · overkill for SMB clinics</td></tr>
+
+      <tr style="background:#f1f5f9;"><td colspan="5" style="text-align:center; padding:7px 14px; font-size:11px; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase; font-weight:700;">Global</td></tr>
+      <tr><td><strong>Manychat</strong></td><td>Generic chatbot · IG / Messenger</td><td>US · Global</td><td>$15–$45/mo</td><td>No clinic templates · no booking · weak Arabic · DIY tone</td></tr>
+      <tr><td><strong>Chatfuel</strong></td><td>Generic chatbot</td><td>US · Global</td><td>$15–$300/mo</td><td>Same as Manychat · steeper learning curve</td></tr>
+      <tr><td><strong>Wati</strong></td><td>WhatsApp Business platform</td><td>India · Global</td><td>$39+/mo</td><td>Single-channel · no booking · no clinic focus</td></tr>
+      <tr><td><strong>Respond.io</strong></td><td>Multi-channel inbox + AI</td><td>HK/SG · Global</td><td>$79–$499/mo</td><td>Generic · no clinic templates · no AR-first · enterprise UX</td></tr>
+      <tr><td><strong>Calendly · SimplyBook · Acuity</strong></td><td>Booking widgets</td><td>US/EE · Global</td><td>$10–$70/mo</td><td>Just booking · no DM handling · no auto-reply · no IG/WhatsApp</td></tr>
+
+      <tr style="background:linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.16));">
+        <td style="background:transparent;"><strong>Us (Clinic Agent)</strong></td>
+        <td style="background:transparent;"><strong>Fixed-reply bot + booking · clinic-specific · full lifecycle</strong></td>
+        <td style="background:transparent;"><strong>UAE · Egypt + Gulf + US</strong></td>
+        <td style="background:transparent;"><strong>Free → $399/mo</strong></td>
+        <td style="background:transparent;">—</td>
+      </tr>
     </tbody>
   </table>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:6px;"><em>Note: regional names (WideBot, Twixor, etc.) should be verified during the Week-1 validation sprint — agency / local-tool landscape in Egypt and the Gulf changes fast.</em></p>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:6px;"><em>Note: regional names (WideBot, Twixor, Saima.ai, etc.) should be verified during the Week-1 validation sprint — the agency/local-tool landscape in Egypt and the Gulf changes fast, and clinic-specific newcomers can pop up anywhere.</em></p>
 
   <div class="grid grid-2" style="margin-top:14px;">
     <div class="card">
