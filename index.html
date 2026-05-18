@@ -541,7 +541,8 @@
         <li><strong>Appointment Reminders (24h + 1h)</strong> · auto-sent on WhatsApp to cut no-shows. Patient confirms inline.</li>
         <li><strong>Human Handoff</strong> · unclear intent or patient asks for a human → one-click hand-off to receptionist/staff</li>
         <li><strong>Lead Capture + Google Sheet Sync (lightweight CRM)</strong> · every inquiry · booking · reminder logged with lead-source · service · status. Clinic owns the sheet — no separate CRM needed.</li>
-        <li><strong>Basic Analytics</strong> · counters for replies sent · bookings · no-shows · response time · top requested services</li>
+        <li><strong>Basic Analytics</strong> · replies sent · bookings created · booking conversion rate · top-requested services · unanswered / handoff messages</li>
+        <li><strong>Patient Tagging</strong> · auto-tag each contact by lead source (IG ad · WA · Messenger · organic) · service interest · booking status (new lead · booked · no-show · returning) · clinic can add custom tags. Tags flow to the Google Sheet and form the basis for future re-targeting.</li>
         <li><strong>Aesthetic + Dental Reply Templates</strong> · pre-loaded EN + AR template library (treatment pricing · before/after policy · consultation flow · common procedure FAQs) ready to edit Day 1</li>
       </ul>
       <p style="font-size:12.5px; color:var(--brand); margin-top:8px; font-weight:600;">That alone is enough to sell.</p>
@@ -553,9 +554,9 @@
         <li><strong>Extra channels</strong> · Telegram · TikTok DMs · SMS · Web-chat widget · Google Business Messages (V1 covers WhatsApp + Instagram + Messenger — the three that drive clinic inquiries today)</li>
         <li><strong>Voice / phone-call AI receptionist</strong> · AI answers phone calls too (V1 is text only)</li>
         <li><strong>Voice notes + image uploads in chat</strong> · audio/photo handling (V1 is text-only; routed to human if attempted)</li>
-        <li><strong>Patient Communication Hub</strong> · per-patient message history across all channels · notes · tags · follow-up reminders — turns into a full mini-CRM (V1 logs to Google Sheet)</li>
+        <li><strong>Patient Communication Hub</strong> · rich per-patient message-history view across all channels · in-app notes · follow-up reminders — turns into a full mini-CRM (V1 has tagging + Google Sheet log, but the in-app hub view comes later)</li>
         <li><strong>Full CRM integrations</strong> · HubSpot · Pipedrive · Salesforce · Zoho sync (V1 is Google Sheet)</li>
-        <li><strong>Advanced Analytics Dashboard</strong> · service-mix charts · tag-segmented filters · retargeting lists (V1 has basic counters)</li>
+        <li><strong>Advanced Analytics Dashboard</strong> · service-mix charts · in-app filters that slice by tag · retargeting-list export (V1 has counters + tags, but the visual dashboard comes later)</li>
         <li><strong>No-Show Prevention multi-step + Post-Visit flow</strong> · 48h reminders · recovery sequences · rebook automation · medication reminders · satisfaction survey · return-visit suggestion (V1 has 24h + 1h reminders)</li>
         <li><strong>Auto Slot Reuse + Manual Slot Fill</strong> · cancellations free the slot dynamically · walk-in entry via dashboard</li>
         <li><strong>Interactive WhatsApp Buttons + Service Carousel</strong> · visual showcases &amp; CTA buttons</li>
@@ -622,6 +623,7 @@
         <li>WhatsApp + Instagram + Messenger DMs</li>
         <li>Fixed-Reply Library (basics, EN + AR)</li>
         <li>Calendar booking + 24h reminder</li>
+        <li>Auto patient tagging (lead source · status)</li>
         <li>Google Sheet sync</li>
         <li>Community support</li>
         <li><em>Auto-upsell email at 50 contacts</em></li>
@@ -647,8 +649,8 @@
         <li>Booking flow + email alert on every booking</li>
         <li>Patient reschedule / cancel</li>
         <li>Reminders: 24h + 1h</li>
-        <li>Lead capture + Google Sheet sync</li>
-        <li>Basic analytics</li>
+        <li>Lead capture + patient tagging + Google Sheet sync</li>
+        <li>Basic analytics (replies · bookings · conversion · top services · handoffs)</li>
         <li>Human handoff</li>
         <li>Email support</li>
       </ul>
@@ -726,7 +728,7 @@
   </div>
   <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Beyond Enterprise</strong> — 10,000+ contacts or clinic groups with 25+ users · custom pricing, handled case-by-case</p>
   <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px;"><em>Overage:</em> hit your contact limit and you can either upgrade mid-month or buy extra contact packs ($10 per 500 extra).</p>
-  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px; max-width:760px; margin-left:auto; margin-right:auto;"><em>What every tier ships Day 1:</em> WhatsApp + Instagram + Messenger DMs · Fixed-Reply Library (EN + AR) · Booking flow · Two-way Google Calendar sync · Reminders · Google Sheet CRM · Basic analytics · Human handoff. <strong>Extra channels (Telegram · TikTok · SMS · Web-chat · Google Business Messages), voice AI, multi-workspace agency mode, advanced analytics, API and full Communication Hub are V2 — Agency &amp; Enterprise plans get them automatically when they ship.</strong></p>
+  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px; max-width:760px; margin-left:auto; margin-right:auto;"><em>What every tier ships Day 1:</em> WhatsApp + Instagram + Messenger DMs · Fixed-Reply Library (EN + AR) · Booking flow · Two-way Google Calendar sync · Reminders · Patient tagging · Google Sheet CRM · Basic analytics (replies · bookings · conversion · top services · handoffs) · Human handoff. <strong>Extra channels (Telegram · TikTok · SMS · Web-chat · Google Business Messages), voice AI, multi-workspace agency mode, advanced analytics, API and full Communication Hub are V2 — Agency &amp; Enterprise plans get them automatically when they ship.</strong></p>
 
   <div class="callout blue">
     <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 contacts, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
