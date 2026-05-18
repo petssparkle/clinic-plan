@@ -120,9 +120,31 @@
   table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
   table.tbl tr:last-child td { border-bottom: none; }
 
-  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  @media (max-width: 900px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+  .pricing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  @media (max-width: 1100px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; } }
+  @media (max-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .price-card.free { background: linear-gradient(180deg, rgba(16,185,129,0.05), rgba(16,185,129,0)); border-color: rgba(16,185,129,0.4); }
+  .price-card.free .name { color: var(--accent-2) !important; }
+
+  /* Customer journey map */
+  .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  @media (max-width: 900px) { .journey { grid-template-columns: 1fr; } }
+  .journey-phase { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .journey-phase::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+  .journey-phase.p1::before { background: linear-gradient(180deg, var(--brand), var(--brand-2)); }
+  .journey-phase.p2::before { background: linear-gradient(180deg, var(--brand-2), var(--accent-2)); }
+  .journey-phase.p3::before { background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+  .journey-phase-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .journey-phase-head .badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; font-weight: 700; font-size: 13px; border-radius: 7px; }
+  .journey-phase.p2 .journey-phase-head .badge { background: linear-gradient(135deg, var(--brand-2), var(--accent-2)); }
+  .journey-phase.p3 .journey-phase-head .badge { background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+  .journey-phase-head strong { color: var(--text); font-size: 15px; }
+  .journey-phase-head .when { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-left: auto; font-weight: 700; }
+  .journey-steps { list-style: none; padding-left: 0; margin: 8px 0 0; counter-reset: step; }
+  .journey-steps li { padding: 6px 0 6px 28px; color: var(--muted); font-size: 13px; line-height: 1.5; position: relative; counter-increment: step; }
+  .journey-steps li::before { content: counter(step); position: absolute; left: 0; top: 6px; width: 20px; height: 20px; background: var(--panel-soft); border: 1px solid var(--border); color: var(--brand); font-size: 11px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 1; }
+  .journey-steps li strong { color: var(--text); }
 
   /* Monthly / Annual toggle */
   .price-toggle-wrap { display: flex; justify-content: center; margin: 14px 0 16px; }
@@ -312,12 +334,12 @@
     <div class="card kpi accent">
       <div class="label">Cash needed</div>
       <div class="value">&lt;$1,000</div>
-      <div class="delta">$500 each · paid mid-July</div>
+      <div class="delta">Paid by mid-July</div>
     </div>
   </div>
 
   <div class="callout blue" style="margin-top:14px;">
-    <strong>How the $1,000 gets funded:</strong> <strong>Mahmoud $500 · Belal $500</strong> — paid mid-July when we incorporate. Splits into <strong>~$600 calculated expenses</strong> (US company papers $300 · Claude Code ~$150 · Claude API ~$100–150 · domain $15 · misc) and <strong>~$400 buffer</strong> (extra Claude API if usage spikes, surprises). Stripe, Mercury (US bank), Wise = all free once US entity exists. No salaries, no ads.
+    <strong>How the $1,000 is funded:</strong> covered by the founders, paid by <strong>mid-July</strong> when we incorporate. Splits into <strong>~$600 calculated expenses</strong> (US company papers $300 · Claude Code ~$150 · Claude API ~$100–150 · domain $15 · misc) and <strong>~$400 buffer</strong> (extra Claude API if usage spikes, surprises). Stripe, Mercury (US bank), Wise = all free once US entity exists. No salaries, no ads.
   </div>
 </section>
 
@@ -476,7 +498,7 @@
       <ul class="clean">
         <li><strong>Unified Inbox</strong> — Instagram DM · Facebook Messenger · WhatsApp · <strong>Telegram</strong> · SMS · Web-chat widget · Google Business Messages — all in one dashboard</li>
         <li><strong>Fixed-Reply Library + FAQ Bot (EN + AR)</strong> — the clinic <strong>writes its own list of replies</strong> for office hours, insurance, procedure prep, post-visit care, pricing, services, ad responses, booking. Bot matches each inbound message to the right reply and sends it. <em>Not a chatbot conversation. No AI-generated text. Owner controls every word.</em></li>
-        <li><strong>Ad-Reply Automation</strong> — when a patient DMs after seeing a Meta or Google ad, bot detects the ad source and fires the clinic's pre-set reply with the matching offer + booking link</li>
+        <li><strong>Source-Aware Auto-Reply</strong> — every inbound message gets the same welcome flow no matter the source: Meta or Google ad, website CTA, Instagram story tag, organic post comment, profile DM, or QR-code scan. The bot detects the source (ad campaign, organic, web, etc.) and can fire a source-specific fixed reply if configured — e.g. ad-campaign DMs get the matching offer + booking link.</li>
         <li><strong>Automated Booking System</strong> — patients book, reschedule, and cancel directly via WhatsApp / DM with real-time calendar availability. Bot pulls specific free slots, patient picks, bot books.</li>
         <li><strong>Manual Appointment Entry + Smart Slot Fill</strong> — clinic adds appointments by hand any time; bot only offers patients the empty slots inside the doctor's working hours; calendar fills up automatically as bookings come in</li>
         <li><strong>Auto Slot Reuse</strong> — when a patient cancels or reschedules, the freed slot opens immediately for someone else to book</li>
@@ -508,38 +530,69 @@
         <li>Reputation management (Google reviews etc.)</li>
         <li>Native mobile app (mobile web only)</li>
       </ul>
+      <h4 style="color:var(--brand); margin-top:14px;">Likely client requests — added during V1 based on feedback</h4>
+      <ul class="clean">
+        <li>Voice-message replies (audio in / audio out)</li>
+        <li>Family / group bookings (one parent, multiple appointments)</li>
+        <li>Patient self-service portal (view past visits, rebook themselves)</li>
+        <li>SMS broadcasts to past-patient lists</li>
+        <li>Online deposit / pre-payment to confirm booking</li>
+        <li>More languages beyond EN + AR (French, Spanish, Italian, Turkish)</li>
+        <li>Loyalty programs &amp; referral rewards</li>
+        <li>Custom reporting / CSV exports</li>
+        <li>Custom brand colors &amp; logo per clinic on web-chat widget</li>
+        <li>Integration with specific local CRMs (HubSpot, Pipedrive, Zoho, etc.)</li>
+      </ul>
     </div>
   </div>
 
-  <h3 style="margin-top:18px;">How it works in 5 steps</h3>
-  <div class="flow">
-    <div class="flow-step">
-      <div class="step-num">1</div>
-      <strong>Patient DMs</strong>
-      <span>Instagram · WhatsApp · Messenger · Telegram · SMS · web chat</span>
+  <h3 style="margin-top:18px;">The Patient Journey — three phases, fully automated</h3>
+  <div class="journey">
+
+    <div class="journey-phase p1">
+      <div class="journey-phase-head">
+        <span class="badge">A</span>
+        <strong>Inquiry → Reply</strong>
+        <span class="when">Seconds</span>
+      </div>
+      <ol class="journey-steps">
+        <li><strong>Patient sends a DM</strong> on Instagram, Messenger, WhatsApp, Telegram, SMS, web chat — any source (ad click, story tag, website CTA, organic post, profile)</li>
+        <li><strong>Bot sends the welcome message</strong> the clinic wrote — same on every channel, every source</li>
+        <li><strong>Matches intent</strong> from the message: price · service · hours · ad-offer · book · before/after photo</li>
+        <li><strong>Sends the matching fixed reply</strong> from the clinic's reply list — predictable, on-brand</li>
+      </ol>
     </div>
-    <div class="flow-step">
-      <div class="step-num">2</div>
-      <strong>Welcome + intent match</strong>
-      <span>Bot greets the patient with the clinic's welcome message, then classifies — "Price?" · "Book?" · "Saw ad" · etc.</span>
+
+    <div class="journey-phase p2">
+      <div class="journey-phase-head">
+        <span class="badge">B</span>
+        <strong>Booking</strong>
+        <span class="when">Minutes</span>
+      </div>
+      <ol class="journey-steps">
+        <li><strong>Patient signals booking intent</strong> ("I want an appointment" · "Available tomorrow?" · CTA click)</li>
+        <li><strong>Bot pulls free slots</strong> live from Google Calendar / Outlook / clinic scheduler — only inside working hours</li>
+        <li><strong>Patient picks a slot</strong> from the carousel / quick-reply buttons</li>
+        <li><strong>Bot books the appointment</strong> + syncs to CRM/Sheet + emails the owner instantly</li>
+      </ol>
     </div>
-    <div class="flow-step">
-      <div class="step-num">3</div>
-      <strong>Sends fixed reply</strong>
-      <span>From the clinic's pre-written list, matched to the patient's specific need</span>
+
+    <div class="journey-phase p3">
+      <div class="journey-phase-head">
+        <span class="badge">C</span>
+        <strong>Lifecycle</strong>
+        <span class="when">Days → weeks</span>
+      </div>
+      <ol class="journey-steps">
+        <li><strong>Reminders</strong> auto-sent 48h, 24h, 2h before with confirm / reschedule buttons</li>
+        <li><strong>No-show recovery</strong> — if patient misses, bot triggers the rebook follow-up</li>
+        <li><strong>Visit marked complete</strong> → triggers post-visit care + medication reminders</li>
+        <li><strong>Satisfaction survey + return-appointment suggestion</strong> — results pushed back to CRM/Sheet</li>
+      </ol>
     </div>
-    <div class="flow-step">
-      <div class="step-num">4</div>
-      <strong>Sends free slots</strong>
-      <span>When patient is ready to book — pulled live from the doctor's calendar</span>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">5</div>
-      <strong>Books appointment</strong>
-      <span>Patient picks slot → bot adds them to the calendar + syncs to CRM / Sheet</span>
-    </div>
+
   </div>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:8px;"><em>The bot never writes its own messages. It just classifies, picks from the clinic's reply list, and sends. The only "live" data it inserts is the doctor's free time slots.</em></p>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:10px;"><em>The bot never writes its own messages. It just classifies, picks from the clinic's reply list, and sends. The only "live" data it inserts is the doctor's free time slots, reminder timestamps, and survey results.</em></p>
 
   <h3 style="margin-top:18px;">Reply intents the bot recognizes out of the box</h3>
   <p style="margin:4px 0;">
@@ -566,11 +619,7 @@
   </p>
   <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message (or triggers on time/event for reminders), picks the matching reply, and sends it — no generation, no improvisation.</p>
 
-  <h3 style="margin-top:18px;">Pricing — contact-based, monthly &amp; annual</h3>
-
-  <div class="callout green" style="text-align:center; padding:14px 18px;">
-    <strong style="font-size:15px;">FREE forever for the first 50 contacts</strong> — no card, no time limit. This <em>is</em> the trial: the clinic tries the bot with up to 50 patients, and when they hit the limit we auto-email upgrade options. No "7-day timer" anywhere.
-  </div>
+  <h3 style="margin-top:18px;">Pricing — 5 tiers, contact-based, monthly &amp; annual</h3>
 
   <div class="price-toggle-wrap">
     <div class="price-toggle">
@@ -580,6 +629,26 @@
   </div>
 
   <div class="pricing-grid">
+
+    <div class="price-card free">
+      <div class="name">Free</div>
+      <div class="price">
+        <span class="p-monthly">$0<small>/mo</small></span>
+        <span class="p-annual">$0<small>/yr</small></span>
+      </div>
+      <div class="desc">
+        <strong style="color:var(--text);">For anyone trying the bot</strong><br/>
+        <span style="color:var(--accent-2); font-weight:600;">No card · no time limit · forever free</span>
+      </div>
+      <ul class="feat">
+        <li><strong style="color:var(--text);">50 contacts in CRM</strong></li>
+        <li>1 workspace · 1 human agent</li>
+        <li>3 channels (IG · Messenger · WhatsApp)</li>
+        <li>Fixed-Reply Library basics</li>
+        <li>Calendar booking</li>
+        <li><em>Auto-upsell email when you hit 50</em></li>
+      </ul>
+    </div>
 
     <div class="price-card">
       <div class="name">Starter</div>
@@ -793,7 +862,7 @@
 
   <div class="grid grid-2">
     <div>
-      <h4>Phase 1 cash plan — $1,000 funded ($500 each, by mid-July)</h4>
+      <h4>Phase 1 cash plan — $1,000 funded by mid-July</h4>
       <table class="tbl">
         <thead><tr><th>Line item</th><th>Cost</th></tr></thead>
         <tbody>
@@ -806,7 +875,7 @@
           <tr><td>Sales partner commission (only on close)</td><td>From revenue</td></tr>
           <tr><td><strong>Subtotal — calculated expenses</strong></td><td><strong>~$600</strong></td></tr>
           <tr><td>Buffer for surprises (extra Claude API, unexpected small tools)</td><td>~$400</td></tr>
-          <tr><td><strong>Total Phase 1 cash · $500 from each co-founder</strong></td><td><strong>$1,000</strong></td></tr>
+          <tr><td><strong>Total Phase 1 cash</strong></td><td><strong>$1,000</strong></td></tr>
         </tbody>
       </table>
     </div>
