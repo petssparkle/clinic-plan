@@ -458,14 +458,15 @@
     <div class="card">
       <h4>What changes for the clinic (each pain → V1 fix)</h4>
       <ul class="clean">
-        <li><strong>Lost leads come back</strong> — Smart Follow-up Automation triggers when a patient doesn't book on first contact · tagged sequences for ad-source, abandoned-booking, win-back</li>
-        <li><strong>No-shows drop</strong> — 48h / 24h / 2h reminders with confirm-reschedule buttons + missed-visit auto-rebook flow</li>
-        <li><strong>Reviews &amp; repeat visits captured</strong> — Post-Visit Follow-up sends care notes, asks for satisfaction survey, suggests the return appointment</li>
-        <li><strong>One inbox for everything</strong> — Instagram, Messenger, WhatsApp, Telegram, SMS, web chat, Google Business — all in one dashboard</li>
-        <li><strong>Every patient tagged</strong> — full profile with notes · tags · history · turn any tag into a re-targeting list in one click</li>
-        <li><strong>Auto data sync</strong> — every booking, status change, and survey result lands in your Google Sheet or CRM, fully categorized</li>
-        <li><strong>Owner stays in control</strong> — bot only sends pre-approved replies the clinic wrote · never invents text · no hallucinations</li>
+        <li><strong>Lost leads come back</strong> — every inquiry is captured and <strong>auto-tagged</strong> by source · service · status; the clinic has a clean Google Sheet of leads to follow up on (automated win-back sequences come in V2)</li>
+        <li><strong>No-shows drop</strong> — automatic <strong>24h + 2h reminders</strong>; if a patient wants to reschedule, human handoff routes to staff (multi-step rebook flow is V2)</li>
+        <li><strong>One inbox for the three channels that matter</strong> — <strong>WhatsApp + Instagram + Messenger</strong> DMs unified in one dashboard (Telegram · SMS · web chat · Google Business come in V2)</li>
+        <li><strong>Every patient tagged</strong> — auto-tagged by source, service, urgency, status · custom tags too · all tags flow to the Google Sheet (visual filter / retargeting dashboard is V2)</li>
+        <li><strong>Auto data sync</strong> — every inquiry &amp; booking lands in the clinic's Google Sheet with name · phone · channel · source · service · tags · status · appointment time (HubSpot / Pipedrive / Salesforce integrations are V2)</li>
+        <li><strong>Bookings happen 24/7</strong> — bot pulls free slots straight from Google Calendar, patient picks, appointment is confirmed, owner is emailed instantly</li>
+        <li><strong>Owner stays in control</strong> — bot only sends the pre-approved replies the clinic wrote in the Setup Wizard · never invents text · no hallucinations</li>
       </ul>
+      <p style="font-size:12px; color:var(--muted); margin-top:6px;"><em>Reviews · post-visit care · satisfaction surveys · return-appointment suggestion → V2.</em></p>
     </div>
   </div>
 </section>
@@ -511,10 +512,10 @@
         <span class="when">Days → weeks</span>
       </div>
       <ol class="journey-steps">
-        <li><strong>Reminders</strong> auto-sent 48h, 24h, 2h before with confirm / reschedule buttons</li>
-        <li><strong>No-show recovery</strong> — if patient misses, bot triggers the rebook follow-up</li>
-        <li><strong>Visit marked complete</strong> → triggers post-visit care + medication reminders</li>
-        <li><strong>Satisfaction survey + return-appointment suggestion</strong> — results pushed back to CRM/Sheet</li>
+        <li><strong>Reminders</strong> auto-sent <strong>24h + 2h</strong> before the appointment to cut no-shows</li>
+        <li><strong>Reschedule / cancel</strong> — patient asks → <strong>human handoff</strong> routes to staff (auto-reschedule via bot is V2)</li>
+        <li><strong>Booking status logged</strong> in the Google Sheet — clinic owns the data and can run manual follow-ups against any tag</li>
+        <li><strong>V2 (later):</strong> 48h reminder · auto no-show recovery · post-visit care + medication · satisfaction surveys · return-appointment suggestion</li>
       </ol>
     </div>
 
@@ -530,34 +531,36 @@
   <div class="grid grid-2">
     <div class="card">
       <h4 style="color:var(--brand);">V1 Must-Haves — Ship by Aug 1</h4>
-      <p style="font-size:12.5px; color:var(--muted); margin:0 0 8px;">Built tight: just enough to sell and prove the wedge. Comprehensive but condensed — each bullet is one capability.</p>
+      <p style="font-size:12.5px; color:var(--muted); margin:0 0 8px;">These 12 features are <strong>the entire V1 scope</strong>. Anything else is V2 — no exceptions.</p>
       <ul class="clean">
-        <li><strong>Unified Inbox — WhatsApp + Instagram + Messenger DMs</strong> · three channels in one dashboard (the trio that covers virtually every aesthetic + dental clinic inquiry in Egypt + Gulf today)</li>
-        <li><strong>Fixed-Reply FAQ Library (EN + AR)</strong> · clinic-written answers for pricing · services · location · hours · booking · common procedures. Owner controls every word — no hallucination.</li>
-        <li><strong>Intent Matching &amp; Routing</strong> · every inbound classified into pricing · services · location · hours · booking · photos · handoff</li>
-        <li><strong>Booking Flow with Slot Send</strong> · patient signals booking intent → bot sends doctor's available slots → patient picks → bot confirms</li>
-        <li><strong>Two-Way Google Calendar Sync + Booking Email Alert</strong> · bot reads &amp; writes Google Calendar so walk-ins / phone bookings are respected automatically. Owner gets instant email on every new booking. Manual entries by staff outside the bot are read and understood by the AI.</li>
-        <li><strong>Patient Reschedule &amp; Cancel</strong> · patient texts "reschedule" → bot shows free slots → updates the calendar</li>
-        <li><strong>Appointment Reminders (24h + 1h)</strong> · auto-sent on WhatsApp to cut no-shows. Patient confirms inline.</li>
-        <li><strong>Human Handoff</strong> · unclear intent or patient asks for a human → one-click hand-off to receptionist/staff</li>
-        <li><strong>Lead Capture + Google Sheet Sync (lightweight CRM)</strong> · every inquiry · booking · reminder logged with lead-source · service · status. Clinic owns the sheet — no separate CRM needed.</li>
-        <li><strong>Basic Analytics</strong> · replies sent · bookings created · booking conversion rate · top-requested services · unanswered / handoff messages</li>
-        <li><strong>Patient Tagging</strong> · auto-tag each contact by lead source (IG ad · WA · Messenger · organic) · service interest · booking status (new lead · booked · no-show · returning) · clinic can add custom tags. Tags flow to the Google Sheet and form the basis for future re-targeting.</li>
-        <li><strong>Aesthetic + Dental Reply Templates</strong> · pre-loaded EN + AR template library (treatment pricing · before/after policy · consultation flow · common procedure FAQs) ready to edit Day 1</li>
+        <li><strong>1 · WhatsApp + Instagram + Messenger Inbox</strong> · three main channels in one dashboard. Best for aesthetic / dental clinics in Egypt + Gulf.</li>
+        <li><strong>2 · Fixed-Reply FAQ Library (EN + AR)</strong> · clinic writes approved replies for prices · services · location · hours · booking · offers · common questions. Bot cannot invent answers.</li>
+        <li><strong>3 · Intent Matching</strong> · bot detects what the patient wants: pricing · services · location · hours · booking · before/after photos · human help.</li>
+        <li><strong>4 · Patient Tagging</strong> · every patient can be tagged by service · source · urgency · status · interest. Examples: "Botox lead" · "Dental cleaning" · "Hot lead" · "From Instagram Ad" · "Needs follow-up".</li>
+        <li><strong>5 · Booking Flow</strong> · patient asks to book → bot shows available slots → patient chooses → appointment is confirmed.</li>
+        <li><strong>6 · Google Calendar Sync</strong> · bot reads and writes to Google Calendar so it only shows free slots and avoids double-booking.</li>
+        <li><strong>7 · Email Alert on Booking</strong> · clinic owner / receptionist gets an instant email when a new appointment is booked.</li>
+        <li><strong>8 · Appointment Reminders</strong> · automatic reminders 24h and 2h before the appointment to reduce no-shows.</li>
+        <li><strong>9 · Human Handoff</strong> · if the bot is unsure or the patient asks for a person, staff can take over from the dashboard.</li>
+        <li><strong>10 · Google Sheet Sync</strong> · every inquiry and booking logged in a Google Sheet — name · phone · channel · source · service · tags · status · appointment time.</li>
+        <li><strong>11 · Basic Analytics</strong> · simple counters: messages answered · bookings made · booking conversion rate · top-requested services · channel performance · handoff cases.</li>
+        <li><strong>12 · Clinic Setup Wizard</strong> · during onboarding, the clinic adds services · prices/ranges · working hours · location · doctors · tags · approved replies. One-time, then it's ready to go live.</li>
       </ul>
-      <p style="font-size:12.5px; color:var(--brand); margin-top:8px; font-weight:600;">That alone is enough to sell.</p>
+      <p style="font-size:12.5px; color:var(--brand); margin-top:8px; font-weight:600;">That's it — 12 features, nothing more. Enough to sell, enough to prove the wedge.</p>
     </div>
     <div class="card">
       <h4 style="color:var(--warn);">Features to delay — Not in V1</h4>
-      <p style="font-size:12.5px; color:var(--muted); margin:0 0 8px;">All real asks. We just don't ship them Day 1.</p>
+      <p style="font-size:12.5px; color:var(--muted); margin:0 0 8px;">All real asks. None of them ship in V1 — every one waits for V2 or later.</p>
       <ul class="clean">
-        <li><strong>Extra channels</strong> · Telegram · TikTok DMs · SMS · Web-chat widget · Google Business Messages (V1 covers WhatsApp + Instagram + Messenger — the three that drive clinic inquiries today)</li>
+        <li><strong>Extra channels</strong> · Telegram · TikTok DMs · SMS · Web-chat widget · Google Business Messages (V1 covers WhatsApp + Instagram + Messenger only)</li>
+        <li><strong>Patient Reschedule &amp; Cancel via the bot</strong> · auto reschedule/cancel through chat (V1: patient asks → human handoff handles it)</li>
+        <li><strong>Pre-loaded reply template packs</strong> · ready-made aesthetic / dental / derma libraries you can install in one click (V1: clinic writes its own replies through the Setup Wizard)</li>
         <li><strong>Voice / phone-call AI receptionist</strong> · AI answers phone calls too (V1 is text only)</li>
-        <li><strong>Voice notes + image uploads in chat</strong> · audio/photo handling (V1 is text-only; routed to human if attempted)</li>
-        <li><strong>Patient Communication Hub</strong> · rich per-patient message-history view across all channels · in-app notes · follow-up reminders — turns into a full mini-CRM (V1 has tagging + Google Sheet log, but the in-app hub view comes later)</li>
-        <li><strong>Full CRM integrations</strong> · HubSpot · Pipedrive · Salesforce · Zoho sync (V1 is Google Sheet)</li>
-        <li><strong>Advanced Analytics Dashboard</strong> · service-mix charts · in-app filters that slice by tag · retargeting-list export (V1 has counters + tags, but the visual dashboard comes later)</li>
-        <li><strong>No-Show Prevention multi-step + Post-Visit flow</strong> · 48h reminders · recovery sequences · rebook automation · medication reminders · satisfaction survey · return-visit suggestion (V1 has 24h + 1h reminders)</li>
+        <li><strong>Voice notes + image uploads in chat</strong> · audio / photo handling (V1 is text-only; routed to human if attempted)</li>
+        <li><strong>Patient Communication Hub</strong> · rich per-patient message-history view across all channels · in-app notes · follow-up reminders — turns into a full mini-CRM (V1 has tagging + Google Sheet log)</li>
+        <li><strong>Full CRM integrations</strong> · HubSpot · Pipedrive · Salesforce · Zoho sync (V1 is Google Sheet only)</li>
+        <li><strong>Advanced Analytics Dashboard</strong> · service-mix charts · in-app filters that slice by tag · retargeting-list export (V1 has counters + tags only)</li>
+        <li><strong>No-Show Prevention multi-step + Post-Visit flow</strong> · 48h reminder · recovery sequences · rebook automation · medication reminders · satisfaction survey · return-visit suggestion (V1 has 24h + 2h reminders only)</li>
         <li><strong>Auto Slot Reuse + Manual Slot Fill</strong> · cancellations free the slot dynamically · walk-in entry via dashboard</li>
         <li><strong>Interactive WhatsApp Buttons + Service Carousel</strong> · visual showcases &amp; CTA buttons</li>
         <li><strong>AI Magic-Wand Outreach + Smart Follow-up</strong> · assisted message drafting from dashboard · rule-based "send X to tag Y after N days" · re-engage past patients</li>
@@ -587,14 +590,14 @@
     <span class="tag">Pricing inquiry</span>
     <span class="tag">Services menu</span>
     <span class="tag">Office hours &amp; location</span>
+    <span class="tag">Current offers / promos</span>
     <span class="tag accent">Wants to book → send free slots</span>
-    <span class="tag">Confirm appointment (24h / 1h)</span>
-    <span class="tag">Reschedule / cancel</span>
+    <span class="tag">Confirm appointment (24h / 2h)</span>
     <span class="tag">Before/after photos request</span>
     <span class="tag">Multilingual greeting (EN/AR auto-detect)</span>
     <span class="tag">Human handoff request</span>
   </p>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message (or triggers on time for reminders), picks the matching reply, sends it. No generation, no improvisation. Procedure prep, insurance, medication, post-visit care, satisfaction surveys → added in V2.</p>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote in the Setup Wizard. The bot classifies the inbound message (or triggers on time for reminders), picks the matching reply, sends it. No generation, no improvisation. Reschedule / cancel, procedure prep, insurance, medication, post-visit care, satisfaction surveys → added in V2.</p>
 
   <h3 style="margin-top:18px;">Pricing — 5 tiers, contact-based, monthly &amp; annual</h3>
 
@@ -620,11 +623,15 @@
       <ul class="feat">
         <li><strong style="color:var(--text);">50 contacts</strong></li>
         <li>1 user</li>
-        <li>WhatsApp + Instagram + Messenger DMs</li>
-        <li>Fixed-Reply Library (basics, EN + AR)</li>
-        <li>Calendar booking + 24h reminder</li>
-        <li>Auto patient tagging (lead source · status)</li>
+        <li>WhatsApp + Instagram + Messenger inbox</li>
+        <li>Fixed-Reply FAQ Library (EN + AR) — capped at 10 replies</li>
+        <li>Intent matching</li>
+        <li>Booking flow + Google Calendar sync</li>
+        <li>Email alert on booking</li>
+        <li>Reminders: 24h only</li>
+        <li>Auto patient tagging (source · status)</li>
         <li>Google Sheet sync</li>
+        <li>Self-serve Clinic Setup Wizard</li>
         <li>Community support</li>
         <li><em>Auto-upsell email at 50 contacts</em></li>
       </ul>
@@ -644,15 +651,17 @@
       <ul class="feat">
         <li><strong style="color:var(--text);">500 contacts</strong></li>
         <li>2 users</li>
-        <li>WhatsApp + Instagram + Messenger DMs</li>
-        <li>Full Fixed-Reply Library (EN + AR)</li>
-        <li>Booking flow + email alert on every booking</li>
-        <li>Patient reschedule / cancel</li>
-        <li>Reminders: 24h + 1h</li>
-        <li>Lead capture + patient tagging + Google Sheet sync</li>
-        <li>Basic analytics (replies · bookings · conversion · top services · handoffs)</li>
+        <li>WhatsApp + Instagram + Messenger inbox</li>
+        <li>Full Fixed-Reply FAQ Library (EN + AR) — unlimited replies</li>
+        <li>Intent matching</li>
+        <li>Booking flow + Google Calendar sync</li>
+        <li>Email alert on every booking</li>
+        <li>Reminders: 24h + 2h</li>
+        <li>Full patient tagging (custom tags)</li>
+        <li>Google Sheet sync</li>
         <li>Human handoff</li>
-        <li>Email support</li>
+        <li>Basic analytics (messages · bookings · conversion · top services · channel · handoffs)</li>
+        <li>Clinic Setup Wizard + email support</li>
       </ul>
     </div>
 
@@ -671,10 +680,8 @@
         <li><strong style="color:var(--text);">1,000 contacts</strong></li>
         <li class="head">Everything in Starter, plus</li>
         <li>5 users</li>
-        <li>Aesthetic + dental template packs pre-loaded</li>
-        <li>Intent matching tuned to your services</li>
+        <li>30-min guided onboarding call</li>
         <li>Priority email support</li>
-        <li>30-min onboarding call</li>
         <li>Roadmap voting weight</li>
       </ul>
     </div>
@@ -696,7 +703,7 @@
         <li class="head">Everything in Growth, plus</li>
         <li>10 users</li>
         <li>1-hour premium onboarding + monthly check-in</li>
-        <li>Custom Fixed-Reply Library setup help</li>
+        <li>We help fill your Fixed-Reply Library in the Wizard</li>
         <li>Direct line to founders</li>
         <li><strong>First on V2 features</strong> · auto-included as they ship</li>
       </ul>
@@ -717,18 +724,18 @@
         <li><strong style="color:var(--text);">10,000 contacts</strong></li>
         <li class="head">Everything in Agency, plus</li>
         <li>25 users</li>
-        <li>Done-for-you Fixed-Reply Library setup</li>
+        <li>Done-for-you Wizard setup (we build the whole Fixed-Reply Library for you)</li>
         <li>Quarterly product co-design call</li>
         <li>Dedicated Slack channel</li>
         <li>Priority on roadmap requests</li>
-        <li><strong>All V2 features auto-included on release</strong> (multi-channel · voice AI · agency workspaces · API · advanced analytics)</li>
+        <li><strong>All V2 features auto-included on release</strong> (extra channels · voice AI · agency workspaces · API · advanced analytics)</li>
       </ul>
     </div>
 
   </div>
   <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Beyond Enterprise</strong> — 10,000+ contacts or clinic groups with 25+ users · custom pricing, handled case-by-case</p>
   <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px;"><em>Overage:</em> hit your contact limit and you can either upgrade mid-month or buy extra contact packs ($10 per 500 extra).</p>
-  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px; max-width:760px; margin-left:auto; margin-right:auto;"><em>What every tier ships Day 1:</em> WhatsApp + Instagram + Messenger DMs · Fixed-Reply Library (EN + AR) · Booking flow · Two-way Google Calendar sync · Reminders · Patient tagging · Google Sheet CRM · Basic analytics (replies · bookings · conversion · top services · handoffs) · Human handoff. <strong>Extra channels (Telegram · TikTok · SMS · Web-chat · Google Business Messages), voice AI, multi-workspace agency mode, advanced analytics, API and full Communication Hub are V2 — Agency &amp; Enterprise plans get them automatically when they ship.</strong></p>
+  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px; max-width:760px; margin-left:auto; margin-right:auto;"><em>What every tier ships Day 1 — the 12 V1 features:</em> WhatsApp + Instagram + Messenger inbox · Fixed-Reply FAQ Library (EN + AR) · Intent matching · Patient tagging · Booking flow · Google Calendar sync · Email alert on booking · Reminders (24h + 2h on paid · 24h on Free) · Human handoff · Google Sheet sync · Basic analytics · Clinic Setup Wizard. <strong>Everything else — patient reschedule/cancel via bot, pre-loaded template packs, extra channels (Telegram · TikTok · SMS · Web-chat · Google Business Messages), voice AI, multi-workspace agency mode, advanced analytics, API, full Communication Hub — is V2. Agency &amp; Enterprise plans get those automatically when they ship.</strong></p>
 
   <div class="callout blue">
     <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 contacts, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
