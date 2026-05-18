@@ -455,7 +455,7 @@
     <div class="card">
       <h4 style="color:var(--brand);">Ship by Aug 1 — full patient lifecycle</h4>
       <ul class="clean">
-        <li><strong>Unified Inbox</strong> — Instagram DM + Facebook Messenger + WhatsApp + Google Business Messages in one dashboard</li>
+        <li><strong>Unified Inbox</strong> — Instagram DM · Facebook Messenger · WhatsApp · <strong>Telegram</strong> · SMS · Web-chat widget · Google Business Messages — all in one dashboard</li>
         <li><strong>Fixed-Reply Library + FAQ Bot (EN + AR)</strong> — the clinic <strong>writes its own list of replies</strong> for office hours, insurance, procedure prep, post-visit care, pricing, services, ad responses, booking. Bot matches each inbound message to the right reply and sends it. <em>Not a chatbot conversation. No AI-generated text. Owner controls every word.</em></li>
         <li><strong>Ad-Reply Automation</strong> — when a patient DMs after seeing a Meta or Google ad, bot detects the ad source and fires the clinic's pre-set reply with the matching offer + booking link</li>
         <li><strong>Automated Booking System</strong> — patients book, reschedule, and cancel directly via WhatsApp / DM with real-time calendar availability. Bot pulls specific free slots, patient picks, bot books.</li>
@@ -473,7 +473,8 @@
         <li><strong>Service Carousel Messages</strong> — showcase the clinic's services with photo cards in WhatsApp + Messenger (great for "what do you offer?" inquiries)</li>
         <li><strong>Lead Capture</strong> — every inquiry becomes a contact record · auto-tagged by service, source, urgency</li>
         <li><strong>Human Handoff</strong> — when intent is unclear or the patient asks for a human, one-click hand-off to staff</li>
-        <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, no-show rate, response time, channel volume</li>
+        <li><strong>Visual Analytics Dashboard</strong> — graphs &amp; charts for inquiries answered, bookings made, no-show rate, response time, channel volume. <strong>Filter by tag, channel source, service, status</strong>, or any combo — and turn any segment into a re-targeting list with one click.</li>
+        <li><strong>Smart Follow-up Automation</strong> — clinic builds rules like <em>"send Message X to anyone tagged 'didn't complete booking' after 3 days"</em> or <em>"send a special offer to anyone who came from the Meta ad named 'Botox-Promo' after 1 day"</em>. Rules trigger automatically based on tags · channel source · status · time elapsed. Pre-built recipes for the most common follow-ups (abandoned booking · ad-source nurture · post-visit upsell · win-back inactive patients).</li>
       </ul>
     </div>
     <div class="card">
@@ -496,17 +497,17 @@
     <div class="flow-step">
       <div class="step-num">1</div>
       <strong>Patient DMs</strong>
-      <span>Instagram, WhatsApp, or Messenger</span>
+      <span>Instagram · WhatsApp · Messenger · Telegram · SMS · web chat</span>
     </div>
     <div class="flow-step">
       <div class="step-num">2</div>
-      <strong>Bot matches intent</strong>
-      <span>"Price?" · "Book?" · "Saw ad" · etc.</span>
+      <strong>Welcome + intent match</strong>
+      <span>Bot greets the patient with the clinic's welcome message, then classifies — "Price?" · "Book?" · "Saw ad" · etc.</span>
     </div>
     <div class="flow-step">
       <div class="step-num">3</div>
       <strong>Sends fixed reply</strong>
-      <span>From the clinic's pre-written list</span>
+      <span>From the clinic's pre-written list, matched to the patient's specific need</span>
     </div>
     <div class="flow-step">
       <div class="step-num">4</div>
@@ -516,7 +517,7 @@
     <div class="flow-step">
       <div class="step-num">5</div>
       <strong>Books appointment</strong>
-      <span>Patient picks slot → bot adds them to the calendar</span>
+      <span>Patient picks slot → bot adds them to the calendar + syncs to CRM / Sheet</span>
     </div>
   </div>
   <p style="font-size:12.5px; color:var(--muted); margin-top:8px;"><em>The bot never writes its own messages. It just classifies, picks from the clinic's reply list, and sends. The only "live" data it inserts is the doctor's free time slots.</em></p>
@@ -546,13 +547,18 @@
   </p>
   <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message (or triggers on time/event for reminders), picks the matching reply, and sends it — no generation, no improvisation.</p>
 
-  <h3 style="margin-top:18px;">Pricing — per clinic location, tiered · monthly &amp; annual</h3>
+  <h3 style="margin-top:18px;">Pricing — contact-based, monthly &amp; annual</h3>
+
+  <div class="callout green" style="text-align:center; padding:14px 18px;">
+    <strong style="font-size:15px;">FREE forever for the first 50 contacts</strong> — no card, no time limit. This <em>is</em> the trial: the clinic tries the bot with up to 50 patients, and when they hit the limit we auto-email upgrade options. No "7-day timer" anywhere.
+  </div>
+
   <div class="pricing-grid">
 
     <div class="price-card">
       <div class="name">Starter</div>
-      <div class="price">$14<small>/mo</small></div>
-      <div class="desc"><strong style="color:var(--text);">For solo doctors / 1-location clinics</strong><br/><span style="color:var(--brand); font-weight:600;">$140/yr · save 17%</span></div>
+      <div class="price">$15<small>/mo</small></div>
+      <div class="desc"><strong style="color:var(--text);">For solo doctors / 1-location clinics</strong><br/><span style="color:var(--brand); font-weight:600;">$150/yr · save 17%</span></div>
       <ul class="feat">
         <li><strong style="color:var(--text);">500 contacts in CRM</strong></li>
         <li>1 workspace · 1 human agent</li>
@@ -615,7 +621,7 @@
   <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px;"><em>Overage:</em> hit your contact limit and you can either upgrade mid-month or buy extra contact packs ($10 per 500 extra).</p>
 
   <div class="callout blue">
-    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>7-day free trial</strong> on every plan, no card upfront.
+    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 contacts, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
   </div>
 
   <div class="callout green">
