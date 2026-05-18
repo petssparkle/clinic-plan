@@ -414,8 +414,8 @@
     <div class="card">
       <h4 style="color:var(--brand);">How we win in V1 (today)</h4>
       <ul class="clean">
-        <li><strong>Calendar fulfillment built in</strong> — sends free slots + books in one flow. No Calendly stack on top.</li>
-        <li><strong>Clinic-specific intents</strong> out of the box (price · ad-reply · booking · before-after)</li>
+        <li><strong>Full patient lifecycle in one product</strong> — DM → FAQ → booking → reminders → no-show prevention → post-visit follow-up. Competitors only solve one slice.</li>
+        <li><strong>Calendar fulfillment built in</strong> — sends free slots, books, auto-reuses cancellations. No Calendly stack on top.</li>
         <li><strong>Bilingual EN + AR</strong> — most competitors are English-only or have weak Arabic</li>
         <li><strong>Fixed-reply mechanic</strong> — owner controls every word · bot can't go off-script</li>
         <li><strong>$14/mo starter</strong> — cheapest clinic-specific option in the market</li>
@@ -444,27 +444,34 @@
 
   <div class="grid grid-2">
     <div class="card">
-      <h4 style="color:var(--brand);">Ship by Aug 1</h4>
+      <h4 style="color:var(--brand);">Ship by Aug 1 — full patient lifecycle</h4>
       <ul class="clean">
         <li><strong>Unified Inbox</strong> — Instagram DM + Facebook Messenger + WhatsApp + Google Business Messages in one dashboard</li>
-        <li><strong>Fixed-Reply Library (EN + AR)</strong> — the clinic <strong>writes its own list of replies</strong> for every common scenario (pricing, hours, services, "saw your ad" follow-ups, post-booking confirmations). AI's only job is to <strong>match the inbound message to the right reply and send it</strong>. <em>Not a chatbot conversation. No AI-generated text. Owner controls every word that goes out.</em></li>
-        <li><strong>Ad-Reply Automation</strong> — when a patient DMs after seeing a Meta or Google ad, AI detects the ad source and fires the clinic's pre-set reply with the offer, price, and booking link</li>
-        <li><strong>Calendar Booking</strong> — once the patient says they want to book, the bot pulls the doctor's <strong>specific free slots</strong> from Google Calendar / Outlook / the clinic's scheduler, sends them as a fixed reply, the patient picks one, and the bot books it instantly. No staff involved.</li>
+        <li><strong>Fixed-Reply Library + FAQ Bot (EN + AR)</strong> — the clinic <strong>writes its own list of replies</strong> for office hours, insurance, procedure prep, post-visit care, pricing, services, ad responses, booking. Bot matches each inbound message to the right reply and sends it. <em>Not a chatbot conversation. No AI-generated text. Owner controls every word.</em></li>
+        <li><strong>Ad-Reply Automation</strong> — when a patient DMs after seeing a Meta or Google ad, bot detects the ad source and fires the clinic's pre-set reply with the matching offer + booking link</li>
+        <li><strong>Automated Booking System</strong> — patients book, reschedule, and cancel directly via WhatsApp / DM with real-time calendar availability. Bot pulls specific free slots, patient picks, bot books.</li>
+        <li><strong>Manual Appointment Entry + Smart Slot Fill</strong> — clinic adds appointments by hand any time; bot only offers patients the empty slots inside the doctor's working hours; calendar fills up automatically as bookings come in</li>
+        <li><strong>Auto Slot Reuse</strong> — when a patient cancels or reschedules, the freed slot opens immediately for someone else to book</li>
+        <li><strong>Smart Appointment Reminders</strong> — auto-sent 48h, 24h, and 2h before · WhatsApp confirm/reschedule buttons to cut no-shows</li>
+        <li><strong>No-Show Prevention Flow</strong> — full sequence: booking confirmation → 48h reminder → 24h confirm/reschedule → 2h reminder → if missed, follow-up to rebook</li>
+        <li><strong>Post-Visit Follow-up</strong> — after the visit is marked complete: care instructions, medication reminder schedule, return-appointment suggestion, satisfaction survey — all via WhatsApp on the right cadence</li>
+        <li><strong>Patient Communication Hub</strong> — complete message history per patient across all channels · notes · tags · follow-up reminders</li>
         <li><strong>Lead Capture</strong> — every inquiry becomes a contact record · auto-tagged by service, source, urgency</li>
         <li><strong>Human Handoff</strong> — when intent is unclear or the patient asks for a human, one-click hand-off to staff</li>
-        <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, response time, channel volume</li>
+        <li><strong>Basic Analytics</strong> — inquiries answered, bookings made, no-show rate, response time, channel volume</li>
       </ul>
     </div>
     <div class="card">
       <h4 style="color:var(--warn);">Not in V1 — cut on purpose</h4>
       <ul class="clean">
-        <li>Voice / phone-call AI agent (text only in V1)</li>
+        <li>Voice / phone-call AI receptionist (text only in V1)</li>
         <li>Custom AI fine-tuning per clinic</li>
-        <li>Native mobile app</li>
         <li>EHR / patient-record integration</li>
         <li>Billing &amp; insurance processing</li>
-        <li>Multi-clinic team management</li>
-        <li>Marketing campaign automation</li>
+        <li>Multi-clinic team management &amp; sub-accounts</li>
+        <li>Mass marketing campaigns to past patients (re-engagement blasts)</li>
+        <li>Reputation management (Google reviews etc.)</li>
+        <li>Native mobile app (mobile web only)</li>
       </ul>
     </div>
   </div>
@@ -503,17 +510,23 @@
   <p style="margin:4px 0;">
     <span class="tag">Pricing inquiry</span>
     <span class="tag">Services menu</span>
-    <span class="tag">Hours &amp; location</span>
+    <span class="tag">Office hours &amp; location</span>
+    <span class="tag">Insurance &amp; payment plans</span>
+    <span class="tag">Procedure prep instructions</span>
     <span class="tag accent">"Saw your ad"</span>
     <span class="tag">Wants to book → send free slots</span>
-    <span class="tag">Before/after photos</span>
+    <span class="tag">Confirm appointment (48h / 24h / 2h)</span>
     <span class="tag">Reschedule / cancel</span>
-    <span class="tag">Post-treatment follow-up</span>
-    <span class="tag">Insurance / payment plans</span>
+    <span class="tag">No-show follow-up to rebook</span>
+    <span class="tag">Post-visit care instructions</span>
+    <span class="tag">Medication reminders</span>
+    <span class="tag">Return-appointment suggestion</span>
+    <span class="tag">Satisfaction survey</span>
+    <span class="tag">Before/after photos</span>
     <span class="tag">Multilingual greeting (EN/AR auto-detect)</span>
     <span class="tag">Human handoff request</span>
   </p>
-  <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message, picks the matching reply, and sends it — no generation, no improvisation.</p>
+  <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote. The bot classifies the inbound message (or triggers on time/event for reminders), picks the matching reply, and sends it — no generation, no improvisation.</p>
 
   <h3 style="margin-top:18px;">Pricing — per clinic location, tiered · monthly &amp; annual</h3>
   <div class="pricing-grid">
