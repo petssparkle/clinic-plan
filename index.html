@@ -122,8 +122,17 @@
 
   .pricing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
   @media (max-width: 1100px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; } }
-  @media (max-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
   @media (max-width: 480px) { .pricing-grid { grid-template-columns: 1fr; } }
+  /* Center an orphaned 5th pricing card on 2-col layout */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .pricing-grid .price-card:nth-child(5):last-child { grid-column: span 2; max-width: 360px; margin: 0 auto; width: 100%; }
+  }
+  /* Center the orphaned cards on the 3-col tablet layout (5 cards → 3+2) */
+  @media (min-width: 769px) and (max-width: 1100px) {
+    .pricing-grid .price-card:nth-child(4) { grid-column: 1 / 2; justify-self: end; max-width: 100%; }
+    .pricing-grid .price-card:nth-child(5) { grid-column: 2 / 4; justify-self: stretch; }
+  }
   .price-card.free { background: linear-gradient(180deg, rgba(16,185,129,0.05), rgba(16,185,129,0)); border-color: rgba(16,185,129,0.4); }
   .price-card.free .name { color: var(--accent-2) !important; }
 
@@ -276,7 +285,34 @@
     .v2-tile { padding: 10px 12px; }
     table.tbl { font-size: 12px; }
     table.tbl th, table.tbl td { padding: 8px 9px; }
+    .price-card .feat li { font-size: 10.5px; }
+    .price-toggle button { padding: 7px 14px; font-size: 12px; }
+    .price-toggle .save-badge { display: none; }
+    .journey-phase { padding: 14px 14px 14px 18px; }
+    .journey-phase-head .when { font-size: 10px; }
+    .journey-steps li { font-size: 12.5px; padding: 5px 0 5px 26px; }
+    .month-row { padding: 10px 12px; }
+    .channel { padding: 10px 12px; }
+    .channel .body strong { font-size: 13.5px; }
+    .channel .body span { font-size: 12px; }
   }
+
+  /* Competitor table (5 cols) — horizontal scroll on phones so all columns stay readable */
+  @media (max-width: 600px) {
+    table.tbl {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+    table.tbl th, table.tbl td { white-space: normal; min-width: 110px; }
+    table.tbl td:first-child { min-width: 120px; }
+    table.tbl td:last-child { min-width: 220px; }
+    /* Section header rows (colspan="5") should NOT have min-width */
+    table.tbl tr td[colspan] { min-width: 0; white-space: normal; }
+  }
+
   @media print {
     body { background: white; font-size: 12px; }
     .wrap { padding: 14px; }
