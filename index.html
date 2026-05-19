@@ -120,18 +120,24 @@
   table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
   table.tbl tr:last-child td { border-bottom: none; }
 
-  .pricing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-  @media (max-width: 1100px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; } }
-  @media (max-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
-  @media (max-width: 480px) { .pricing-grid { grid-template-columns: 1fr; } }
-  /* Center an orphaned 5th pricing card on 2-col layout */
-  @media (min-width: 481px) and (max-width: 768px) {
-    .pricing-grid .price-card:nth-child(5):last-child { grid-column: span 2; max-width: 360px; margin: 0 auto; width: 100%; }
+  /* 3 wide cards per row by default (5 cards → 3 on top row + 2 centered below) */
+  .pricing-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+  .pricing-grid .price-card { grid-column: span 2; min-width: 0; }
+  .pricing-grid .price-card:nth-child(4) { grid-column: 2 / span 2; }
+  .pricing-grid .price-card:nth-child(5) { grid-column: 4 / span 2; }
+  /* Tablet: 2 wide cards per row */
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .pricing-grid .price-card,
+    .pricing-grid .price-card:nth-child(4) { grid-column: auto; }
+    .pricing-grid .price-card:nth-child(5) { grid-column: 1 / span 2; max-width: 50%; margin: 0 auto; }
   }
-  /* Center the orphaned cards on the 3-col tablet layout (5 cards → 3+2) */
-  @media (min-width: 769px) and (max-width: 1100px) {
-    .pricing-grid .price-card:nth-child(4) { grid-column: 1 / 2; justify-self: end; max-width: 100%; }
-    .pricing-grid .price-card:nth-child(5) { grid-column: 2 / 4; justify-self: stretch; }
+  /* Phone: 1 card per row */
+  @media (max-width: 560px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-grid .price-card,
+    .pricing-grid .price-card:nth-child(4),
+    .pricing-grid .price-card:nth-child(5) { grid-column: 1; max-width: 100%; margin: 0; }
   }
   .price-card.free { background: linear-gradient(180deg, rgba(16,185,129,0.05), rgba(16,185,129,0)); border-color: rgba(16,185,129,0.4); }
   .price-card.free .name { color: var(--accent-2) !important; }
@@ -639,7 +645,7 @@
   <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote in the Setup Wizard. The bot classifies the inbound message (or triggers on time for reminders), picks the matching reply, sends it. No generation, no improvisation. Reschedule / cancel, procedure prep, insurance, medication, post-visit care, satisfaction surveys → added in V2.</p>
 
   <h3 style="margin-top:18px;">Simple pricing. Pay monthly or save with annual.</h3>
-  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Paid plans get a <strong style="color:var(--text);">fresh monthly contact allowance</strong> (resets on the 1st). Free is a <strong style="color:var(--text);">one-time 50-contact trial</strong> — no monthly refill. Pay monthly or annually (yearly = <strong style="color:var(--text);">2 months free, ~17% off</strong>).</p>
+  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Paid plans get a <strong style="color:var(--text);">fresh monthly message allowance</strong> (resets on the 1st). Free is a <strong style="color:var(--text);">one-time 50-message trial</strong> — no monthly refill. Pay monthly or annually (yearly = <strong style="color:var(--text);">2 months free, ~17% off</strong>).</p>
 
   <div class="price-toggle-wrap">
     <div class="price-toggle">
@@ -665,7 +671,7 @@
         <div class="stat">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <div class="val">50</div>
-          <div class="label">one-time contacts</div>
+          <div class="label">one-time messages</div>
         </div>
       </div>
       <div class="desc">
@@ -698,7 +704,7 @@
         <div class="stat">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <div class="val">500</div>
-          <div class="label">contacts /mo</div>
+          <div class="label">messages /mo</div>
         </div>
       </div>
       <div class="desc">
@@ -739,7 +745,7 @@
         <div class="stat">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <div class="val">2,000</div>
-          <div class="label">contacts /mo</div>
+          <div class="label">messages /mo</div>
         </div>
       </div>
       <div class="desc">
@@ -759,7 +765,7 @@
         <li>Human handoff</li>
         <li>Basic analytics (6 metrics)</li>
         <li class="head">Plus:</li>
-        <li>4× the contacts · 2.5× the team</li>
+        <li>4× the messages · 2.5× the team</li>
         <li>15-min guided onboarding + priority email</li>
       </ul>
     </div>
@@ -783,7 +789,7 @@
         <div class="stat">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <div class="val">5,000</div>
-          <div class="label">contacts /mo</div>
+          <div class="label">messages /mo</div>
         </div>
       </div>
       <div class="desc">
@@ -791,7 +797,7 @@
       </div>
       <ul class="feat">
         <li class="head">Everything in Growth, plus</li>
-        <li>2.5× the contacts · 2× the team</li>
+        <li>2.5× the messages · 2× the team</li>
         <li>30-min premium onboarding + monthly check-in</li>
         <li>Direct line to founders</li>
       </ul>
@@ -815,8 +821,8 @@
         </div>
         <div class="stat">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <div class="val">10,000</div>
-          <div class="label">contacts /mo</div>
+          <div class="val">20,000</div>
+          <div class="label">messages /mo</div>
         </div>
       </div>
       <div class="desc">
@@ -824,7 +830,7 @@
       </div>
       <ul class="feat">
         <li class="head">Everything in Agency, plus</li>
-        <li>2× the contacts · 2.5× the team</li>
+        <li>4× the messages · 2.5× the team</li>
         <li>Done-for-you Wizard + dedicated Slack + quarterly co-design</li>
         <li>White-label resale (your brand · logo · pricing)</li>
       </ul>
@@ -834,19 +840,19 @@
   <div class="contact-pack-cta">
     <a href="#contact-pack">
       <span class="plus">+</span>
-      <span class="text">Add 500 contacts to your plan</span>
+      <span class="text">Add 500 messages to your plan</span>
       <span class="amount">$10</span>
     </a>
-    <p class="hint">Top up any paid plan when you need more this month — stack as many packs as you need.</p>
+    <p class="hint">Top up any paid plan with extra messages this month — stack as many packs as you need.</p>
   </div>
   <div class="pricing-notes">
     <div class="note">
       <span class="label">Beyond Enterprise</span>
-      <div class="body">Clinic groups with <strong>10,000+ contacts or 25+ users</strong> — custom pricing handled case-by-case. <strong>Contact us.</strong></div>
+      <div class="body">Clinic groups with <strong>20,000+ messages or 25+ users</strong> — custom pricing handled case-by-case. <strong>Contact us.</strong></div>
     </div>
     <div class="note">
       <span class="label">Reset &amp; overage</span>
-      <div class="body"><strong>Paid plans</strong> reset on the 1st of every month. <strong>Free</strong> is a one-time 50-contact trial — upgrade when you hit the cap. Need more mid-month on a paid plan? Buy a <strong>contact pack ($10 per 500)</strong> or upgrade.</div>
+      <div class="body"><strong>Paid plans</strong> reset on the 1st of every month. <strong>Free</strong> is a one-time 50-message trial — upgrade when you hit the cap. Need more mid-month on a paid plan? Buy a <strong>message pack ($10 per 500)</strong> or upgrade.</div>
     </div>
     <div class="note">
       <span class="label">Coming soon</span>
@@ -855,7 +861,7 @@
   </div>
 
   <div class="callout blue">
-    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 contacts, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
+    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 messages, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
   </div>
 
   <div class="callout green">
