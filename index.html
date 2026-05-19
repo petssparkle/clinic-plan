@@ -487,10 +487,10 @@
       <h4>1 — Idea + Features</h4>
       <ul class="clean">
         <li>10–20 clinic-owner interviews across Egypt + Gulf + US</li>
-        <li>Validate the pain: DMs/week, response time, lost bookings</li>
-        <li>List the features competitors offer that owners actually use</li>
-        <li>Lock V1 scope vs V1+ (what waits for the next release)</li>
-        <li>Confirm willingness to pay $14–$199/mo</li>
+        <li>Validate the pain: DMs/week, response time, lost bookings, no-show rate</li>
+        <li>Test interest in the 14 V1 features — which 3–4 are "must have" vs "nice to have"</li>
+        <li>Confirm willingness to pay <strong>$15–$499/mo</strong> across our 4 tiers (Starter / Growth / Agency / Enterprise)</li>
+        <li>Validate the Starter wedge: WhatsApp-only inbox + built-in pipeline at $15/mo</li>
         <li><em>Output:</em> a 1-page validation memo</li>
       </ul>
     </div>
@@ -498,10 +498,10 @@
       <h4>2 — Technical Feasibility</h4>
       <ul class="clean">
         <li>Meta WhatsApp Business API — eligibility, approval lead time, message fees at scale</li>
-        <li>Instagram Graph API + Messenger Platform — messaging permissions &amp; approval</li>
-        <li>Google Calendar + Outlook integration paths for live free-slot lookup</li>
+        <li>Instagram Graph API + Messenger Platform — messaging permissions &amp; approval (Growth+ only)</li>
+        <li><strong>Built-in calendar &amp; lead-pipeline</strong> data model — schema for bookings · contacts · tags · statuses</li>
         <li>Claude API — intent-classification accuracy on real clinic DMs</li>
-        <li>Can Belal ship V1 with Claude Code by Aug 1? Honest answer required.</li>
+        <li>Can Belal ship the 14 V1 features with Claude Code by Aug 1? Honest answer required.</li>
         <li>Data residency for patient privacy (UAE PDPL · KSA PDPL · GDPR)</li>
         <li><em>Output:</em> go/no-go technical sign-off</li>
       </ul>
@@ -509,12 +509,13 @@
     <div class="card">
       <h4>3 — Market &amp; Competitors</h4>
       <ul class="clean">
-        <li>Top 10 competitors per region: Manychat, Cliniko, Birdeye, Podium, Respond.io, Saima.ai, regional alternatives</li>
+        <li>Validate the 3 clinic-specific MENA competitors: <strong>HalaFlow · Shamz AI · Leadly Egypt</strong> — real pricing, customer counts, feature scope</li>
+        <li>Generic chatbot competition: Manychat · Wati · Respond.io — confirm none target clinics specifically</li>
         <li>Full pricing table — low/mid/top across all named competitors</li>
-        <li>Feature matrix vs ours — where do we clearly win?</li>
-        <li>Real reviews — what do clinics complain about?</li>
+        <li>Feature matrix vs our 14 V1 features — where do we clearly win?</li>
+        <li>Real reviews — what do clinics complain about with existing tools?</li>
         <li>Geographic strength: who's strong in Egypt / Gulf / US?</li>
-        <li>Set a "kill condition": if 3+ competitors do this well in our markets, rethink</li>
+        <li>Set a "kill condition": if 3+ competitors ship our full lifecycle in our markets, rethink</li>
         <li><em>Output:</em> positioning &amp; pricing brief</li>
       </ul>
     </div>
@@ -552,15 +553,17 @@
     <div class="card">
       <h4>What changes for the clinic (each pain → V1 fix)</h4>
       <ul class="clean">
-        <li><strong>Lost leads come back</strong> — every inquiry is captured and <strong>auto-tagged</strong> by source · service · status in our <strong>built-in pipeline</strong> (automated win-back sequences come in V2)</li>
+        <li><strong>Lost leads come back</strong> — clinic builds its own <strong>Custom Follow-Up Rules</strong> (no-code rule builder): trigger ("didn't book in 24h") → reply → delay. Plus every inquiry auto-tagged in the built-in pipeline.</li>
         <li><strong>No-shows drop</strong> — automatic <strong>24h + 2h reminders</strong>; if a patient wants to reschedule, human handoff routes to staff (multi-step rebook flow is V2)</li>
-        <li><strong>One inbox for the three channels that matter</strong> — <strong>WhatsApp + Instagram + Messenger</strong> DMs unified in one dashboard (Telegram · SMS · web chat · Google Business come in V2)</li>
+        <li><strong>One inbox for social DMs</strong> — <strong>WhatsApp</strong> on every plan; <strong>Instagram + Messenger</strong> unlock on Growth and above as a single all-in-one dashboard (Telegram · SMS · web chat · Google Business come in V2)</li>
         <li><strong>Every patient tagged</strong> — auto-tagged by source, service, urgency, status · custom tags too · all tags live in our native pipeline (visual filter / retargeting dashboard is V2)</li>
-        <li><strong>Auto data captured</strong> — every inquiry &amp; booking lands in our <strong>built-in pipeline</strong> with name · phone · channel · source · service · tags · status · appointment time (external CRM / Google Sheets sync is V2)</li>
-        <li><strong>Bookings happen 24/7</strong> — bot pulls free slots from our <strong>built-in calendar</strong>, patient picks, appointment is confirmed, owner is emailed instantly</li>
-        <li><strong>Owner stays in control</strong> — bot only sends the pre-approved replies the clinic wrote in the Setup Wizard · never invents text · no hallucinations</li>
+        <li><strong>Auto data captured</strong> — every inquiry &amp; booking lands in our <strong>built-in lead pipeline</strong> with name · phone · channel · source · service · tags · status · appointment time (external CRM / Google Sheets sync is V2)</li>
+        <li><strong>Bookings happen 24/7</strong> — bot pulls free slots from our <strong>built-in calendar</strong>, patient picks, appointment is confirmed, owner gets an instant email notification</li>
+        <li><strong>Owner stays in control</strong> — bot only sends the pre-approved replies the clinic wrote in the <strong>Clinic Setup Wizard</strong> · never invents text · no hallucinations</li>
+        <li><strong>Optional clinic website</strong> — every plan includes ready-made aesthetic / dental website templates (1 on Starter · up to 5 on Agency · unlimited white-label on Enterprise) — pulls all content from the Setup Wizard, no separate site to maintain</li>
+        <li><strong>Basic analytics</strong> — 6 simple counters: messages answered · bookings made · conversion rate · top-requested services · channel performance · handoff cases</li>
       </ul>
-      <p style="font-size:12px; color:var(--muted); margin-top:6px;"><em>Reviews · post-visit care · satisfaction surveys · return-appointment suggestion → V2.</em></p>
+      <p style="font-size:12px; color:var(--muted); margin-top:6px;"><em>Multi-step rebook · post-visit care · satisfaction surveys · advanced analytics dashboard · external CRM/Sheets sync · voice/phone AI → V2.</em></p>
     </div>
   </div>
 </section>
@@ -578,10 +581,11 @@
         <span class="when">Seconds</span>
       </div>
       <ol class="journey-steps">
-        <li><strong>Patient sends a DM</strong> on WhatsApp, Instagram, or Messenger (V1 channels) — any source (ad click, story tag, website CTA, organic post, profile). More channels come in V2.</li>
-        <li><strong>Bot sends the welcome message</strong> the clinic wrote — same on every channel, every source</li>
-        <li><strong>Matches intent</strong> from the message: price · service · hours · ad-offer · book · before/after photo</li>
-        <li><strong>Sends the matching fixed reply</strong> from the clinic's reply list — predictable, on-brand</li>
+        <li><strong>Patient sends a DM</strong> — WhatsApp on every plan; Instagram + Messenger on Growth and above (V1 channels). Any source (ad click, story tag, website CTA, organic post, profile).</li>
+        <li><strong>Bot sends the welcome message</strong> the clinic wrote in the Setup Wizard — same on every channel, every source</li>
+        <li><strong>Intent matching</strong> classifies the message: price · services · location · hours · booking · before/after photos · human help</li>
+        <li><strong>Sends the matching fixed reply</strong> from the clinic's Fixed-Reply FAQ Library — predictable, on-brand, EN or AR auto-detected</li>
+        <li><strong>Patient auto-tagged</strong> in the built-in pipeline — by lead source, service interest, and status</li>
       </ol>
     </div>
 
@@ -593,9 +597,9 @@
       </div>
       <ol class="journey-steps">
         <li><strong>Patient signals booking intent</strong> ("I want an appointment" · "Available tomorrow?" · CTA click)</li>
-        <li><strong>Bot pulls free slots</strong> live from our built-in calendar — only inside working hours</li>
+        <li><strong>Bot pulls free slots</strong> live from our built-in booking calendar — only inside working hours, no double-booking</li>
         <li><strong>Patient picks a slot</strong> from the carousel / quick-reply buttons</li>
-        <li><strong>Bot books the appointment</strong> + syncs to CRM/Sheet + emails the owner instantly</li>
+        <li><strong>Bot confirms the booking</strong> + logs it in the built-in lead pipeline + sends the owner an instant email notification</li>
       </ol>
     </div>
 
@@ -607,6 +611,7 @@
       </div>
       <ol class="journey-steps">
         <li><strong>Reminders</strong> auto-sent <strong>24h + 2h</strong> before the appointment to cut no-shows</li>
+        <li><strong>Custom Follow-Up Rules</strong> kick in for unconverted leads — clinic-built triggers ("asked about price, didn't book in 24h") send the clinic's pre-written follow-up reply automatically</li>
         <li><strong>Reschedule / cancel</strong> — patient asks → <strong>human handoff</strong> routes to staff (auto-reschedule via bot is V2)</li>
         <li><strong>Booking status logged</strong> in the built-in pipeline — clinic owns the data and can run manual follow-ups against any tag</li>
         <li><strong>V2 (later):</strong> 48h reminder · auto no-show recovery · post-visit care + medication · satisfaction surveys · return-appointment suggestion</li>
