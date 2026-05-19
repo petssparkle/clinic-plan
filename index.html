@@ -21,13 +21,14 @@
     --radius: 12px;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.55; }
   .wrap { max-width: 1300px; margin: 0 auto; padding: 32px 22px 60px; }
-  .section-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 10px 16px; margin: -32px -22px 22px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-  .section-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; color: var(--muted); font-size: 12.5px; font-weight: 600; transition: all 0.15s; background: var(--panel); white-space: nowrap; }
-  .section-nav a:hover { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-color: var(--brand); transform: translateY(-1px); }
-  .section-nav a .n { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; background: var(--brand); color: white; border-radius: 4px; font-size: 10.5px; font-weight: 700; }
-  .section-nav a:hover .n { background: rgba(255,255,255,0.25); }
+  .section-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 12px 16px; margin: -32px -22px 24px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; box-shadow: 0 1px 0 rgba(13, 148, 136, 0.04); }
+  .section-nav a { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; color: var(--muted); font-size: 12.5px; font-weight: 600; transition: all 0.18s ease; background: var(--panel); white-space: nowrap; }
+  .section-nav a:hover { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-color: var(--brand); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(13, 148, 136, 0.20); }
+  .section-nav a .n { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; background: var(--brand); color: white; border-radius: 5px; font-size: 10.5px; font-weight: 800; letter-spacing: 0; }
+  .section-nav a:hover .n { background: rgba(255,255,255,0.28); }
   @media (max-width: 760px) {
     .section-nav { gap: 4px; padding: 8px 12px; margin: -18px -12px 16px; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
     .section-nav a { font-size: 11.5px; padding: 6px 10px; flex-shrink: 0; }
@@ -65,13 +66,14 @@
     .hero-timeline { grid-template-columns: 1fr; }
   }
 
-  section { margin-top: 38px; }
-  h2 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; color: var(--text); }
-  h2 .num { display: inline-block; min-width: 30px; height: 30px; line-height: 30px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 8px; font-size: 13px; margin-right: 10px; vertical-align: middle; font-weight: 700; }
-  h3 { font-size: 16px; margin: 14px 0 4px; color: var(--text); }
-  h4 { font-size: 12.5px; margin: 12px 0 4px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
-  p { color: var(--muted); margin: 5px 0; font-size: 14px; }
-  .section-sub { color: var(--muted); font-size: 14px; margin-bottom: 14px; max-width: 880px; }
+  section { margin-top: 44px; padding-top: 4px; }
+  section + section { border-top: 1px solid rgba(13, 148, 136, 0.10); padding-top: 32px; margin-top: 32px; }
+  h2 { font-size: 24px; margin: 0 0 8px; letter-spacing: -0.015em; color: var(--text); display: flex; align-items: center; gap: 12px; }
+  h2 .num { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 9px; font-size: 13px; vertical-align: middle; font-weight: 700; flex-shrink: 0; box-shadow: 0 3px 10px rgba(13, 148, 136, 0.18); }
+  h3 { font-size: 16.5px; margin: 22px 0 6px; color: var(--text); letter-spacing: -0.005em; font-weight: 700; }
+  h4 { font-size: 12.5px; margin: 14px 0 6px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
+  p { color: var(--muted); margin: 6px 0; font-size: 14px; line-height: 1.55; }
+  .section-sub { color: var(--muted); font-size: 14px; margin: 0 0 16px; max-width: 920px; line-height: 1.55; }
 
   .grid { display: grid; gap: 14px; }
   .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -84,7 +86,11 @@
     .wrap { padding: 18px 12px 40px; }
   }
 
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+  .card > *:first-child { margin-top: 0; }
+  .card > *:last-child { margin-bottom: 0; }
+  .card h4 { margin-top: 0; }
+  .card p { line-height: 1.55; }
 
   .kpi { display: flex; flex-direction: column; gap: 2px; padding: 14px; }
   .kpi .label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
@@ -93,9 +99,9 @@
   .kpi.brand .value { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .kpi.accent .value { color: var(--accent); }
 
-  ul.clean { list-style: none; padding-left: 0; margin: 3px 0; }
-  ul.clean li { position: relative; padding: 4px 0 4px 18px; color: var(--muted); font-size: 13.5px; }
-  ul.clean li::before { content: ""; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
+  ul.clean { list-style: none; padding-left: 0; margin: 6px 0; }
+  ul.clean li { position: relative; padding: 5px 0 5px 20px; color: var(--muted); font-size: 13.5px; line-height: 1.55; }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
 
   .month-row {
     display: grid;
@@ -125,9 +131,11 @@
   .month-row .goal { text-align: right; font-weight: 700; color: var(--accent); font-size: 13.5px; }
   @media (max-width: 768px) { .month-row .goal { text-align: left; } }
 
-  table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-  table.tbl th, table.tbl td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13.5px; }
-  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin: 8px 0 14px; }
+  table.tbl th, table.tbl td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13.5px; vertical-align: top; line-height: 1.45; }
+  table.tbl tr:last-child td { border-bottom: none; }
+  table.tbl th { background: var(--panel-soft); font-weight: 700; color: var(--text); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--border); }
+  table.tbl tbody tr:hover { background: rgba(13, 148, 136, 0.03); }
   table.tbl tr:last-child td { border-bottom: none; }
 
   /* 4 plans, single row at desktop & tablet, equal widths */
@@ -262,12 +270,14 @@
   .tag { display: inline-block; padding: 3px 8px; background: #ccfbf1; color: #0f766e; border-radius: 999px; font-size: 11.5px; margin: 2px 3px 2px 0; font-weight: 500; }
   .tag.accent { background: #fce7f3; color: #9d174d; }
 
-  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 12px 14px; border-radius: 10px; color: #7c2d12; margin-top: 12px; font-size: 13.5px; }
+  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; border-left: 4px solid #f59e0b; padding: 14px 18px; border-radius: 10px; color: #7c2d12; margin: 14px 0; font-size: 13.5px; line-height: 1.6; }
   .callout strong { color: #7c2d12; }
-  .callout.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #6ee7b7; color: #065f46; }
+  .callout.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #6ee7b7; border-left-color: #10b981; color: #065f46; }
   .callout.green strong { color: #065f46; }
-  .callout.blue { background: linear-gradient(135deg, #f0fdfa, #ccfbf1); border-color: #5eead4; color: #134e4a; }
+  .callout.blue { background: linear-gradient(135deg, #f0fdfa, #ccfbf1); border-color: #5eead4; border-left-color: var(--brand); color: #134e4a; }
   .callout.blue strong { color: #134e4a; }
+  .callout > *:first-child { margin-top: 0; }
+  .callout > *:last-child { margin-bottom: 0; }
 
   .funnel-row { display: grid; grid-template-columns: 180px 1fr 60px; align-items: center; gap: 10px; padding: 5px 0; }
   @media (max-width: 768px) { .funnel-row { grid-template-columns: 1fr; gap: 3px; } }
@@ -1308,7 +1318,7 @@
     <div class="card">
       <h4 style="color:var(--brand-2);">Tier 0 · Pre-funding</h4>
       <p style="font-size:12.5px; margin:4px 0 10px; color:var(--muted);"><strong style="color:var(--text);">Aug 2026 – Jun 2027.</strong> Ahmed has only put in $1,000; equity is 10/45/45. <strong style="color:var(--text);">Dividends match equity</strong> (no preferred return yet):</p>
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;">
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
         <div style="text-align:center; padding:12px 6px; background:linear-gradient(135deg, rgba(236,72,153,0.04), rgba(245,158,11,0.08)); border-radius:10px; border:1px solid rgba(236,72,153,0.14);">
           <div style="font-size:22px; font-weight:800; color:var(--accent); line-height:1;">10%</div>
           <div style="font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:6px;">Ahmed</div>
@@ -1326,7 +1336,7 @@
     <div class="card">
       <h4 style="color:var(--accent);">Tier 1 · Capital Payback</h4>
       <p style="font-size:12.5px; margin:4px 0 10px; color:var(--muted);"><strong style="color:var(--text);">Jul 2027 → $21k repaid.</strong> Equity is now <strong style="color:var(--text);">40/30/30</strong>. <strong style="color:var(--text);">Dividends differ from equity</strong> — accelerated for Ahmed until he's whole:</p>
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;">
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
         <div style="text-align:center; padding:12px 6px; background:linear-gradient(135deg, rgba(236,72,153,0.10), rgba(245,158,11,0.14)); border-radius:10px; border:1px solid rgba(236,72,153,0.22);">
           <div style="font-size:22px; font-weight:800; color:var(--accent); line-height:1;">60%</div>
           <div style="font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:6px;">Ahmed</div>
@@ -1344,7 +1354,7 @@
     <div class="card">
       <h4 style="color:var(--brand);">Tier 2 · Standard (final)</h4>
       <p style="font-size:12.5px; margin:4px 0 10px; color:var(--muted);"><strong style="color:var(--text);">After $21k recovered.</strong> Equity <strong style="color:var(--text);">re-balances to 30/35/35</strong> (Ahmed steps back as non-operating; operating founders' share grows). Dividends match this final equity:</p>
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;">
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
         <div style="text-align:center; padding:12px 6px; background:linear-gradient(135deg, rgba(236,72,153,0.06), rgba(245,158,11,0.10)); border-radius:10px; border:1px solid rgba(236,72,153,0.18);">
           <div style="font-size:22px; font-weight:800; color:var(--accent); line-height:1;">30%</div>
           <div style="font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:6px;">Ahmed</div>
