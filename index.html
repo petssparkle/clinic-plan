@@ -23,6 +23,16 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; }
   .wrap { max-width: 1300px; margin: 0 auto; padding: 32px 22px 60px; }
+  .section-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 10px 16px; margin: -32px -22px 22px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .section-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; color: var(--muted); font-size: 12.5px; font-weight: 600; transition: all 0.15s; background: var(--panel); white-space: nowrap; }
+  .section-nav a:hover { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-color: var(--brand); transform: translateY(-1px); }
+  .section-nav a .n { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; background: var(--brand); color: white; border-radius: 4px; font-size: 10.5px; font-weight: 700; }
+  .section-nav a:hover .n { background: rgba(255,255,255,0.25); }
+  @media (max-width: 760px) {
+    .section-nav { gap: 4px; padding: 8px 12px; margin: -18px -12px 16px; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+    .section-nav a { font-size: 11.5px; padding: 6px 10px; flex-shrink: 0; }
+  }
+  section[id] { scroll-margin-top: 72px; }
 
   .hero {
     position: relative;
@@ -393,6 +403,15 @@
 <body>
 <div class="wrap">
 
+<nav class="section-nav">
+  <a href="#sec-01"><span class="n">01</span> Product &amp; Pricing</a>
+  <a href="#sec-02"><span class="n">02</span> Acquisition</a>
+  <a href="#sec-03"><span class="n">03</span> 7-Month Plan</a>
+  <a href="#sec-04"><span class="n">04</span> Cash &amp; Risks</a>
+  <a href="#sec-05"><span class="n">05</span> After V1</a>
+  <a href="#sec-06"><span class="n">06</span> Shareholders</a>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <span class="pill">AI Receptionist for Clinics · Phase 1 · May 17 → Dec 31, 2026</span>
@@ -588,7 +607,7 @@
 </section>
 
 <!-- §1 V1 + PRICING -->
-<section>
+<section id="sec-01">
   <h2><span class="num">01</span>The Product &amp; Pricing</h2>
   <p class="section-sub">Belal ships V1 by <strong>Aug 1</strong> using Claude Code. The product replaces 60–80% of a clinic receptionist's workload by handling WhatsApp + Instagram + Messenger DMs, answering pricing questions, and booking appointments automatically. <strong>V1 target verticals: aesthetic clinics and dental clinics</strong> in Egypt and the Gulf — the two categories with the highest DM volume and clearest ROI from automation.</p>
 
@@ -609,8 +628,8 @@
         <li><strong>10 · Built-in Lead Pipeline</strong> · our own native pipeline view — every inquiry and booking logged with name · phone · channel · source · service · tags · status · appointment time. No external CRM or spreadsheet required.</li>
         <li><strong>11 · Basic Analytics</strong> · simple counters: messages answered · bookings made · booking conversion rate · top-requested services · channel performance · handoff cases.</li>
         <li><strong>12 · Clinic Setup Wizard</strong> · during onboarding, the clinic adds services · prices/ranges · working hours · location · doctors · tags · approved replies. One-time, then it's ready to go live.</li>
-        <li><strong>13 · Clinic Website Template (optional)</strong> · ready-made aesthetic / dental clinic website templates the clinic can publish in one click. Services, prices, doctor profiles, before/after gallery, and booking CTA all pull from the Setup Wizard — no separate site to maintain. <em>Inspired by Lodgify and HalaFlow, who include a basic website slot in every plan as a wedge to sell their core product. Plan tiers differ by website count: Starter 1 · Growth up to 3 · Agency up to 5 · Enterprise unlimited (with white-label).</em></li>
-        <li><strong>14 · Custom Follow-Up Rules (set by clinic)</strong> · the clinic builds its own automated follow-up sequences in a no-code rule builder — pick a trigger ("asked about price, didn't book within 24h"), pick the reply, pick the delay. Use cases: win-back of unconverted leads, abandoned-booking reminders, post-visit thank-you. <em>The clinic owns every rule and every message — the AI just executes.</em></li>
+        <li><strong>13 · Custom Follow-Up Rules (set by clinic)</strong> · the clinic builds its own automated follow-up sequences in a no-code rule builder — pick a trigger ("asked about price, didn't book within 24h"), pick the reply, pick the delay. Use cases: win-back of unconverted leads, abandoned-booking reminders, post-visit thank-you. <em>The clinic owns every rule and every message — the AI just executes.</em></li>
+        <li><strong>14 · Clinic Website Template (optional)</strong> · ready-made aesthetic / dental clinic website templates the clinic can publish in one click. Services, prices, doctor profiles, before/after gallery, and booking CTA all pull from the Setup Wizard — no separate site to maintain. <em>Inspired by Lodgify and HalaFlow, who include a basic website slot in every plan as a wedge to sell their core product. Plan tiers differ by website count: Starter 1 · Growth up to 3 · Agency up to 5 · Enterprise unlimited (with white-label).</em></li>
       </ul>
       <p style="font-size:12.5px; color:var(--brand); margin-top:8px; font-weight:600;">That's it — 12 features, nothing more. Enough to sell, enough to prove the wedge.</p>
     </div>
@@ -951,44 +970,22 @@
   </table>
   <p style="font-size:12.5px; color:var(--muted); margin-top:6px;"><em>Note: HalaFlow, Shamz AI, and Leadly Egypt all need full validation in Week 1 — pricing, feature scope, real customer counts, and gaps to confirm before we anchor positioning to them. The MENA clinic-chatbot landscape is small and changing fast.</em></p>
 
-  <div class="grid grid-2" style="margin-top:14px;">
-    <div class="card">
-      <h4 style="color:var(--brand);">How we win in V1 (today)</h4>
-      <ul class="clean">
-        <li><strong>Full patient lifecycle in one product</strong> — DM → FAQ → booking → reminders → no-show prevention → post-visit follow-up → feedback. Competitors only solve one slice.</li>
-        <li><strong>Calendar fulfillment built in</strong> — sends free slots, books, auto-reuses cancellations. No Calendly stack on top.</li>
-        <li><strong>Built-in pipeline + auto-tagging</strong> — every action lands in our native lead pipeline. No manual data entry, ever.</li>
-        <li><strong>Bilingual EN + AR</strong> — most competitors are English-only or have weak Arabic</li>
-        <li><strong>Fixed-reply mechanic</strong> — owner controls every word · bot can't go off-script</li>
-        <li><strong>$15/mo starter</strong> — cheapest clinic-specific option in the market</li>
-        <li><strong>60-min setup</strong> — not a multi-week onboarding project</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4 style="color:var(--accent);">What we add in V2 (later)</h4>
-      <ul class="clean">
-        <li><strong>Voice/phone AI receptionist</strong> — answers phone calls too, not just DMs (Calls + Call Forward + Multiple Numbers)</li>
-        <li><strong>Visual Smart-Flow Automation Builder</strong> — drag-and-drop builder for clinic-specific patient journeys</li>
-        <li><strong>Make.com / Zapier integration</strong> — connect to anything (EHR, accounting, marketing tools)</li>
-        <li><strong>Public API + Webhooks</strong> — clinic-specific custom integrations</li>
-        <li><strong>AI Vision</strong> — patient sends before-photo, bot can identify treatment area</li>
-        <li><strong>Whisper transcription</strong> — voice messages converted to text + handled like normal DMs</li>
-        <li><strong>Multiple AI Assistants per workspace</strong> — separate bots for derma, dental, aesthetic etc.</li>
-        <li><strong>Custom AI training per clinic</strong> — feed PDFs, website data, treatment manuals</li>
-        <li><strong>Round-Robin distribution</strong> — route inbounds across multiple receptionists/staff</li>
-        <li><strong>Tasks Management</strong> — assign follow-up tasks to staff per patient</li>
-        <li><strong>EHR / patient record integration</strong> — direct sync with clinic management software</li>
-        <li><strong>Multi-clinic team management</strong> — sub-accounts, role permissions, audit logs</li>
-        <li><strong>Marketing automation</strong> — re-engage past patients with promo campaigns</li>
-        <li><strong>Reputation management</strong> — request &amp; manage Google reviews</li>
-        <li><strong>Advanced ad attribution</strong> — track which Meta/Google ad each booking came from</li>
-      </ul>
-    </div>
+  <div class="card" style="margin-top:14px;">
+    <h4 style="color:var(--brand);">Why we beat all three (today)</h4>
+    <ul class="clean">
+      <li><strong>Full patient lifecycle in one product</strong> — DM → FAQ → booking → reminders → no-show prevention → post-visit follow-up. Competitors only solve one slice.</li>
+      <li><strong>Native booking calendar + lead pipeline built in</strong> — no Calendly stack, no Google Sheet, no manual data entry.</li>
+      <li><strong>Bilingual EN + AR from Day 1</strong> — most competitors are English-only or have weak Arabic.</li>
+      <li><strong>Fixed-reply mechanic</strong> — owner controls every word; bot can't go off-script (no hallucination).</li>
+      <li><strong>$15/mo starter</strong> — cheapest clinic-specific option in the market.</li>
+      <li><strong>60-min setup wizard</strong> — not a multi-week onboarding project.</li>
+    </ul>
+    <p style="font-size:12px; color:var(--muted); margin-top:8px;"><em>The full V1 vs V2 feature breakdown is in §01 (Product &amp; Pricing). This card shows just the competitive wedges.</em></p>
   </div>
 </section>
 
 <!-- §2 ACQUISITION -->
-<section>
+<section id="sec-02">
   <h2><span class="num">02</span>How We Win the First 20 Clinics</h2>
   <p class="section-sub"><strong>Phase 1 acquisition is inbound + warm connections only</strong> — no cold calls, no outbound sales motion yet. The first 20 clinics come from inbound (content, partnerships, host DMs, communities) and the founders' direct network. <strong>Cold outreach, doctor phone-number outreach, word-of-mouth scaling, and clinic-owner events</strong> all kick in <strong>Phase 2</strong>, when the 3 sales reps come on board. Acquisition starts mid-July when the site is live. <strong>Starting market: Egypt + Gulf</strong> (UAE · KSA · Kuwait · Qatar · Bahrain · Oman). <strong>US is next</strong>, expanded into once Egypt + Gulf traction proves the wedge. Demo bookings are managed by Mahmoud, run by a commission-only sales partner.</p>
 
@@ -1007,27 +1004,34 @@
   <h3 style="margin-top:18px;">How we get the first 20 clinics — outreach + connections lead, inbound supports</h3>
 
   <div class="callout green" style="margin-bottom:14px;">
-    <strong>Two-step acquisition motion:</strong> (1) <strong>First 5 clinics ride free</strong> — sourced from warm connections, onboarded as design partners in exchange for weekly feedback, a testimonial, and a 90-day case study. (2) <strong>Clinics 6–10 pay 50% off for 6 months</strong> (paid pilots). (3) <strong>Once we hit 10 paying clinics, we flip them into affiliates</strong> — every clinic they refer gets the same <strong>50% off for the first 3 months</strong>, and the referring clinic gets <strong>1 free month per successful referral</strong>. By the time we hit 20 clinics, the last 5 should land via this affiliate motion.
+    <strong>Two-step acquisition motion:</strong> (1) <strong>First 5 clinics ride free</strong> — sourced from warm connections, onboarded as design partners in exchange for weekly feedback, a testimonial, and a 90-day case study. (2) <strong>Clinics 6–10 pay 50% off for 6 months</strong> (paid pilots). (3) <strong>Once we hit 10 paying clinics, we flip them into affiliates</strong> — when any clinic refers a new one, both sides win: the <strong>referred clinic gets their first month free</strong> (then bills from month 2), and the <strong>referring clinic gets 1 free month off their current plan</strong> for every successful referral. By the time we hit 20 clinics, the last 5 should land via this referral motion.
   </div>
 
   <div class="channel"><div class="rank">1</div><div class="body"><strong>Warm connections (founders' direct network)</strong><span><strong>The wedge.</strong> Belal + Mahmoud personally know ~50 clinic owners across Egypt, UAE, KSA, Kuwait, Qatar, Bahrain &amp; Oman (aesthetic + dental). Personal Loom or 60s WhatsApp video showing the AI replying to a real DM + booking an appointment. <strong>First 5 clinics ride free as design partners</strong> — weekly feedback, testimonial, 90-day case study in exchange.</span></div><div class="target">→ 5 free</div></div>
 
-  <div class="channel"><div class="rank">2</div><div class="body"><strong>Doctors' WhatsApp outreach (public phone numbers)</strong><span>Scrape publicly listed doctor / clinic phone numbers from clinic websites, Google Maps listings, and medical directories in Cairo + Gulf capitals. Personal WhatsApp message in Arabic with a 30s Loom of the AI in action. <strong>WhatsApp open-rate ~95% beats email's ~20%</strong> — this is the highest-ROI cold channel for our market. Mahmoud manages from the list, sales partner runs demos.</span></div><div class="target">→ 5 clinics</div></div>
+  <div class="channel"><div class="rank">2</div><div class="body"><strong>Inbound stack — website · SEO · social · ads · email</strong><span>Multi-pronged inbound from Day 1 of mid-July go-live:
+    <br/>• <strong>Marketing website</strong> with bilingual landing pages, a 90s product demo video, and a built-in web-chat widget for visitor inquiries.
+    <br/>• <strong>SEO blog</strong> 1–2 posts/week on "AI receptionist for clinics", "WhatsApp booking aesthetic clinic Cairo/Dubai/Riyadh", "بوت رد على عيادات".
+    <br/>• <strong>Organic social</strong> — Instagram, TikTok &amp; LinkedIn 3×/week (clinic-owner tips, before/after case studies, build-in-public).
+    <br/>• <strong>Paid test on Meta Ads</strong> — small <strong>$100 trial budget</strong> for Instagram + Facebook campaigns targeting aesthetic / dental clinic owners and medical directors. Optimize copy + creative, scale only if CAC pencils out.
+    <br/>• <strong>Cold email sequences</strong> — bilingual EN / AR templates sent to scraped clinic-owner addresses with the demo Loom + a one-click 14-day free-trial invite. Drip 3 emails over 10 days.
+    <br/>• <strong>Doctor-community newsletters</strong> — sponsor or guest-write in aesthetic-medicine / dental newsletters in MENA.</span></div><div class="target">→ 2 clinics</div></div>
 
   <div class="channel"><div class="rank">3</div><div class="body"><strong>LinkedIn outreach to clinic owners + medical directors</strong><span>Mahmoud DMs clinic owners, medical directors, and aesthetic-clinic managers directly — bilingual EN / AR. Also posts <strong>2×/week</strong> ("how AI handled 200 DMs for a Cairo clinic last week", "the WhatsApp inquiry pattern your clinic is losing") to build inbound credibility for cold DMs. Higher signal than Instagram in the Gulf B2B segment.</span></div><div class="target">→ 4 clinics</div></div>
 
-  <div class="channel"><div class="rank">4</div><div class="body"><strong>Instagram DM outreach to clinic accounts</strong><span>Scrape aesthetic / dental / beauty clinic Instagram accounts in Cairo &amp; Gulf capitals with high followers and active DMs. Personalized Arabic or English message referencing inquiries we can see on their public posts. Send the Loom + a calendar link.</span></div><div class="target">→ 3 clinics</div></div>
+  <div class="channel"><div class="rank">4</div><div class="body"><strong>Doctors' WhatsApp outreach (public phone numbers)</strong><span>Scrape publicly listed doctor / clinic phone numbers from clinic websites, Google Maps listings, and medical directories in Cairo + Gulf capitals. Personal WhatsApp message in Arabic with a 30s Loom of the AI in action. <strong>WhatsApp open-rate ~95% beats email's ~20%</strong> — highest-ROI cold channel for our market. Mahmoud manages from the list, sales partner runs demos.</span></div><div class="target">→ 5 clinics</div></div>
 
-  <div class="channel"><div class="rank">5</div><div class="body"><strong>Existing-client referrals + affiliate program</strong><span><strong>Kicks in after clinic #10.</strong> Every paying clinic becomes an affiliate. They refer another clinic → the referred clinic gets <strong>50% off first 3 months</strong>; the referring clinic gets <strong>1 free month per successful referral</strong>. Clinics talk to each other — this is how the back half of our first 20 land. Track via unique referral codes.</span></div><div class="target">→ 2 clinics</div></div>
+  <div class="channel"><div class="rank">5</div><div class="body"><strong>Instagram DM outreach to clinic accounts</strong><span>Scrape aesthetic / dental / beauty clinic Instagram accounts in Cairo &amp; Gulf capitals with high followers and active DMs. Personalized Arabic or English message referencing inquiries we can see on their public posts. Send the Loom + a calendar link.</span></div><div class="target">→ 3 clinics</div></div>
 
-  <div class="channel"><div class="rank">6</div><div class="body"><strong>Website inbound + SEO (supporting channel)</strong><span>Marketing site live mid-July with bilingual landing pages, a 90s product demo video, and a built-in web-chat widget for visitor inquiries. SEO blog 1–2 posts/week on "AI receptionist for clinics", "WhatsApp booking aesthetic clinic Cairo/Dubai/Riyadh", "بوت رد على عيادات". <em>Compounds over time — supports the outreach channels but won't carry us to 20.</em></span></div><div class="target">→ 1 clinic</div></div>
+  <div class="channel"><div class="rank">6</div><div class="body"><strong>Existing-client referrals + affiliate program</strong><span><strong>Kicks in after clinic #10.</strong> When a paying clinic refers another, <strong>both sides get 1 free month</strong>: the referred clinic gets <strong>their first month free</strong> on whatever plan they pick (then bills from month 2), and the referring clinic gets <strong>1 month free off their current billing</strong> as soon as the referred clinic pays for month 2. Each successful referral stacks. Clinics talk to each other — this is how the back half of our first 20 land. Track via unique referral codes.</span></div><div class="target">→ 1 clinic</div></div>
 
   <div class="grid grid-2" style="margin-top:14px;">
     <div class="card">
-      <h4>Demo process — Mahmoud manages, sales partner runs</h4>
+      <h4>Phase 1 demo process — founders + sales-partner-per-demo</h4>
       <ul class="clean">
-        <li>Mahmoud books and qualifies; sales partner runs the demo</li>
-        <li>Sales partner paid <strong>only on close</strong> — <strong>50% of one month's subscription</strong> (one-time), funded from revenue</li>
+        <li><strong>Booking + qualifying:</strong> Mahmoud handles all inbound; Belal joins for technical Q&amp;A</li>
+        <li><strong>Running the demo:</strong> Belal or Mahmoud personally for the first 5 design-partner deals; from clinic #6 a commission-only sales partner can run them in parallel</li>
+        <li><strong>Sales partner comp (Phase 1 + H1 2027):</strong> <strong>$10 fixed fee per demo attended</strong> + <strong>50% of one month's subscription</strong> as closure commission (one-time, funded from revenue)</li>
         <li>Pre-call: 2-min Loom showing AI replying to a real DM + booking an appointment</li>
         <li>30 min: 5 discover → 15 demo (live AI vs their actual Instagram inbox) → 5 pricing → 5 commit</li>
         <li>Proposal within 24h, 7-day deadline</li>
@@ -1046,7 +1050,7 @@
 </section>
 
 <!-- §3 PLAN -->
-<section>
+<section id="sec-03">
   <h2><span class="num">03</span>The 7-Month Plan</h2>
   <p class="section-sub">One focus per month. Hit it or stop and re-plan.</p>
 
@@ -1081,7 +1085,7 @@
 </section>
 
 <!-- §4 CASH + RISKS -->
-<section>
+<section id="sec-04">
   <h2><span class="num">04</span>Cash &amp; Risks</h2>
   <p class="section-sub">Total Phase 1 spend is under $1,000. Free tiers cover everything else.</p>
 
@@ -1117,59 +1121,73 @@
 </section>
 
 <!-- §5 V2 -->
-<section>
-  <h2><span class="num">05</span>After V1 — 2027 &amp; 2028</h2>
+<section id="sec-05">
+  <h2><span class="num">05</span>After V1 — 2027, 2028 &amp; 2029</h2>
   <div class="v2-card">
     <p style="color:#e2e8f0; font-size:15px; margin:0 0 14px;">
-      <strong style="color:#5eead4;">Ahmed</strong> continues funding into Phase 2 with <strong style="color:#5eead4;">~$20,000</strong> in Jan 2027 (on top of the $1,000 he already funded in Phase 1). We hire 5 at <strong style="color:#5eead4;">$800/mo</strong> each (bumping to $1,000 in H2): <strong style="color:white;">1 developer · 1 marketer · 3 sales reps</strong>. The 3 sales reps run a real outbound motion — cold calls to publicly-listed clinic + doctor phone numbers (Gulf + Egypt directories are dense), plus we scale word-of-mouth from the first 20 clinics and start showing up at clinic-owner events (Dubai Derma, IMCAS Dubai, Aesthetics Conference, regional dental shows). Goal of 2027: 250 paying clinics. Goal of 2028: full UAE shift.
+      <strong style="color:#5eead4;">Ahmed</strong> continues funding into Phase 2 with <strong style="color:#5eead4;">~$20,000</strong> in Jan 2027 (on top of the $1,000 he already funded in Phase 1). <strong style="color:white;">Hiring is pushed entirely to H2:</strong> H1 2027 is founders-only — Belal + Mahmoud stabilize the first 20 clinics and add 20 more, getting to 40 paying clinics before any new headcount lands. <strong style="color:white;">H2 then hires 5 at once</strong> (3 sales reps + 1 marketer + 1 developer @ $800/mo each), with founder salaries kicking in at $1,000/mo. <strong style="color:white;">Sales target = 10 new clinics / month per salesperson</strong>, plus inbound contributes ~25% on top (~2.5 inbound clinics per salesperson). 2028: hire +1 sales = 4 sales × 10 + inbound = ~50/mo. 2029: 5 sales × 10 + inbound = ~62/mo. Founders bump to $1,500/mo in 2028 and $2,000/mo in 2029 — plus dividends. Goal of 2027: ~260 paying clinics. Goal of 2028: full UAE shift in a small office or co-work space.
     </p>
 
     <div class="v2-grid">
       <div class="v2-tile">
         <h4>H1 2027 · Jan–Jun</h4>
-        <strong>100 paying clinics · 100% remote</strong>
+        <strong>~40 paying clinics · founders-only · remote</strong>
         <span>
-          • Team: <strong style="color:white;">7 total</strong> — 2 founders + 5 hires<br/>
-          • End-of-H1 MRR: ~$6,000/mo<br/>
-          • Operating founders: <strong style="color:white;">$0/mo</strong> (no salary in H1)<br/>
-          • 5 hires @ <strong style="color:white;">$500/mo</strong> each<br/>
-          • Claude (team-wide): $300/mo<br/>
+          • Team: <strong style="color:white;">2 (founders only)</strong> — no hires this half<br/>
+          • Focus: stabilize first 20 clinics + add 20 more (~3–4/mo)<br/>
+          • End-of-H1 MRR: ~$2,000/mo<br/>
+          • Operating founders: <strong style="color:white;">$0/mo</strong> (no salary)<br/>
+          • Claude: <strong style="color:white;">$200/mo</strong><br/>
           • Other expenses &amp; fees: $200/mo<br/>
-          • <strong style="color:white;">Burn ~$3,000/mo</strong>
+          • <strong style="color:white;">Burn ~$400/mo</strong>
         </span>
       </div>
       <div class="v2-tile">
         <h4>H2 2027 · Jul–Dec</h4>
-        <strong>250 paying clinics · 100% remote</strong>
+        <strong>~260 paying clinics · remote</strong>
         <span>
-          • Team: <strong style="color:white;">7 total</strong> (same)<br/>
-          • End-of-year MRR: ~$15,000/mo<br/>
-          • Operating founders: <strong style="color:white;">$1,000/mo</strong> each (starts H2)<br/>
-          • Hires bump to <strong style="color:white;">$800/mo</strong> each<br/>
-          • Claude: $300/mo · Other: $200/mo<br/>
-          • <strong style="color:white;">Burn ~$6,500/mo → revenue covers</strong>
+          • Team grows to <strong style="color:white;">7</strong> — hire <strong style="color:white;">3 sales + 1 marketer + 1 developer</strong><br/>
+          • Sales: 3 × 10 clinics/mo = 30 + ~7–8 inbound = <strong style="color:white;">~37/mo</strong><br/>
+          • End-of-year MRR: ~$13,000/mo<br/>
+          • Operating founders: <strong style="color:white;">$1,000/mo</strong> each<br/>
+          • 5 hires @ <strong style="color:white;">$800/mo</strong> each<br/>
+          • Claude: $300/mo · Other: $200/mo · <strong style="color:white;">Marketing: $500/mo</strong><br/>
+          • <strong style="color:white;">Burn ~$7,000/mo → revenue covers</strong>
         </span>
       </div>
       <div class="v2-tile">
         <h4>2028 · The UAE Shift</h4>
-        <strong>Hybrid · small UAE office</strong>
+        <strong>~800 paying clinics · hybrid small office</strong>
         <span>
-          • Team stays at <strong style="color:white;">7</strong> through 2028 (expand later with growth)<br/>
-          • Hybrid model — rent a small office or co-work in UAE<br/>
+          • Team grows to <strong style="color:white;">8</strong> — <strong style="color:white;">+1 sales</strong> (4 sales total)<br/>
+          • Sales: 4 × 10/mo = 40 + ~10 inbound = <strong style="color:white;">~50/mo</strong><br/>
+          • Hybrid model — small UAE office / co-work (~$1,000/mo)<br/>
           • Operating founders: <strong style="color:white;">$1,500/mo</strong> each<br/>
-          • Workers bump to <strong style="color:white;">$1,000/mo</strong> each<br/>
-          • Claude: $300/mo · Other: $200/mo · Office: ~$1,000–1,500/mo<br/>
-          • Add voice/phone AI &amp; EHR integrations<br/>
-          • <strong style="color:white;">Burn ~$10,500/mo (revenue covers comfortably)</strong>
+          • 6 hires @ <strong style="color:white;">$1,000/mo</strong> each<br/>
+          • Claude: $300/mo · Other: $200/mo · Office: $1,000/mo · <strong style="color:white;">Marketing: $1,000/mo</strong><br/>
+          • <strong style="color:white;">Burn ~$11,500/mo (revenue covers easily)</strong>
+        </span>
+      </div>
+      <div class="v2-tile">
+        <h4>2029 · Scale</h4>
+        <strong>~1,500 paying clinics · UAE-based</strong>
+        <span>
+          • Team grows to <strong style="color:white;">9</strong> — <strong style="color:white;">+1 sales</strong> (5 sales total)<br/>
+          • Sales: 5 × 10/mo = 50 + ~12 inbound = <strong style="color:white;">~62/mo</strong><br/>
+          • Operating founders: <strong style="color:white;">$2,000/mo</strong> each<br/>
+          • 7 hires @ <strong style="color:white;">$1,500/mo</strong> each<br/>
+          • Claude: $300/mo · Other: $200/mo · Office: ~$1,500/mo · <strong style="color:white;">Marketing: $2,000/mo</strong><br/>
+          • Add voice/phone AI + EHR integrations<br/>
+          • <strong style="color:white;">Burn ~$18,500/mo</strong>
         </span>
       </div>
     </div>
 
     <p style="color:#e2e8f0; font-size:14px; margin:14px 0 0;">
-      <strong style="color:white;">Survival math (lean version):</strong> $20k ÷ $3,000 H1 burn = <strong style="color:white;">~6.7 months gross runway</strong>. With revenue offsetting (avg $3.5k MRR over H1), the runway stretches to cover all of H1 and most of H2. <strong style="color:white;">No founder salaries in H1</strong> is the key — that alone keeps burn at ~$3k/mo vs ~$6.8k previously. Founders start drawing $1k/mo only once H2 MRR (~$10k average, $15k by year-end) covers it.
+      <strong style="color:white;">Survival math (founders-only H1):</strong> H1 burn is only <strong style="color:white;">$400/mo</strong> (Claude $200 + other $200) since founders take zero salary and no hires land until H2. Ahmed's $20k Phase 2 capital easily covers all of 2027 — most of it stays untouched. H2 burn jumps to ~$7k/mo with the 5-person hire (3 sales + marketer + dev + $500 marketing), but by then MRR is ramping fast as the 3 sales reps push toward <strong style="color:white;">~30 new clinics/month</strong> (10 per rep) plus ~7–8 inbound. By end of 2027 we're at ~$13k MRR and revenue covers burn.
     </p>
     <p style="color:#e2e8f0; font-size:14px; margin:8px 0 0;">
-      <strong style="color:white;">Translation:</strong> the lean H1 buys us breathing room to hit 100 clinics without panic. Pressure is still on H1 sales velocity (~13 clinics/month) — but if revenue stalls, the burn is small enough that Ahmed's $20k carries us all the way through 2027 instead of just 5 months. 2028 is the real geographic pivot: full UAE operations, Dubai office, hybrid team, local market dominance.
+      <strong style="color:white;">Translation:</strong> H1 is "stabilize + validate at 40 clinics, founders only." H2 is "scale with the first real team." 2028 adds 1 more salesperson and the small UAE office. 2029 adds another salesperson and bumps founders to $2k/mo. Each phase the rule is the same: <strong style="color:white;">10 new clinics per salesperson per month, inbound contributes ~25% on top, marketing budget rises with revenue</strong>.
     </p>
     <p style="color:#e2e8f0; font-size:13.5px; margin:10px 0 0; padding-top:10px; border-top:1px solid rgba(255,255,255,0.12);">
       <strong style="color:#5eead4;">Phase 2 hosting &amp; infra costs (new in 2027):</strong> as we cross ~50 paying clinics we exit most free tiers. Expect <strong style="color:white;">~$50–250/mo</strong> in new infra (Vercel Pro $20 · Neon Launch $19 · PostHog $50–100 · Sentry $26 · Resend $20+) plus growing Claude API usage (AI replies scale with conversation volume). Other Phase 2 expenses to watch: office rent (~$2–3k/mo when we open Dubai), recruiting, payroll &amp; banking, accounting/legal retainer, Meta WhatsApp message fees at volume, Google Workspace.
@@ -1178,7 +1196,7 @@
 </section>
 
 <!-- §6 SHAREHOLDERS' AGREEMENT -->
-<section>
+<section id="sec-06">
   <h2><span class="num">06</span>Shareholders' Agreement &amp; Financial Structure</h2>
   <p class="section-sub">How the three of us split equity, capital risk, and dividends — written down before things get real.</p>
 
@@ -1297,7 +1315,7 @@
       When does Ahmed get his <span style="background:linear-gradient(135deg, var(--brand), var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800;">$21,000</span> back?
     </h3>
     <p style="margin:10px 0 0; font-size:13.5px; color:var(--muted); line-height:1.55;">A realistic, phase-by-phase estimate based on our growth plan + current pricing. <strong style="color:var(--text);">Conservative on purpose</strong> — no optimistic spin.</p>
-    <p style="margin:8px 0 0; font-size:12.5px; color:var(--muted); line-height:1.55;"><strong style="color:var(--text);">How it's calculated:</strong> each phase, revenue − all expenses (salaries · Claude · other · office from 2028) = net income. <strong style="color:var(--text);">90% becomes retained earnings</strong> (reinvested into product, payroll &amp; operations) and <strong style="color:var(--text);">10% is distributed as Tier 1 dividends</strong> — split 60% Ahmed · 20% Belal · 20% Mahmoud.</p>
+    <p style="margin:8px 0 0; font-size:12.5px; color:var(--muted); line-height:1.55;"><strong style="color:var(--text);">How it's calculated:</strong> each phase, revenue − all expenses (salaries · Claude · other · marketing · office from 2028) = net income. <strong style="color:var(--text);">10% becomes retained earnings</strong> (kept inside the company for reinvestment) and <strong style="color:var(--text);">90% is distributed as Tier 1 dividends</strong> — split 60% Ahmed · 20% Belal · 20% Mahmoud. Founders also draw their operating salary (H2 2027 $1k · 2028 $1.5k · 2029 $2k each) on top of dividends.</p>
   </div>
   <table class="tbl">
     <thead>
@@ -1306,62 +1324,63 @@
         <th>Phase revenue</th>
         <th>Phase expenses</th>
         <th>Net income</th>
-        <th>Retained earnings (90%)</th>
-        <th>Dividends (10% Tier 1)<br/><span style="font-weight:500; font-size:10.5px; color:var(--muted);">Ahmed · Belal · Mahmoud</span></th>
+        <th>Retained earnings (10%)</th>
+        <th>Dividends (90% Tier 1)<br/><span style="font-weight:500; font-size:10.5px; color:var(--muted);">Ahmed · Belal · Mahmoud</span></th>
         <th>Cumulative to Ahmed</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>Phase 1 · Aug–Dec 2026</strong><br/><span style="color:var(--muted); font-size:11.5px;">5 free + 15 paying · remote · no salaries</span></td>
+        <td><strong>Phase 1 · Aug–Dec 2026</strong><br/><span style="color:var(--muted); font-size:11.5px;">5 free + 15 paying · remote · founders only</span></td>
         <td>~$5,000</td>
         <td>~$1,000<br/><span style="color:var(--muted); font-size:11px;">Claude ~$500 + other ~$500</span></td>
         <td>+$4,000</td>
-        <td>$3,600</td>
-        <td><strong style="color:var(--accent);">$240</strong> · $80 · $80<br/><span style="color:var(--muted); font-size:11px;">(of $400 pool)</span></td>
-        <td><strong>$240</strong></td>
+        <td>$400</td>
+        <td><strong style="color:var(--accent);">$2,160</strong> · $720 · $720<br/><span style="color:var(--muted); font-size:11px;">(of $3,600 pool)</span></td>
+        <td><strong>$2,160</strong></td>
       </tr>
       <tr>
-        <td><strong>H1 2027 · Jan–Jun</strong><br/><span style="color:var(--muted); font-size:11.5px;">Ramp to 100 · remote · founders $0, hires $500</span></td>
-        <td>~$21,000</td>
-        <td>~$18,000<br/><span style="color:var(--muted); font-size:11px;">Hires $15k + Claude $1.8k + other $1.2k</span></td>
-        <td>+$3,000</td>
-        <td>$2,700</td>
-        <td><strong style="color:var(--accent);">$180</strong> · $60 · $60<br/><span style="color:var(--muted); font-size:11px;">(of $300 pool)</span></td>
-        <td><strong>$420</strong></td>
+        <td><strong>H1 2027 · Jan–Jun</strong><br/><span style="color:var(--muted); font-size:11.5px;">Stabilize 20 + add 20 → 40 · founders-only · no hires</span></td>
+        <td>~$9,000</td>
+        <td>~$2,400<br/><span style="color:var(--muted); font-size:11px;">Claude $1.2k + other $1.2k</span></td>
+        <td>+$6,600</td>
+        <td>$660</td>
+        <td><strong style="color:var(--accent);">$3,564</strong> · $1,188 · $1,188<br/><span style="color:var(--muted); font-size:11px;">(of $5,940 pool)</span></td>
+        <td><strong>$5,724</strong></td>
       </tr>
       <tr>
-        <td><strong>H2 2027 · Jul–Dec</strong><br/><span style="color:var(--muted); font-size:11.5px;">Ramp to 250 · remote · founders $1k, hires $800</span></td>
-        <td>~$60,000</td>
-        <td>~$39,000<br/><span style="color:var(--muted); font-size:11px;">Founders $12k + hires $24k + Claude $1.8k + other $1.2k</span></td>
-        <td>+$21,000</td>
-        <td>$18,900</td>
-        <td><strong style="color:var(--accent);">$1,260</strong> · $420 · $420<br/><span style="color:var(--muted); font-size:11px;">(of $2,100 pool)</span></td>
-        <td><strong>$1,680</strong></td>
+        <td><strong>H2 2027 · Jul–Dec</strong><br/><span style="color:var(--muted); font-size:11.5px;">Hire 5 · 3 sales × 10 + inbound → 260 · founders $1k</span></td>
+        <td>~$42,000</td>
+        <td>~$42,000<br/><span style="color:var(--muted); font-size:11px;">Founders $12k + 5 hires $24k + Claude $1.8k + other $1.2k + marketing $3k</span></td>
+        <td>~$0 (breakeven)</td>
+        <td>$0</td>
+        <td><strong style="color:var(--accent);">$0</strong> · $0 · $0<br/><span style="color:var(--muted); font-size:11px;">(no distributable profit)</span></td>
+        <td><strong>$5,724</strong></td>
       </tr>
       <tr>
-        <td><strong>2028 · UAE Shift</strong><br/><span style="color:var(--muted); font-size:11.5px;">Same 7-person team · hybrid + small UAE office</span></td>
-        <td>~$360,000</td>
-        <td>~$120,000<br/><span style="color:var(--muted); font-size:11px;">Founders $36k + workers $60k + Claude $3.6k + other $2.4k + office $18k</span></td>
-        <td>+$240,000</td>
-        <td>$216,000</td>
-        <td><strong style="color:var(--accent);">$14,400</strong> · $4,800 · $4,800<br/><span style="color:var(--muted); font-size:11px;">(of $24,000 pool)</span></td>
-        <td><strong>$16,080</strong></td>
+        <td><strong>2028 · UAE Shift</strong><br/><span style="color:var(--muted); font-size:11.5px;">+1 sales (4 total) · 50/mo → ~800 · founders $1.5k</span></td>
+        <td>~$300,000</td>
+        <td>~$138,000<br/><span style="color:var(--muted); font-size:11px;">Founders $36k + 6 hires $72k + Claude $3.6k + other $2.4k + marketing $12k + office $12k</span></td>
+        <td>+$162,000</td>
+        <td>$16,200</td>
+        <td><strong style="color:var(--accent);">$87,480</strong> · $29,160 · $29,160<br/><span style="color:var(--muted); font-size:11px;">(of $145,800 pool)</span></td>
+        <td><strong>$93,204</strong> ← $21k crossed ~Mar 2028</td>
       </tr>
       <tr style="background:linear-gradient(135deg, rgba(13,148,136,0.08), rgba(20,184,166,0.10));">
-        <td><strong>2029 · Continued growth</strong><br/><span style="color:var(--muted); font-size:11.5px;">Team expands beyond 7 as revenue scales</span></td>
-        <td>~$500,000+</td>
-        <td>~$200,000+<br/><span style="color:var(--muted); font-size:11px;">Larger team + bigger office</span></td>
-        <td>+$300,000+</td>
-        <td>$270,000+</td>
-        <td><strong style="color:var(--accent);">$18,000+</strong> · $6,000+ · $6,000+<br/><span style="color:var(--muted); font-size:11px;">(of $30,000+ pool)</span></td>
-        <td><strong>$21k fully recovered mid-2029</strong></td>
+        <td><strong>2029 · Scale</strong><br/><span style="color:var(--muted); font-size:11.5px;">+1 sales (5 total) · 62/mo → ~1,500 · founders $2k</span></td>
+        <td>~$720,000</td>
+        <td>~$222,000<br/><span style="color:var(--muted); font-size:11px;">Founders $48k + 7 hires $126k + Claude $3.6k + other $2.4k + marketing $24k + office $18k</span></td>
+        <td>+$498,000</td>
+        <td>$49,800</td>
+        <td><strong style="color:var(--accent);">$268,920</strong> · $89,640 · $89,640<br/><span style="color:var(--muted); font-size:11px;">(of $448,200 pool)</span></td>
+        <td><strong>$362,124</strong> (post-recovery)</td>
       </tr>
     </tbody>
   </table>
 
   <div class="callout blue" style="margin-top:12px;">
-    <strong>Realistic recovery timeline (90% retained · 10% distributed):</strong> Ahmed accumulates only <strong>~$1.7k by end of 2027</strong> (the burn-down years), then <strong>~$14.4k more in 2028</strong> (the first really profitable year). Cumulative end-of-2028 = <strong>~$16k</strong> — still ~$5k short. The remaining $5k arrives in <strong>H1 2029</strong>, so full <strong>$21,000 recovery lands mid-2029</strong>, roughly <strong>~2.5 years after his Phase 2 investment</strong> (Jan 2027). <em>Belal and Mahmoud each also draw their 20% share of the same Tier 1 pool — by end of 2028 each has received ~$5.4k in dividends on top of their operating salary. The model is conservative on purpose: 90% retained keeps profit inside the business for product, payroll, and ops. If we lift the distribution to 20% from 2028, Ahmed's recovery moves up to mid-2028.</em>
+    <strong>Realistic recovery timeline (10% retained · 90% distributed):</strong> Ahmed accumulates <strong>~$5.7k by end of 2027</strong> (Phase 1 + H1 dividends, with H2 breaking even after the H2 hiring jump). Then <strong>2028 explodes</strong> — net income jumps to ~$162k as the 4-sales team hits ~50 new clinics/mo, and Ahmed's share of the 90% dividend pool is <strong>~$87k for the year</strong>. Cumulative end-of-2028 = <strong>~$93k</strong>. Ahmed crosses the <strong>$21,000 mark in roughly March 2028</strong>, just ~14 months after his Phase 2 investment.<br/><br/>
+    <em>Belal and Mahmoud each also draw their 20% share of the same Tier 1 pool — by end of 2028 each has received <strong>~$31k in dividends</strong> on top of their $1k–$1.5k/mo operating salary. By end of 2029 each founder is at <strong>~$120k cumulative dividends</strong>. The 10% retained earnings keeps a small buffer in the company for V2 product investment, while the 90% distribution rewards both the capital provider and the operators aggressively from year 2.</em>
   </div>
 
   <p style="font-size:12px; color:var(--muted); margin-top:14px; text-align:center; font-style:italic;">
