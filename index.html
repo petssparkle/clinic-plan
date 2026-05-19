@@ -164,22 +164,22 @@
   .pricing-grid.show-annual .p-annual { display: inline; }
   .pricing-grid.show-annual .p-annual.block { display: block; }
   .price-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; box-shadow: var(--shadow); position: relative; display:flex; flex-direction:column; }
-  .price-card.featured { border: 2px solid var(--accent); }
+  .price-card.featured { border: 2px solid var(--brand); }
   .price-card .name { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
   .price-card .price { font-size: 26px; font-weight: 800; color: var(--text); margin: 4px 0; }
   .price-card .price small { font-size: 12px; color: var(--muted); font-weight: 500; }
   .price-card .desc { color: var(--muted); font-size: 11.5px; line-height: 1.4; margin-bottom: 8px; }
-  .price-card .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 9.5px; padding: 3px 8px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
+  .price-card .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--brand); color: white; font-size: 9.5px; padding: 3px 8px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
   .price-card .feat { list-style:none; padding:0; margin:6px 0 0; text-align:left; }
   .price-card .feat li { font-size: 11.5px; color: var(--muted); padding: 3px 0 3px 14px; position: relative; line-height: 1.4; }
   .price-card .feat li::before { content: "✓"; position: absolute; left: 0; top: 2px; color: var(--brand); font-weight: 700; font-size: 11px; }
   .price-card .feat li.head { font-weight: 700; color: var(--text); padding-left: 0; font-size: 11.5px; margin-top: 4px; }
   .price-card .feat li.head::before { content: ""; }
   .price-card .tagline { font-size: 11.5px; color: var(--brand); font-weight: 600; margin: 4px 0 2px; line-height: 1.4; min-height: 32px; font-style: italic; }
-  .price-card.featured .tagline { color: var(--accent); }
+  .price-card.featured .tagline { color: var(--brand); }
   .price-card.free .tagline { color: #047857; }
   .price-card .billing-hint { font-size: 11px; color: var(--brand); font-weight: 600; margin: -2px 0 6px; line-height: 1.35; }
-  .price-card.featured .billing-hint { color: var(--accent); }
+  .price-card.featured .billing-hint { color: var(--brand); }
   .price-card .billing-hint .p-monthly, .price-card .billing-hint .p-annual { display: inline; }
   .pricing-grid.show-annual .price-card .billing-hint .p-monthly { display: none; }
   .pricing-grid:not(.show-annual) .price-card .billing-hint .p-annual { display: none; }
@@ -188,10 +188,10 @@
   .price-card .stats-row .stat { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 0 4px; position: relative; min-width: 0; }
   .price-card .stats-row .stat + .stat::before { content: ""; position: absolute; left: 0; top: 15%; bottom: 15%; width: 1px; background: var(--border); }
   .price-card .stats-row .stat .icon { color: var(--brand); width: 14px; height: 14px; flex-shrink: 0; }
-  .price-card.featured .stats-row .stat .icon { color: var(--accent); }
+  .price-card.featured .stats-row .stat .icon { color: var(--brand); }
   .price-card .stats-row .stat .val { font-size: 12px; font-weight: 800; color: var(--text); line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
   .price-card .stats-row .stat .label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; line-height: 1; }
-  .price-card.featured .headline-metric { background: linear-gradient(135deg, rgba(236,72,153,0.10), rgba(245,158,11,0.16)); color: var(--accent); border-color: rgba(236,72,153,0.22); }
+  .price-card.featured .headline-metric { background: linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.16)); color: var(--brand); border-color: rgba(13,148,136,0.22); }
   .price-card.free .headline-metric { background: linear-gradient(135deg, rgba(16,185,129,0.10), rgba(245,158,11,0.16)); color: #047857; border-color: rgba(16,185,129,0.30); }
   .price-card .feat li.section { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.10em; color: var(--muted); padding-left: 0; margin: 10px 0 2px; font-weight: 700; border-top: 1px dashed var(--border); padding-top: 7px; }
   .price-card .feat li.section:first-child { border-top: 0; padding-top: 0; margin-top: 2px; }
@@ -204,26 +204,24 @@
   .price-card.free .feat li.star::before { color: var(--accent-2); }
   .price-card .plan-cta { display: block; margin: auto 0 0; padding: 11px 14px; background: white; border: 2px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 13px; border-radius: 10px; text-decoration: none; letter-spacing: 0.01em; transition: all 0.15s; margin-top: 14px; }
   .price-card .plan-cta:hover { background: var(--brand); color: white; transform: translateY(-1px); }
-  .price-card.featured .plan-cta { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: var(--accent); color: white; box-shadow: 0 4px 12px rgba(236,72,153,0.20); }
-  .price-card.featured .plan-cta:hover { background: var(--accent); transform: translateY(-1px); }
+  .price-card.featured .plan-cta { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-color: var(--brand); color: white; box-shadow: 0 4px 12px rgba(13,148,136,0.25); }
+  .price-card.featured .plan-cta:hover { background: var(--brand-2); transform: translateY(-1px); }
   .message-packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
   .pack-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px 18px 18px; text-align: center; box-shadow: var(--shadow); position: relative; display: flex; flex-direction: column; }
-  .pack-card.featured { border: 2px solid var(--accent); }
-  .pack-card.best-value { border: 2px solid var(--brand); }
+  .pack-card.featured { border: 2px solid var(--brand); }
+  .pack-card.best-value { border: 2px solid var(--accent-2); }
   .pack-card .pack-icon { width: 44px; height: 44px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.16)); border-radius: 50%; color: var(--brand); }
-  .pack-card.featured .pack-icon { background: linear-gradient(135deg, rgba(236,72,153,0.10), rgba(245,158,11,0.16)); color: var(--accent); }
   .pack-card .pack-name { font-size: 13.5px; font-weight: 700; color: var(--text); letter-spacing: 0.01em; margin-bottom: 8px; }
   .pack-card .pack-count { font-size: 30px; font-weight: 800; color: var(--text); line-height: 1; }
   .pack-card .pack-count small { font-size: 12.5px; color: var(--muted); font-weight: 500; margin-left: 4px; letter-spacing: 0.01em; }
   .pack-card .pack-price { font-size: 22px; font-weight: 800; color: var(--brand); margin: 10px 0 4px; }
-  .pack-card.featured .pack-price { color: var(--accent); }
   .pack-card .pack-per { font-size: 11.5px; color: var(--muted); margin-bottom: 14px; }
-  .pack-card .pack-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 9.5px; padding: 4px 11px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
-  .pack-card.best-value .pack-badge { background: var(--brand); }
+  .pack-card .pack-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--brand); color: white; font-size: 9.5px; padding: 4px 11px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
+  .pack-card.best-value .pack-badge { background: var(--accent-2); }
   .pack-card .pack-cta { display: block; padding: 10px 14px; background: white; border: 1.5px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 12.5px; border-radius: 10px; text-decoration: none; transition: all 0.15s; margin-top: auto; }
   .pack-card .pack-cta:hover { background: var(--brand); color: white; transform: translateY(-1px); }
-  .pack-card.featured .pack-cta { background: var(--accent); border-color: var(--accent); color: white; }
-  .pack-card.featured .pack-cta:hover { background: white; color: var(--accent); }
+  .pack-card.featured .pack-cta { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-color: var(--brand); color: white; }
+  .pack-card.featured .pack-cta:hover { background: var(--brand-2); }
   @media (max-width: 768px) { .message-packs { grid-template-columns: 1fr; } }
   .contact-pack-cta { text-align: center; margin-top: 18px; }
   .contact-pack-cta a { display: inline-flex; align-items: center; gap: 10px; padding: 11px 22px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; text-decoration: none; border-radius: 999px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.02em; box-shadow: 0 6px 18px rgba(13,148,136,0.25); transition: transform 0.15s, box-shadow 0.15s; }
@@ -707,7 +705,7 @@
         <li>Basic analytics</li>
         <li>Email support</li>
       </ul>
-      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
+      <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
     </div>
 
     <div class="price-card featured">
@@ -754,7 +752,7 @@
         <li>Customer segments + tagging</li>
         <li>15-min guided onboarding + Priority support</li>
       </ul>
-      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
+      <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
     </div>
 
     <div class="price-card">
@@ -788,7 +786,7 @@
         <li>30-min premium onboarding + monthly check-in</li>
         <li>Direct line to founders</li>
       </ul>
-      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
+      <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
     </div>
 
     <div class="price-card">
@@ -822,7 +820,7 @@
         <li>Done-for-you Wizard + dedicated Slack + quarterly co-design</li>
         <li>White-label resale (your brand · logo · pricing)</li>
       </ul>
-      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
+      <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
     </div>
 
   </div>
