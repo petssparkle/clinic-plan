@@ -422,6 +422,7 @@
   <a href="#sec-06"><span class="n">06</span> Cash &amp; Risks</a>
   <a href="#sec-07"><span class="n">07</span> After V1</a>
   <a href="#sec-08"><span class="n">08</span> Shareholders</a>
+  <a href="#sec-09"><span class="n">09</span> Design Case</a>
 </nav>
 
 <!-- HERO -->
@@ -1604,6 +1605,183 @@
   <p style="font-size:12px; color:var(--muted); margin-top:14px; text-align:center; font-style:italic;">
     This summary is a working-document framework. Final shareholders' agreement to be drafted with legal counsel during US/UAE incorporation in mid-July 2026.
   </p>
+</section>
+
+<!-- §9 MULTIESTETICA CASE STUDY -->
+<section id="sec-09">
+  <h2><span class="num">09</span>Founder Track Record · Multiestetica Case Study</h2>
+  <p class="section-sub"><strong>Why this matters:</strong> the clinic AI receptionist isn't Mahmoud's first medical-SaaS rodeo. As Product Manager (UX-driven) at <strong>Your New Self (YNS)</strong>, Mahmoud led the design and rollout of <strong>Multiestetica</strong> — a medical appointment management platform that today powers ~50% of YNS's doctor coverage across Spain, Colombia, Italy and Mexico. The same instincts that made Multiestetica work — closing the loop between lead generation and confirmed appointment, designing for desktop-bound clinic staff, respecting doctors' need for control — are the foundation of this entire V1 spec.</p>
+
+  <div class="callout green" style="margin-bottom:14px;">
+    <div style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between;">
+      <div style="flex:1; min-width:240px;">
+        <strong style="font-size:15px;">Multiestetica · Medical Appointment Platform</strong><br/>
+        <span style="font-size:13px; color:var(--muted);">Turning leads into confirmed appointments in a unified platform for patients and doctors.</span>
+      </div>
+      <a href="https://www.figma.com/proto/ygYhjkR6L7pjrq8rcLKexx/CV-s-Product-Designer?node-id=896-1285&p=f&viewport=387%2C262%2C0.03&t=8TP5QTEUHSmkxUws-1&scaling=min-zoom&content-scaling=fixed&page-id=171%3A115" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:12px 22px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; text-decoration:none; border-radius:10px; font-weight:700; font-size:13.5px; box-shadow:0 4px 14px rgba(13, 148, 136, 0.25); transition:transform 0.18s ease;">
+        View the full Figma prototype →
+      </a>
+    </div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:14px;">
+    <div class="card">
+      <h4>Project overview</h4>
+      <table class="tbl">
+        <tbody>
+          <tr><td style="font-weight:600; width:35%;">Time period</td><td>10 months</td></tr>
+          <tr><td style="font-weight:600;">Role</td><td>Product Manager (UX-driven) — led problem definition, doctor research, system design, and coordination with business + dev stakeholders</td></tr>
+          <tr><td style="font-weight:600;">Company</td><td>Your New Self (YNS) — Madrid-based medical platform</td></tr>
+          <tr><td style="font-weight:600;">Markets at launch</td><td>Spain &amp; Colombia · later Italy &amp; Mexico</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h4>Context &amp; problem statement</h4>
+      <p style="margin:0 0 8px;"><strong>The structural problem of the system.</strong> YNS had built an efficient engine for generating medical leads, but the flow broke at the booking stage — the most critical moment. Once a contact was assigned to a doctor, the process <strong>left the product</strong> and fragmented across emails, external calendars, and manual follow-up.</p>
+      <p style="margin:0;">The business lost visibility into which leads actually converted into confirmed appointments, and doctors operated in environments disconnected from the main system. The fragmentation looked like this: <strong>Acquisition → YNS auto-assignment → external calendars / reschedules / cancellations / notifications</strong> — every red arrow a place where leads quietly died.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h4>Research process — understanding medical operations</h4>
+    <p style="margin:0 0 10px;">Mahmoud conducted <strong>14 semi-structured interviews</strong> with YNS-affiliated doctors across four countries to learn how they actually manage their schedules, what tools they use, and the frictions they hit daily.</p>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:10px; margin-top:8px;">
+      <div style="background:var(--panel-soft); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+        <div style="font-size:22px; font-weight:800; color:var(--brand);">04</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">España</div>
+      </div>
+      <div style="background:var(--panel-soft); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+        <div style="font-size:22px; font-weight:800; color:var(--brand);">05</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">Colombia</div>
+      </div>
+      <div style="background:var(--panel-soft); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+        <div style="font-size:22px; font-weight:800; color:var(--brand);">03</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">Italia</div>
+      </div>
+      <div style="background:var(--panel-soft); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+        <div style="font-size:22px; font-weight:800; color:var(--brand);">02</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">México</div>
+      </div>
+    </div>
+    <p style="margin:10px 0 0; font-size:13px; color:var(--muted);"><em>The goal: understand how doctors make decisions, organize availability, and what level of control they need to trust a digital system.</em></p>
+  </div>
+
+  <h3 style="margin-top:22px;">What we discovered — four operational insights</h3>
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
+    <div class="card">
+      <h4>1 · Control over availability is critical</h4>
+      <p style="margin:0;">Doctors need to define flexible schedules, block specific days, and manage vacations <strong>without depending on third parties</strong>. Any system that takes control away from them gets rejected.</p>
+    </div>
+    <div class="card">
+      <h4>2 · Rejection of complex systems</h4>
+      <p style="margin:0;">There is <strong>low tolerance</strong> for long configurations or tools with a steep learning curve. If a doctor can't be productive in the first 15 minutes, adoption never happens.</p>
+    </div>
+    <div class="card">
+      <h4>3 · Desktop as the main platform</h4>
+      <p style="margin:0;">Appointment management is mostly done <strong>on desktop by assistants</strong>, not on mobile by the doctor. Design prioritized desktop instead of mobile-first — the opposite of the obvious assumption.</p>
+    </div>
+    <div class="card">
+      <h4>4 · Fear of losing control of the schedule</h4>
+      <p style="margin:0;">Automation creates resistance if it doesn't provide <strong>clear visibility</strong> and the possibility of <strong>manual intervention</strong>. Doctors must be able to override anything the system did on their behalf.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:22px;">Defining the appointment system — architecture</h3>
+  <div class="card">
+    <p style="margin:0 0 12px;">After mapping the friction and the operational realities, the next step was architecting how the system should be structured so appointment management could happen <strong>inside the platform</strong> — not in side tools. The goal wasn't a calendar; it was a single source of truth connecting <strong>lead generation → booking → operations</strong>.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:stretch;">
+      <div style="flex:1; min-width:140px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; padding:14px; border-radius:10px;">
+        <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">Acquisition</strong>
+        <p style="margin:6px 0 0; font-size:13px;">Doctor profile · Contact form · Lead generated</p>
+      </div>
+      <div style="flex:1; min-width:140px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; padding:14px; border-radius:10px;">
+        <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">YNS System</strong>
+        <p style="margin:6px 0 0; font-size:13px;">Lead registration · Doctor assignment · Patient DB</p>
+      </div>
+      <div style="flex:1; min-width:140px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; padding:14px; border-radius:10px;">
+        <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">Schedule Mgmt</strong>
+        <p style="margin:6px 0 0; font-size:13px;">Availability config · Open slots · Appointment duration</p>
+      </div>
+      <div style="flex:1; min-width:140px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; padding:14px; border-radius:10px;">
+        <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">Booking</strong>
+        <p style="margin:6px 0 0; font-size:13px;">Time-slot selection · Confirmation · Recorded in doctor's calendar</p>
+      </div>
+      <div style="flex:1; min-width:140px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:white; padding:14px; border-radius:10px;">
+        <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">Operations</strong>
+        <p style="margin:6px 0 0; font-size:13px;">Modify · Reschedule · Cancel — all in-product</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:22px;">Key design decisions — behavioral, not cosmetic</h3>
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>Immediate status visibility</h4>
+      <p style="margin:0 0 8px;">Appointment states use <strong>color codes + labels</strong> (Confirmada · Pendiente · Cancelada), letting doctors scan their schedule status without opening each entry. The dashboard KPI row — Total citas / Confirmadas / Pendientes / Canceladas — gives day-level certainty in one glance.</p>
+    </div>
+    <div class="card">
+      <h4>Reduced cognitive load</h4>
+      <p style="margin:0;">Information is organized in <strong>structured blocks &amp; tables</strong> that allow quick scanning. The design prevents doctors from navigating across multiple screens to understand the state of their day — every critical signal is on the home dashboard.</p>
+    </div>
+    <div class="card">
+      <h4>Structured information for decision-making</h4>
+      <p style="margin:0;">The schedule doesn't just show appointments — it surfaces <strong>patient, treatment, date, status, and quick actions</strong> in one row. A clear hierarchy means doctors can act (call · email · reschedule · cancel) even during high-workload sessions.</p>
+    </div>
+    <div class="card">
+      <h4>Operational appointment control</h4>
+      <p style="margin:0;">Month / Week / Day views with filtering and search. Each booking is one click away from modify / reschedule / cancel, so the doctor never feels the system is operating <em>over</em> them — it's operating <em>with</em> them.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:22px;">Product validation &amp; impact — the numbers</h3>
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:36px; font-weight:800; background:linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">65%+</div>
+      <div style="font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.4;">of recorded appointments tracked <strong style="color:var(--text);">inside the platform</strong> — reliance on external tools collapsed.</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:36px; font-weight:800; background:linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">45%</div>
+      <div style="font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.4;">of active doctors adopted the calendar as their <strong style="color:var(--text);">main appointment-management tool</strong> in the first months.</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:36px; font-weight:800; background:linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">+3%</div>
+      <div style="font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.4;">measured lift in <strong style="color:var(--text);">lead → confirmed-appointment conversion</strong> from removing manual contact and surfacing time slots directly.</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:36px; font-weight:800; background:linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">50%</div>
+      <div style="font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.4;">of <strong style="color:var(--text);">YNS's global coverage</strong> after rollout from pilot in Spain + Colombia into Italy + Mexico.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:22px;">Product learnings — designing products, not just interfaces</h3>
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>Designing from the system, not the interface</h4>
+      <p style="margin:0;">Many experience problems aren't solved at the UI — they're solved by <strong>redesigning the logic of the system itself</strong>. The challenge was not building a calendar; it was closing the loop between patient acquisition and real appointment management inside the product.</p>
+    </div>
+    <div class="card">
+      <h4>Research as a strategic tool</h4>
+      <p style="margin:0;">Interviews with doctors revealed how they <em>actually</em> manage schedules — and what conditions any tool must meet for adoption. That research is what kept the product aligned with daily clinical operations instead of designer assumptions.</p>
+    </div>
+    <div class="card">
+      <h4>Aligning experience, business &amp; operations</h4>
+      <p style="margin:0;">The project's real value emerged from connecting three layers: the <strong>patient experience</strong>, the <strong>doctor's daily operations</strong>, and <strong>business traceability</strong>. This is the exact same triangulation our clinic AI receptionist sits inside.</p>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg, rgba(13, 148, 136, 0.06), rgba(20, 184, 166, 0.04)); border-color:rgba(13, 148, 136, 0.30);">
+      <h4 style="color:var(--brand);">Why this de-risks the clinic SaaS</h4>
+      <p style="margin:0;">Mahmoud has already shipped — at production scale across four countries — the <strong>exact category of product</strong> we're now building: a tool clinic owners + doctors trust to run their day. The product instincts encoded into Multiestetica (control, simplicity, desktop-first, clear status, no surprises) are the same instincts already shaping the V1 spec on page 1 of this plan.</p>
+    </div>
+  </div>
+
+  <div class="callout green" style="margin-top:18px; text-align:center;">
+    <strong style="font-size:14px;">Want to see the full case study?</strong><br/>
+    <span style="font-size:13px; color:var(--muted);">All 17 slides — research, system architecture, UI mockups, validation results — live in the Figma prototype.</span><br/>
+    <a href="https://www.figma.com/proto/ygYhjkR6L7pjrq8rcLKexx/CV-s-Product-Designer?node-id=896-1285&p=f&viewport=387%2C262%2C0.03&t=8TP5QTEUHSmkxUws-1&scaling=min-zoom&content-scaling=fixed&page-id=171%3A115" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:14px 26px; margin-top:10px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; text-decoration:none; border-radius:10px; font-weight:700; font-size:14px; box-shadow:0 4px 14px rgba(13, 148, 136, 0.25);">
+      Open the Multiestetica case study in Figma →
+    </a>
+  </div>
 </section>
 
 <footer>
