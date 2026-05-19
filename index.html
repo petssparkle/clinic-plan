@@ -120,13 +120,13 @@
   table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
   table.tbl tr:last-child td { border-bottom: none; }
 
-  /* 4 plans, single row at desktop, equal widths */
-  .pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-  .pricing-grid .price-card { min-width: 0; }
-  @media (max-width: 900px) {
+  /* 4 plans, single row at desktop & tablet, equal widths */
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .pricing-grid .price-card { min-width: 0; padding: 14px 10px; }
+  @media (max-width: 760px) {
     .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   }
-  @media (max-width: 560px) {
+  @media (max-width: 480px) {
     .pricing-grid { grid-template-columns: 1fr; }
   }
   .price-card.free { background: linear-gradient(180deg, rgba(16,185,129,0.05), rgba(16,185,129,0)); border-color: rgba(16,185,129,0.4); }
@@ -750,7 +750,7 @@
         <li>Email support</li>
         <li class="head">Plus:</li>
         <li>4× the messages · 2.5× the team</li>
-        <li>Analytics dashboard (upgrade from basic)</li>
+        <li>Analytics dashboard</li>
         <li>Customer segments + tagging</li>
         <li>15-min guided onboarding + Priority support</li>
       </ul>
