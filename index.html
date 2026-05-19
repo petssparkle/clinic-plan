@@ -22,7 +22,7 @@
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 22px 60px; }
+  .wrap { max-width: 1300px; margin: 0 auto; padding: 32px 22px 60px; }
 
   .hero {
     position: relative;
@@ -120,24 +120,14 @@
   table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
   table.tbl tr:last-child td { border-bottom: none; }
 
-  /* 3 wide cards per row by default (5 cards → 3 on top row + 2 centered below) */
-  .pricing-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
-  .pricing-grid .price-card { grid-column: span 2; min-width: 0; }
-  .pricing-grid .price-card:nth-child(4) { grid-column: 2 / span 2; }
-  .pricing-grid .price-card:nth-child(5) { grid-column: 4 / span 2; }
-  /* Tablet: 2 wide cards per row */
+  /* 4 plans, single row at desktop, equal widths */
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .pricing-grid .price-card { min-width: 0; }
   @media (max-width: 900px) {
     .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .pricing-grid .price-card,
-    .pricing-grid .price-card:nth-child(4) { grid-column: auto; }
-    .pricing-grid .price-card:nth-child(5) { grid-column: 1 / span 2; max-width: 50%; margin: 0 auto; }
   }
-  /* Phone: 1 card per row */
   @media (max-width: 560px) {
     .pricing-grid { grid-template-columns: 1fr; }
-    .pricing-grid .price-card,
-    .pricing-grid .price-card:nth-child(4),
-    .pricing-grid .price-card:nth-child(5) { grid-column: 1; max-width: 100%; margin: 0; }
   }
   .price-card.free { background: linear-gradient(180deg, rgba(16,185,129,0.05), rgba(16,185,129,0)); border-color: rgba(16,185,129,0.4); }
   .price-card.free .name { color: var(--accent-2) !important; }
@@ -212,6 +202,29 @@
   .price-card.featured .feat li.star::before { color: var(--accent); }
   .price-card.free .feat li.star { background: linear-gradient(90deg, rgba(245,158,11,0.10), transparent 80%); border-left-color: var(--accent-2); }
   .price-card.free .feat li.star::before { color: var(--accent-2); }
+  .price-card .plan-cta { display: block; margin: auto 0 0; padding: 11px 14px; background: white; border: 2px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 13px; border-radius: 10px; text-decoration: none; letter-spacing: 0.01em; transition: all 0.15s; margin-top: 14px; }
+  .price-card .plan-cta:hover { background: var(--brand); color: white; transform: translateY(-1px); }
+  .price-card.featured .plan-cta { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: var(--accent); color: white; box-shadow: 0 4px 12px rgba(236,72,153,0.20); }
+  .price-card.featured .plan-cta:hover { background: var(--accent); transform: translateY(-1px); }
+  .message-packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+  .pack-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px 18px 18px; text-align: center; box-shadow: var(--shadow); position: relative; display: flex; flex-direction: column; }
+  .pack-card.featured { border: 2px solid var(--accent); }
+  .pack-card.best-value { border: 2px solid var(--brand); }
+  .pack-card .pack-icon { width: 44px; height: 44px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.16)); border-radius: 50%; color: var(--brand); }
+  .pack-card.featured .pack-icon { background: linear-gradient(135deg, rgba(236,72,153,0.10), rgba(245,158,11,0.16)); color: var(--accent); }
+  .pack-card .pack-name { font-size: 13.5px; font-weight: 700; color: var(--text); letter-spacing: 0.01em; margin-bottom: 8px; }
+  .pack-card .pack-count { font-size: 30px; font-weight: 800; color: var(--text); line-height: 1; }
+  .pack-card .pack-count small { font-size: 12.5px; color: var(--muted); font-weight: 500; margin-left: 4px; letter-spacing: 0.01em; }
+  .pack-card .pack-price { font-size: 22px; font-weight: 800; color: var(--brand); margin: 10px 0 4px; }
+  .pack-card.featured .pack-price { color: var(--accent); }
+  .pack-card .pack-per { font-size: 11.5px; color: var(--muted); margin-bottom: 14px; }
+  .pack-card .pack-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 9.5px; padding: 4px 11px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
+  .pack-card.best-value .pack-badge { background: var(--brand); }
+  .pack-card .pack-cta { display: block; padding: 10px 14px; background: white; border: 1.5px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 12.5px; border-radius: 10px; text-decoration: none; transition: all 0.15s; margin-top: auto; }
+  .pack-card .pack-cta:hover { background: var(--brand); color: white; transform: translateY(-1px); }
+  .pack-card.featured .pack-cta { background: var(--accent); border-color: var(--accent); color: white; }
+  .pack-card.featured .pack-cta:hover { background: white; color: var(--accent); }
+  @media (max-width: 768px) { .message-packs { grid-template-columns: 1fr; } }
   .contact-pack-cta { text-align: center; margin-top: 18px; }
   .contact-pack-cta a { display: inline-flex; align-items: center; gap: 10px; padding: 11px 22px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; text-decoration: none; border-radius: 999px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.02em; box-shadow: 0 6px 18px rgba(13,148,136,0.25); transition: transform 0.15s, box-shadow 0.15s; }
   .contact-pack-cta a:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(13,148,136,0.32); }
@@ -645,7 +658,7 @@
   <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote in the Setup Wizard. The bot classifies the inbound message (or triggers on time for reminders), picks the matching reply, sends it. No generation, no improvisation. Reschedule / cancel, procedure prep, insurance, medication, post-visit care, satisfaction surveys → added in V2.</p>
 
   <h3 style="margin-top:18px;">Simple pricing. Pay monthly or save with annual.</h3>
-  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Paid plans get a <strong style="color:var(--text);">fresh monthly message allowance</strong> (resets on the 1st). Free is a <strong style="color:var(--text);">one-time 50-message trial</strong> — no monthly refill. Pay monthly or annually (yearly = <strong style="color:var(--text);">2 months free, ~17% off</strong>).</p>
+  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Every plan starts with a <strong style="color:var(--text);">7-day free trial — no card required</strong>. All plans get a fresh monthly message allowance (resets on the 1st). Pay monthly, or yearly for <strong style="color:var(--text);">2 months free (~17% off)</strong>.</p>
 
   <div class="price-toggle-wrap">
     <div class="price-toggle">
@@ -655,35 +668,6 @@
   </div>
 
   <div class="pricing-grid">
-
-    <div class="price-card free">
-      <div class="name">Free</div>
-      <div class="price">
-        <span class="p-monthly">$0<small>/mo</small></span>
-        <span class="p-annual">$0<small>/yr</small></span>
-      </div>
-      <div class="stats-row">
-        <div class="stat">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-1.5a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5V21"/></svg>
-          <div class="val">1 user</div>
-          <div class="label">seat</div>
-        </div>
-        <div class="stat">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <div class="val">50</div>
-          <div class="label">one-time messages</div>
-        </div>
-      </div>
-      <div class="desc">
-        <strong style="color:var(--text); display:block; font-size:13px;">Try the bot — free forever.</strong>
-      </div>
-      <ul class="feat">
-        <li>WhatsApp + Instagram + Messenger inbox</li>
-        <li>10 fixed replies + intent matching + booking</li>
-        <li>Google Calendar sync + 24h reminder</li>
-        <li>Auto tagging + Google Sheet + Setup Wizard</li>
-      </ul>
-    </div>
 
     <div class="price-card">
       <div class="name">Starter</div>
@@ -714,15 +698,16 @@
         <li>WhatsApp + Instagram + Messenger inbox</li>
         <li>Fixed-Reply FAQ Library (EN + AR)</li>
         <li>Intent matching</li>
-        <li>Patient tagging (custom tags)</li>
         <li>Booking flow</li>
-        <li>Google Calendar sync</li>
+        <li>Online booking system</li>
         <li>Google Sheet sync</li>
         <li>Email notification on every booking</li>
         <li>Appointment reminders (24h + 2h)</li>
         <li>Human handoff</li>
-        <li>Basic analytics (6 metrics)</li>
+        <li>Basic analytics</li>
+        <li>Email support</li>
       </ul>
+      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
     </div>
 
     <div class="price-card featured">
@@ -756,18 +741,20 @@
         <li>WhatsApp + Instagram + Messenger inbox</li>
         <li>Fixed-Reply FAQ Library (EN + AR)</li>
         <li>Intent matching</li>
-        <li>Patient tagging (custom tags)</li>
         <li>Booking flow</li>
-        <li>Google Calendar sync</li>
+        <li>Online booking system</li>
         <li>Google Sheet sync</li>
         <li>Email notification on every booking</li>
         <li>Appointment reminders (24h + 2h)</li>
         <li>Human handoff</li>
-        <li>Basic analytics (6 metrics)</li>
+        <li>Email support</li>
         <li class="head">Plus:</li>
         <li>4× the messages · 2.5× the team</li>
-        <li>15-min guided onboarding + priority email</li>
+        <li>Analytics dashboard (upgrade from basic)</li>
+        <li>Customer segments + tagging</li>
+        <li>15-min guided onboarding + Priority support</li>
       </ul>
+      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
     </div>
 
     <div class="price-card">
@@ -801,6 +788,7 @@
         <li>30-min premium onboarding + monthly check-in</li>
         <li>Direct line to founders</li>
       </ul>
+      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
     </div>
 
     <div class="price-card">
@@ -834,17 +822,50 @@
         <li>Done-for-you Wizard + dedicated Slack + quarterly co-design</li>
         <li>White-label resale (your brand · logo · pricing)</li>
       </ul>
+      <a href="#trial" class="plan-cta">Start 7-day free trial →</a>
     </div>
 
   </div>
-  <div class="contact-pack-cta">
-    <a href="#contact-pack">
-      <span class="plus">+</span>
-      <span class="text">Add 500 messages to your plan</span>
-      <span class="amount">$10</span>
-    </a>
-    <p class="hint">Top up any paid plan with extra messages this month — stack as many packs as you need.</p>
+  <h3 style="margin-top:28px;">Running out of messages? Top up instantly.</h3>
+  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Buy extra messages anytime your monthly quota runs low. <strong style="color:var(--text);">No plan changes — just top up when you need to.</strong> Packs stack on any plan and don't expire.</p>
+
+  <div class="message-packs">
+    <div class="pack-card">
+      <div class="pack-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="pack-name">Quick Top-Up</div>
+      <div class="pack-count">500<small> messages</small></div>
+      <div class="pack-price">$10</div>
+      <div class="pack-per">$0.020 per message</div>
+      <a href="#buy-pack" class="pack-cta">Buy Pack</a>
+    </div>
+
+    <div class="pack-card featured">
+      <div class="pack-badge">Most popular</div>
+      <div class="pack-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="pack-name">Standard Pack</div>
+      <div class="pack-count">2,000<small> messages</small></div>
+      <div class="pack-price">$35</div>
+      <div class="pack-per">$0.0175 per message · 12% off</div>
+      <a href="#buy-pack" class="pack-cta">Buy Pack</a>
+    </div>
+
+    <div class="pack-card best-value">
+      <div class="pack-badge">Best value</div>
+      <div class="pack-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="pack-name">Bulk Pack</div>
+      <div class="pack-count">5,000<small> messages</small></div>
+      <div class="pack-price">$75</div>
+      <div class="pack-per">$0.015 per message · 25% off</div>
+      <a href="#buy-pack" class="pack-cta">Buy Pack</a>
+    </div>
   </div>
+  <p style="text-align:center; color:var(--muted); font-size:11.5px; margin-top:8px;">✓ Stacks on any plan · ✓ Never expires · ✓ Buy anytime from your dashboard</p>
   <div class="pricing-notes">
     <div class="note">
       <span class="label">Beyond Enterprise</span>
@@ -852,7 +873,7 @@
     </div>
     <div class="note">
       <span class="label">Reset &amp; overage</span>
-      <div class="body"><strong>Paid plans</strong> reset on the 1st of every month. <strong>Free</strong> is a one-time 50-message trial — upgrade when you hit the cap. Need more mid-month on a paid plan? Buy a <strong>message pack ($10 per 500)</strong> or upgrade.</div>
+      <div class="body">All plans reset on the <strong>1st of every month</strong>. Need more mid-month? Buy a <strong>Message Pack</strong> (see below) — limits never carry over to the next month.</div>
     </div>
     <div class="note">
       <span class="label">Coming soon</span>
@@ -861,11 +882,11 @@
   </div>
 
   <div class="callout blue">
-    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 messages, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
+    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Every plan starts with a 7-day free trial</strong> — no card required. Convert during or at end of trial; otherwise the trial auto-expires and we follow up by email.
   </div>
 
   <div class="callout green">
-    <strong>Why year-end MRR can exceed $1,000:</strong> the five-tier mix scales fast even with just 20 paying clinics. Example: 6 Starter at $15 ($90) + 8 Growth at $59 ($472) + 5 Agency at $199 ($995) + 1 Enterprise at $499 ($499) = <strong>~$2,056 MRR</strong>. Realistic range: <strong>$1,300–$2,700 MRR</strong> depending on Agency/Enterprise mix. Free-tier users sit on top — each one is a future upgrade. Yearly upfront contracts pull cash in faster — at 17% off, every annual deal locks 10 months of revenue on Day 1.
+    <strong>Why year-end MRR can exceed $1,000:</strong> the four-tier mix scales fast even with just 20 paying clinics. Example: 6 Starter at $15 ($90) + 8 Growth at $59 ($472) + 5 Agency at $199 ($995) + 1 Enterprise at $499 ($499) = <strong>~$2,056 MRR</strong>. Realistic range: <strong>$1,300–$2,700 MRR</strong> depending on Agency/Enterprise mix. Add Message-Pack top-ups on top — each pack is incremental revenue. Yearly upfront contracts pull cash in faster — at 17% off, every annual deal locks 10 months of revenue on Day 1.
   </div>
 
   <p style="margin-top:10px;">
@@ -906,7 +927,7 @@
         <td style="background:transparent;"><strong>Us — AI Receptionist for Clinics</strong></td>
         <td style="background:transparent;"><strong>Fixed-reply bot + booking · clinic-specific · full lifecycle</strong></td>
         <td style="background:transparent;"><strong>UAE · Egypt + Gulf + US</strong></td>
-        <td style="background:transparent;"><strong>Free → $399/mo</strong></td>
+        <td style="background:transparent;"><strong>$15 → $499/mo · 7-day free trial</strong></td>
         <td style="background:transparent;">—</td>
       </tr>
     </tbody>
