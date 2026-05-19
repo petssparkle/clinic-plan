@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiestetica · Medical Appointment Platform — Case Study by Mahmoud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f1e8;
+    --cream-2: #ebe5d6;
+    --teal: #5a9ea0;
+    --teal-dark: #4a8a8c;
+    --pink: #f1a4ab;
+    --pink-soft: #f9d2d6;
+    --yellow: #f5d36b;
+    --navy: #1a2733;
+    --ink: #2a2a2a;
+    --muted: #6b6b6b;
+    --border: #d8d2c2;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+  /* Top bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 241, 232, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-mark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .brand-mark .dot { color: var(--pink); font-size: 22px; line-height: 0.8; }
+  .back-link {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: white;
+    transition: all 0.2s;
+  }
+  .back-link:hover {
+    background: var(--teal);
+    color: white;
+    border-color: var(--teal);
+    transform: translateY(-1px);
+  }
+
+  /* Slide / section base */
+  section {
+    padding: 90px 8% 90px;
+    min-height: auto;
+  }
+  section.dark {
+    background: var(--teal);
+    color: white;
+  }
+  section.dark p, section.dark .lead, section.dark li { color: rgba(255,255,255,0.92); }
+  .slide-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.30);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  section.dark .slide-num { color: rgba(255,255,255,0.50); }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: capitalize;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  section.dark .eyebrow { color: rgba(255,255,255,0.60); }
+  h1.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.1;
+    margin: 0 0 18px;
+    letter-spacing: -0.01em;
+  }
+  h2.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    margin: 0 0 18px;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 22px 0 8px;
+  }
+  .lead {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  section.dark .lead { color: rgba(255,255,255,0.86); }
+
+  /* Cover */
+  .cover {
+    position: relative;
+    padding: 110px 8% 100px;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 6%;
+    width: 320px;
+    height: 360px;
+    background: #d8d2c2;
+    opacity: 0.5;
+    border-radius: 12px;
+    z-index: 0;
+  }
+  .cover::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 6%;
+    width: 14px;
+    height: 30px;
+    background: #d8d2c2;
+    box-shadow: 280px 0 0 #d8d2c2;
+    opacity: 0.5;
+    z-index: 0;
+  }
+  .cover-content { position: relative; z-index: 2; }
+  .multiestetica-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 28px;
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .multiestetica-brand .dot { color: var(--pink); font-size: 32px; line-height: 0.8; }
+
+  /* Dashboard mockup */
+  .mockup {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 22px 60px -20px rgba(0,0,0,0.18);
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    border: 1px solid var(--border);
+  }
+  .mockup-inner {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 480px;
+  }
+  .mockup-sidebar {
+    background: white;
+    padding: 22px 18px;
+    border-right: 1px solid #f0eee9;
+  }
+  .mockup-sidebar .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 17px;
+    margin-bottom: 30px;
+  }
+  .mockup-sidebar .logo .dot { color: var(--pink); }
+  .mockup-sidebar .sec-title {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .mockup-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .mockup-nav-item.active {
+    background: rgba(90, 158, 160, 0.10);
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .mockup-nav-item .ico { width: 14px; height: 14px; background: currentColor; opacity: 0.7; border-radius: 3px; }
+  .mockup-main { padding: 18px 22px; background: #fafaf7; }
+  .mockup-topbar {
+    background: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border: 1px solid #f0eee9;
+  }
+  .search-input {
+    background: #f6f6f3;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    flex: 1;
+    max-width: 280px;
+    border: 1px solid #ececec;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 14px; }
+  .avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink), var(--pink-soft));
+  }
+  .mockup-title { font-weight: 700; font-size: 16px; margin: 8px 0 14px; }
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+  .kpi-card {
+    background: white;
+    border: 1px solid #f0eee9;
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .kpi-card .icon {
+    width: 26px; height: 26px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .kpi-card.b1 .icon { background: #5b8def; }
+  .kpi-card.b2 .icon { background: var(--teal); }
+  .kpi-card.b3 .icon { background: #f5b84a; }
+  .kpi-card.b4 .icon { background: #ea4a4a; }
+  .kpi-card .label { font-size: 10.5px; color: var(--muted); display: block; }
+  .kpi-card.b3 .label { color: var(--teal); font-weight: 600; }
+  .kpi-card .value { font-size: 19px; font-weight: 800; display: inline-block; margin-right: 6px; }
+  .kpi-card .delta { font-size: 9.5px; padding: 2px 6px; border-radius: 4px; background: #e8f4f5; color: var(--teal); }
+  .kpi-card .delta.dn { background: #fde2e4; color: #d44; }
+
+  .mockup-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .panel {
+    background: white;
+    border: 1px solid #f0eee9;
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .panel .panel-title { font-size: 11.5px; font-weight: 700; margin-bottom: 8px; }
+  .donut {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: conic-gradient(var(--teal) 0deg 270deg, var(--pink) 270deg 360deg);
+    position: relative;
+    margin: 4px auto;
+  }
+  .donut::after {
+    content: "204";
+    position: absolute;
+    inset: 14px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  /* Project overview */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 24px;
+  }
+  .overview-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+  .overview-row:first-child { border-top: 1px solid rgba(255,255,255,0.30); }
+  .overview-row .key {
+    font-weight: 600;
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.92);
+  }
+  .overview-row .val { font-size: 14.5px; color: rgba(255,255,255,0.78); line-height: 1.55; }
+
+  /* Fragmentation flow */
+  .flow-container {
+    background: #ececec;
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin-top: 28px;
+  }
+  .flow-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 22px;
+    color: var(--ink);
+  }
+  .flow-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .flow-col {
+    background: #e0ddd2;
+    border-radius: 10px;
+    padding: 18px 14px;
+  }
+  .flow-col h4 {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .flow-col .col-sub {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .flow-step {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    text-align: center;
+    font-size: 12.5px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .flow-step:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .flow-step.bad:not(:last-child)::after { color: #d04a4a; }
+  .col-acquisition .flow-step:not(:last-child)::after { color: #6db26d; }
+
+  /* Research process */
+  .research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+    align-items: start;
+    margin-top: 30px;
+  }
+  .country-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 540px;
+  }
+  .country-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .country-card .num-circle {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .country-card .cname { font-weight: 700; font-size: 16px; }
+  .country-card .cnote { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .legend-block {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    font-size: 13.5px;
+  }
+  .legend-item { display: inline-flex; align-items: center; gap: 8px; }
+  .legend-dot.dot1 { width: 14px; height: 14px; border-radius: 50%; background: var(--navy); }
+  .legend-dot.dot2 { width: 14px; height: 14px; border-radius: 50%; background: var(--teal); }
+
+  /* What we discovered */
+  .insights-wheel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    max-width: 980px;
+    margin: 40px auto 0;
+  }
+  .insight-card {
+    background: rgba(0,0,0,0.04);
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+  }
+  .insight-card h3 {
+    font-size: 19px;
+    margin: 0 0 12px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .insight-card p { margin: 0; font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+
+  /* Behavioral decisions / design decisions */
+  .dec-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .dec-block.right { direction: rtl; }
+  .dec-block.right > * { direction: ltr; }
+  .dec-text h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: white;
+  }
+  .dec-text p { font-size: 14.5px; line-height: 1.6; }
+  .dec-image {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 18px 48px -16px rgba(0,0,0,0.30);
+  }
+  .dec-image .kpi-row { grid-template-columns: repeat(4, 1fr); margin-bottom: 0; }
+
+  /* Architecture flow */
+  .arch-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 40px;
+    align-items: start;
+  }
+  .arch-col h4 {
+    background: #e6e3d8;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+  .arch-step {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .arch-step:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .end-pill {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: white;
+    margin: 12px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+
+  /* Design system mockups */
+  .design-mockup {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 18px 48px -16px rgba(0,0,0,0.20);
+    margin-top: 30px;
+  }
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .calendar-grid .head {
+    background: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .calendar-grid .cell {
+    background: white;
+    padding: 12px 8px;
+    min-height: 56px;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+  }
+  .calendar-grid .cell .dots {
+    margin-top: 6px;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+  }
+  .calendar-grid .cell .dot { width: 5px; height: 5px; border-radius: 50%; }
+  .calendar-grid .cell.today { background: rgba(90,158,160,0.15); font-weight: 700; }
+
+  /* Schedule list */
+  .schedule-list {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 60px 1.4fr 1fr 80px 1.2fr 40px;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f0eee9;
+    font-size: 12.5px;
+  }
+  .schedule-row.head { background: #f7f5f0; font-weight: 700; font-size: 11.5px; color: var(--muted); }
+  .schedule-row:hover { background: #fafaf6; }
+  .status-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .status-pill.confirmed { background: #d6efef; color: var(--teal-dark); }
+  .status-pill.pending { background: #fff0d4; color: #b8881e; }
+  .status-pill.canceled { background: #ffdde0; color: #c53d3d; }
+
+  /* Validation results */
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+    align-items: center;
+  }
+  .stats-circle {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--teal) 0deg 234deg,
+      var(--pink) 234deg 342deg,
+      var(--pink-soft) 342deg 360deg
+    );
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 16px 48px -20px rgba(0,0,0,0.15);
+  }
+  .stats-circle::before {
+    content: "";
+    position: absolute;
+    inset: 60px;
+    border-radius: 50%;
+    background: var(--cream);
+    background-image: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.03) 50%, transparent 60%);
+  }
+  .stats-circle .stat-label {
+    position: absolute;
+    background: #3a3a3a;
+    color: white;
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .stats-circle .s65 { top: 30px; left: 14%; }
+  .stats-circle .s50 { top: 10%; right: 16%; }
+  .stats-circle .s45 { bottom: 24%; right: -2%; }
+  .stats-circle .s3 { bottom: 12%; left: 22%; }
+  .results-text-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .result-block h3 { color: var(--ink); margin: 0 0 8px; font-size: 17px; }
+  .result-block p { font-size: 14.5px; line-height: 1.55; color: var(--muted); margin: 0; }
+  .result-block strong { color: var(--ink); }
+
+  /* Product learnings */
+  .learnings-list {
+    display: grid;
+    gap: 50px;
+    margin-top: 50px;
+    max-width: 1100px;
+  }
+  .learning-row {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .learning-row.right { grid-template-columns: 1.6fr 1fr; }
+  .learning-row.right .learning-icon { order: 2; }
+  .learning-icon {
+    background: rgba(90,158,160,0.10);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1.3;
+    max-width: 280px;
+  }
+  .learning-icon svg { width: 100%; height: auto; max-width: 200px; }
+  .learning-text h3 { font-size: 19px; margin: 0 0 8px; color: var(--ink); font-weight: 700; }
+  .learning-text p { font-size: 14.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+  /* End CTA */
+  .end-cta {
+    text-align: center;
+    padding: 90px 8% 110px;
+    background: var(--cream-2);
+  }
+  .end-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    margin: 0 0 16px;
+  }
+  .end-cta p { color: var(--muted); font-size: 16px; max-width: 600px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--teal);
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14.5px;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+  .cta-btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    margin-left: 10px;
+  }
+  .cta-btn.ghost:hover { background: var(--ink); color: white; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    section { padding: 60px 6%; }
+    .cover { padding: 70px 6% 60px; }
+    .overview-grid, .research-grid, .dec-block, .results-grid, .results-text-row, .learning-row, .learning-row.right { grid-template-columns: 1fr; gap: 22px; }
+    .flow-cols, .insights-wheel { grid-template-columns: 1fr; }
+    .arch-flow { grid-template-columns: 1fr; }
+    .arch-step:not(:last-child)::after { display: none; }
+    .country-grid { grid-template-columns: 1fr; }
+    .mockup-inner { grid-template-columns: 1fr; }
+    .mockup-sidebar { display: none; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+    .mockup-grid { grid-template-columns: 1fr; }
+    .stats-circle { max-width: 320px; }
+    .stats-circle .stat-label { width: 56px; height: 56px; font-size: 13px; }
+    .topbar { padding: 12px 18px; }
+    .schedule-row { grid-template-columns: 50px 1.4fr 90px 1fr; font-size: 11.5px; }
+    .schedule-row > *:nth-child(4), .schedule-row > *:nth-child(6) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="brand-mark">Multiestetica<span class="dot">.</span></a>
+  <a href="index.html" class="back-link">← Back to clinic AI plan</a>
+</div>
+
+<!-- 01 COVER -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="multiestetica-brand">Multiestetica<span class="dot">.</span></div>
+    <h1 class="title serif">Medical Appointment<br/>Platform</h1>
+    <p class="lead" style="font-size:18px; max-width:680px;">Turning leads into confirmed appointments in a unified platform for patients and doctors.</p>
+
+    <!-- Dashboard mockup -->
+    <div class="mockup">
+      <div class="mockup-inner">
+        <aside class="mockup-sidebar">
+          <div class="logo">Multiestetica<span class="dot">.</span></div>
+          <div class="sec-title">Mi Calendario de Citas</div>
+          <div class="mockup-nav-item active"><span class="ico"></span> Dashboard</div>
+          <div class="mockup-nav-item"><span class="ico"></span> Mi Calendario</div>
+          <div class="mockup-nav-item"><span class="ico"></span> Pacientes</div>
+          <div class="mockup-nav-item"><span class="ico"></span> Doctores</div>
+          <div class="mockup-nav-item"><span class="ico"></span> Configurar calendario</div>
+          <div class="mockup-nav-item"><span class="ico"></span> Notificaciones</div>
+        </aside>
+        <div class="mockup-main">
+          <div class="mockup-topbar">
+            <div class="search-input">🔍 Buscar Doctores</div>
+            <div class="topbar-right">
+              <div style="font-size:11px;">🔔</div>
+              <div class="avatar"></div>
+              <div style="font-size:11px; line-height:1.3;"><strong>Dra. Any Ramírez</strong><br/><span style="color:var(--muted);">Médico estético</span></div>
+            </div>
+          </div>
+          <div class="mockup-title">Basic Doctor Dashboard</div>
+          <div class="kpi-row">
+            <div class="kpi-card b1"><span class="icon"></span><br/><span class="label">Total de citas</span><span class="value">25</span><span class="delta">+10.2%</span></div>
+            <div class="kpi-card b2"><span class="icon"></span><br/><span class="label">Total Confirmadas</span><span class="value">10</span><span class="delta">+10.2%</span></div>
+            <div class="kpi-card b3"><span class="icon"></span><br/><span class="label">Pendientes por Confirmar</span><span class="value">6</span><span class="delta dn">-15.8%</span></div>
+            <div class="kpi-card b4"><span class="icon"></span><br/><span class="label">Canceladas</span><span class="value">2</span><span class="delta dn">-3.2%</span></div>
+          </div>
+          <div class="mockup-grid">
+            <div class="panel">
+              <div class="panel-title">Próximo Paciente</div>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:8px;"><div class="avatar" style="width:30px; height:30px;"></div><div><strong style="font-size:11px;">Paulina Rojas</strong><br/><span style="font-size:10.5px; color:var(--muted);">Rinoplastia</span></div></div>
+              <div style="font-size:10.5px; color:var(--muted); margin-top:10px;">🕐 Agosto 22, 2:30 pm</div>
+            </div>
+            <div class="panel" style="text-align:center;">
+              <div class="panel-title">Pacientes</div>
+              <div class="donut"></div>
+              <div style="font-size:10px; color:var(--muted); margin-top:6px;">Total 204</div>
+            </div>
+            <div class="panel">
+              <div class="panel-title">Citas Médicas</div>
+              <div style="font-size:10.5px; color:var(--muted); margin-top:6px;">Septiembre 2020</div>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:2px; margin-top:8px; font-size:9px; text-align:center;">
+                <span style="color:var(--muted);">D</span><span style="color:var(--muted);">L</span><span style="color:var(--muted);">M</span><span style="color:var(--muted);">M</span><span style="color:var(--muted);">J</span><span style="color:var(--muted);">V</span><span style="color:var(--muted);">S</span>
+                <span></span><span></span><span></span><span></span><span style="color:#c53d3d;">1</span><span style="color:#c53d3d;">2</span><span style="color:#c53d3d;">3</span>
+                <span style="color:#c53d3d;">4</span><span>5</span><span>6</span><span>7</span><span>8</span><span style="color:#c53d3d;">9</span><span>10</span>
+                <span style="color:#c53d3d;">11</span><span>12</span><span style="color:#c53d3d;">13</span><span style="background:rgba(90,158,160,0.2); border-radius:3px;">14</span><span>15</span><span>16</span><span style="color:#c53d3d;">17</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PROJECT OVERVIEW -->
+<section class="dark">
+  <div class="overview-grid">
+    <div>
+      <div class="eyebrow" style="color:rgba(255,255,255,0.65);">Project Overview</div>
+      <h2 class="title serif" style="color:white;">Turning leads into confirmed appointments in a unified platform for patients and doctors.</h2>
+    </div>
+    <div>
+      <div class="overview-row">
+        <div class="key">Time period</div>
+        <div class="val">10 months</div>
+      </div>
+      <div class="overview-row">
+        <div class="key">Role<br/><span style="font-weight:400; font-size:13px; color:rgba(255,255,255,0.65);">Product Manager (UX-Driven)</span></div>
+        <div class="val">I led the problem definition, research with doctors, system design, and coordination with business and development stakeholders.</div>
+      </div>
+      <div class="overview-row">
+        <div class="key">Context</div>
+        <div class="val">Your New Self had optimized medical lead generation, but the management of medical appointments was not yet integrated. Once the contact was assigned to a doctor, the process became fragmented between emails, external calendars, and manual follow-up. The system generated patient interest to make contact, but it did not guarantee a confirmed appointment. There was a lack of traceability, control, and an architecture connecting lead generation with real operations.</div>
+      </div>
+      <div class="overview-row">
+        <div class="key">Solution</div>
+        <div class="val">I designed and integrated a medical appointment management system within the YNS ecosystem, unifying availability, booking, and confirmation into a single platform. More than simply adding a calendar, the goal was to close the full conversion cycle within the product, giving business teams better visibility and providing doctors with operational control over their medical appointments.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PROBLEM STATEMENT -->
+<section>
+  <div class="slide-num">02</div>
+  <div class="eyebrow">Problem Statement</div>
+  <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap:50px; align-items:start; margin-top:10px;">
+    <h2 class="title serif">The Structural Problem of the System</h2>
+    <div>
+      <p class="lead" style="margin-bottom:14px;">Your New Self had built an efficient system to generate medical leads, but the flow broke at the real appointment booking stage — the most critical moment. Once the contact was assigned to the doctor, the process left the product and became fragmented between emails, external calendars, and manual follow-up.</p>
+      <p class="lead">The business lost visibility into which leads actually converted into confirmed appointments, and doctors operated in environments disconnected from the main system.</p>
+    </div>
+  </div>
+
+  <!-- System fragmentation flow -->
+  <div class="flow-container">
+    <div class="flow-title">System Fragmentation Flow</div>
+    <div class="flow-cols">
+      <div class="flow-col col-acquisition">
+        <h4>Acquisition</h4>
+        <div class="col-sub">&nbsp;</div>
+        <div class="flow-step">Patient</div>
+        <div class="flow-step">YNS Form</div>
+        <div class="flow-step" style="margin-bottom:0;">Lead generated</div>
+      </div>
+      <div class="flow-col">
+        <h4>YNS System</h4>
+        <div class="col-sub">Automatic Assignment</div>
+        <div class="flow-step">Doctor receives email</div>
+        <div class="flow-step">Reads information</div>
+        <div class="flow-step">Contacts the patient</div>
+        <div class="flow-step bad" style="margin-bottom:0;">Schedules in external calendar</div>
+      </div>
+      <div class="flow-col">
+        <h4>Manual Operation</h4>
+        <div class="col-sub">Process outside the YNS system</div>
+        <div class="flow-step bad">Schedules in external calendar</div>
+        <div class="flow-step bad">External rescheduling</div>
+        <div class="flow-step bad">External cancellation</div>
+        <div class="flow-step bad" style="margin-bottom:0;">External notification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 RESEARCH PROCESS -->
+<section>
+  <div class="eyebrow">Research Process</div>
+  <h2 class="title serif">Understanding Medical Operations</h2>
+  <p class="lead" style="margin-bottom:6px;">Understanding how doctors manage their schedules was critical to defining a viable solution.</p>
+
+  <div class="research-grid">
+    <div>
+      <p style="font-size:14.5px; line-height:1.6; color:var(--muted); margin-bottom:30px;">I conducted semi-structured interviews with YNS affiliated doctors in Spain, Mexico, Italy, and Colombia to understand how they currently manage appointments, what tools they use, and the frictions they face in their daily work.</p>
+      <p style="font-size:14.5px; line-height:1.6; color:var(--muted);">The goal was to understand how they make decisions, how they organize their availability, and what level of control they need to trust a digital system.</p>
+      <div class="legend-block">
+        <div class="legend-item"><span class="legend-dot dot1"></span> Number of interviews conducted with doctors</div>
+        <div class="legend-item"><span class="legend-dot dot2"></span> Countries where YNS operates</div>
+      </div>
+    </div>
+    <div class="country-grid">
+      <div class="country-card"><div class="num-circle">04</div><div><div class="cname">España</div><div class="cnote">Madrid · Barcelona</div></div></div>
+      <div class="country-card"><div class="num-circle">03</div><div><div class="cname">Italia</div><div class="cnote">Milano · Roma</div></div></div>
+      <div class="country-card"><div class="num-circle">02</div><div><div class="cname">México</div><div class="cnote">CDMX · Monterrey</div></div></div>
+      <div class="country-card"><div class="num-circle">05</div><div><div class="cname">Colombia</div><div class="cnote">Bogotá · Medellín</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 WHAT WE DISCOVERED -->
+<section>
+  <div class="eyebrow">Operational Insights</div>
+  <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:50px; align-items:start; margin-bottom:10px;">
+    <h2 class="title serif">What We Discovered</h2>
+    <p class="lead" style="margin:0;">The interviews with doctors revealed clear patterns about how they manage their schedules and what conditions a digital tool must meet to be adopted in their daily practice.</p>
+  </div>
+
+  <div class="insights-wheel">
+    <div class="insight-card">
+      <h3>Control over availability is critical</h3>
+      <p>Doctors need to define flexible schedules, block specific days, and manage vacations without depending on third parties.</p>
+    </div>
+    <div class="insight-card">
+      <h3>Rejection of complex systems</h3>
+      <p>There is low tolerance for long configurations or tools with a steep learning curve.</p>
+    </div>
+    <div class="insight-card">
+      <h3>Desktop as the main platform</h3>
+      <p>Research showed that appointment management is mostly done on desktop by assistants, so the design prioritized desktop instead of mobile-first.</p>
+    </div>
+    <div class="insight-card">
+      <h3>Fear of losing control of the schedule</h3>
+      <p>Automation creates resistance if it does not provide clear visibility and the possibility of manual intervention.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 KEY DESIGN DECISIONS -->
+<section class="dark">
+  <div class="slide-num" style="color:rgba(255,255,255,0.50);">04</div>
+  <div class="eyebrow" style="color:rgba(255,255,255,0.65);">Key Design Decisions</div>
+  <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:50px; align-items:start;">
+    <h2 class="title serif" style="color:white;">Behavioral decisions</h2>
+    <p class="lead" style="color:rgba(255,255,255,0.86); margin:0;">Interviews with doctors revealed clear patterns in how they manage their schedules and what conditions a digital tool must meet to be adopted in daily practice.</p>
+  </div>
+
+  <div class="dec-block">
+    <div class="dec-text">
+      <h3>Immediate Status Visibility</h3>
+      <p>Appointment states are represented with color codes and labels (confirmed, pending, and canceled), allowing doctors to quickly understand the status of their schedule without reviewing each entry in detail.</p>
+    </div>
+    <div class="dec-image">
+      <div class="kpi-row">
+        <div class="kpi-card b1"><span class="icon"></span><br/><span class="label">Total de citas</span><span class="value">25</span><span class="delta">+10.2%</span></div>
+        <div class="kpi-card b2"><span class="icon"></span><br/><span class="label">Total Confirmadas</span><span class="value">10</span><span class="delta">+10.2%</span></div>
+        <div class="kpi-card b3"><span class="icon"></span><br/><span class="label">Pendientes</span><span class="value">6</span><span class="delta dn">-15.8%</span></div>
+        <div class="kpi-card b4"><span class="icon"></span><br/><span class="label">Canceladas</span><span class="value">2</span><span class="delta dn">-3.2%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dec-block right">
+    <div class="dec-text">
+      <h3>Reduced Cognitive Load</h3>
+      <p>Information is organized in structured blocks and tables that allow quick scanning of the schedule. This approach prevents doctors from navigating through multiple screens to understand the status of their appointments.</p>
+    </div>
+    <div class="dec-image">
+      <div class="mockup-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="panel" style="text-align:center;">
+          <div class="panel-title">Pacientes</div>
+          <div class="donut" style="margin:8px auto;"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">Citas Médicas</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:4px;">Septiembre 2020</div>
+          <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:2px; margin-top:6px; font-size:9px; text-align:center;">
+            <span style="color:var(--muted);">D</span><span style="color:var(--muted);">L</span><span style="color:var(--muted);">M</span><span style="color:var(--muted);">M</span><span style="color:var(--muted);">J</span><span style="color:var(--muted);">V</span><span style="color:var(--muted);">S</span>
+            <span></span><span></span><span></span><span></span><span style="color:#c53d3d;">1</span><span style="color:#c53d3d;">2</span><span style="color:#c53d3d;">3</span>
+            <span style="color:#c53d3d;">4</span><span>5</span><span>6</span><span>7</span><span>8</span><span style="color:#c53d3d;">9</span><span>10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dec-block">
+    <div class="dec-text">
+      <h3>Structured Information for Decision-Making</h3>
+      <p>The schedule does not only show appointments but also relevant information to manage them: patient, treatment, date, status, and available actions. A clear structure allows quick review and action even in high workload situations.</p>
+    </div>
+    <div class="dec-image">
+      <div class="schedule-list">
+        <div class="schedule-row head">
+          <div>Hora</div><div>Paciente</div><div>Estado</div><div>Acción</div><div>Tratamiento</div><div></div>
+        </div>
+        <div class="schedule-row">
+          <div>9:00</div>
+          <div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:24px; height:24px;"></div><span>Paulina Rojas</span></div>
+          <div><span class="status-pill confirmed">Confirmada</span></div>
+          <div>📞 ✉️</div>
+          <div><span class="status-pill pending" style="background:#fff0d4; color:#b8881e;">Eliminación arrugas</span></div>
+          <div>···</div>
+        </div>
+        <div class="schedule-row">
+          <div>10:00</div>
+          <div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:24px; height:24px;"></div><span>Paulina Rojas</span></div>
+          <div><span class="status-pill confirmed">Confirmada</span></div>
+          <div>📞 ✉️</div>
+          <div><span class="status-pill canceled" style="background:var(--pink-soft); color:#a04050;">Ácido hialurónico</span></div>
+          <div>···</div>
+        </div>
+        <div class="schedule-row">
+          <div>11:00</div>
+          <div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:24px; height:24px;"></div><span>Paulina Rojas</span></div>
+          <div><span class="status-pill confirmed">Confirmada</span></div>
+          <div>📞 ✉️</div>
+          <div><span class="status-pill canceled">Eliminación ojeras</span></div>
+          <div>···</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ARCHITECTURE -->
+<section>
+  <div class="slide-num">05</div>
+  <div class="eyebrow">Architecture</div>
+  <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:50px; align-items:start;">
+    <h2 class="title serif">Defining the Appointment System</h2>
+    <p class="lead" style="margin:0;">After identifying process friction and understanding how doctors manage their schedules, the next step was to define how the system should be structured so appointment management could happen inside the platform. The goal was not just to add a calendar, but to design a flow connecting lead generation with appointment booking and management, allowing patients, doctors, and business teams to operate from a single source of information.</p>
+  </div>
+
+  <div class="arch-flow">
+    <div class="arch-col">
+      <h4>Acquisition</h4>
+      <div class="arch-step">Doctor profile</div>
+      <div class="arch-step">Contact form</div>
+      <div class="arch-step">Lead generated</div>
+    </div>
+    <div class="arch-col">
+      <h4>YNS System</h4>
+      <div class="arch-step">Lead registration</div>
+      <div class="arch-step">Assignment to doctor</div>
+      <div class="arch-step">Patient database</div>
+    </div>
+    <div class="arch-col">
+      <h4>Schedule Management</h4>
+      <div class="arch-step">Availability configuration</div>
+      <div class="arch-step">Available time slots</div>
+      <div class="arch-step">Appointment duration</div>
+    </div>
+    <div class="arch-col">
+      <h4>Booking</h4>
+      <div class="arch-step">Time slot selection</div>
+      <div class="arch-step">Appointment confirmation</div>
+      <div class="arch-step">Recorded in doctor's calendar</div>
+    </div>
+    <div class="arch-col">
+      <h4>Operations</h4>
+      <div class="arch-step">Modify appointment</div>
+      <div class="arch-step">Reschedule / Cancel</div>
+      <div class="end-pill">END</div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DESIGN PROCESS - OPERATING SYSTEM -->
+<section class="dark">
+  <div class="slide-num" style="color:rgba(255,255,255,0.50);">06</div>
+  <div class="eyebrow" style="color:rgba(255,255,255,0.65);">Design Process</div>
+  <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:50px; align-items:start;">
+    <h2 class="title serif" style="color:white;">Designing the Operating System</h2>
+    <div>
+      <p class="lead" style="color:rgba(255,255,255,0.86); margin-bottom:16px;">With the architecture defined, the next step was designing the interface that would allow doctors to manage appointments within the platform. The goal was to create a clear and reliable operational environment where all relevant information was visible and accessible in one place.</p>
+      <p class="lead" style="color:rgba(255,255,255,0.86); margin:0;">The system was designed as an appointment management dashboard that allows doctors to view the status of each booking, quickly access patient information, and perform actions such as confirming, modifying, or canceling appointments. The interface prioritizes clarity, information hierarchy, and quick actions to support daily schedule management.</p>
+    </div>
+  </div>
+
+  <!-- Calendar mockup -->
+  <div class="design-mockup" style="margin-top:40px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+      <div style="display:flex; gap:10px; align-items:center;">
+        <div style="background:white; border:1px solid var(--border); padding:8px 12px; border-radius:8px; font-size:12px;">Amelia Martínez ▾</div>
+      </div>
+      <div style="display:flex; gap:6px; align-items:center;">
+        <span style="font-size:11.5px; border:1px solid var(--teal); color:var(--teal); padding:6px 12px; border-radius:6px;">Hoy</span>
+        <span style="font-size:12px; padding:6px 10px;">‹</span>
+        <span style="font-size:12px; padding:6px 12px; border:1px solid var(--border); border-radius:6px;">Febrero 2022</span>
+        <span style="font-size:12px; padding:6px 10px;">›</span>
+        <span style="background:var(--teal); color:white; padding:6px 14px; border-radius:6px; font-size:11.5px; margin-left:8px;">Mes</span>
+        <span style="font-size:11.5px; padding:6px 14px; border:1px solid var(--border); border-radius:6px;">Semana</span>
+        <span style="font-size:11.5px; padding:6px 14px; border:1px solid var(--border); border-radius:6px;">Día</span>
+      </div>
+    </div>
+    <div class="calendar-grid">
+      <div class="head">LUNES</div><div class="head">MARTES</div><div class="head" style="background:#2a2a2a; color:white;">MIÉRCOLES</div><div class="head">JUEVES</div><div class="head">VIERNES</div><div class="head">SÁBADO</div><div class="head">DOMINGO</div>
+      <div class="cell" style="color:var(--muted);">30</div><div class="cell" style="color:var(--muted);">31</div><div class="cell today">1<div class="dots"><span class="dot" style="background:var(--teal);"></span><span class="dot" style="background:var(--pink);"></span><span class="dot" style="background:#5b8def;"></span></div></div><div class="cell">2<div class="dots"><span class="dot" style="background:var(--yellow);"></span><span class="dot" style="background:#9d4edd;"></span></div></div><div class="cell">3<div class="dots"><span class="dot" style="background:var(--teal);"></span></div></div><div class="cell">4</div><div class="cell">5</div>
+      <div class="cell">6<div class="dots"><span class="dot" style="background:var(--teal);"></span><span class="dot" style="background:#9d4edd;"></span><span class="dot" style="background:var(--pink);"></span></div></div><div class="cell">7</div><div class="cell">8<div class="dots"><span class="dot" style="background:var(--teal);"></span></div></div><div class="cell">9<div class="dots"><span class="dot" style="background:var(--pink);"></span><span class="dot" style="background:#5b8def;"></span></div></div><div class="cell">10<div class="dots"><span class="dot" style="background:var(--teal);"></span></div></div><div class="cell">11</div><div class="cell">12</div>
+      <div class="cell">13<div class="dots"><span class="dot" style="background:#ea4a4a;"></span><span class="dot" style="background:#9d4edd;"></span></div></div><div class="cell">14</div><div class="cell">15</div><div class="cell">16<div class="dots"><span class="dot" style="background:var(--teal);"></span></div></div><div class="cell">17<div class="dots"><span class="dot" style="background:var(--yellow);"></span><span class="dot" style="background:#9d4edd;"></span></div></div><div class="cell">18</div><div class="cell">19</div>
+      <div class="cell">20</div><div class="cell">21</div><div class="cell">22</div><div class="cell">23<div class="dots"><span class="dot" style="background:var(--teal);"></span></div></div><div class="cell">24</div><div class="cell">25</div><div class="cell">26</div>
+    </div>
+    <div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:14px; font-size:11px; color:var(--muted); justify-content:center;">
+      <span><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ea4a4a; margin-right:6px;"></span>Rejuvenecimiento facial</span>
+      <span><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#5b8def; margin-right:6px;"></span>Balón gástrico</span>
+      <span><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--pink); margin-right:6px;"></span>Ácido hialurónico</span>
+      <span><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--teal); margin-right:6px;"></span>Eliminación arrugas</span>
+      <span><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#9d4edd; margin-right:6px;"></span>Rellenos faciales</span>
+      <span><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--yellow); margin-right:6px;"></span>Eliminación ojeras</span>
+    </div>
+  </div>
+
+  <div class="dec-block right" style="margin-top:60px;">
+    <div class="dec-text">
+      <h3>Operational Appointment Control</h3>
+      <p>Appointments are managed from a structured view that allows filtering, searching, and reviewing the status of each booking. This organization makes it easy to identify pending, confirmed, or canceled appointments and act quickly.</p>
+    </div>
+    <div class="dec-image">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <div class="search-input" style="flex:1; margin-right:10px;">🔍 Buscar Pacientes</div>
+        <span style="background:var(--teal); color:white; padding:6px 14px; border-radius:6px; font-size:11.5px;">+ Nueva Cita</span>
+      </div>
+      <div class="kpi-row" style="margin-bottom:10px;">
+        <div class="kpi-card b1"><span class="icon"></span><br/><span class="label">Citas del hoy</span><span class="value">25</span><span class="delta">+10.2%</span></div>
+        <div class="kpi-card b2"><span class="icon"></span><br/><span class="label">Confirmadas</span><span class="value">10</span><span class="delta">+10.2%</span></div>
+        <div class="kpi-card b3"><span class="icon"></span><br/><span class="label">Pendientes</span><span class="value">6</span><span class="delta dn">-15.8%</span></div>
+        <div class="kpi-card b4"><span class="icon"></span><br/><span class="label">Canceladas</span><span class="value">2</span><span class="delta dn">-3.2%</span></div>
+      </div>
+      <div class="schedule-list" style="margin-top:0;">
+        <div class="schedule-row head">
+          <div>ID</div><div>Paciente</div><div>Tratamiento</div><div>Estado</div><div>Fecha y Hora</div><div></div>
+        </div>
+        <div class="schedule-row"><div>239393</div><div>Andrea Maurizot</div><div>Ácido hialurónico</div><div><span class="status-pill pending">Pendiente</span></div><div>10 Ago, 2:30 PM</div><div>···</div></div>
+        <div class="schedule-row"><div>239393</div><div>Andrea Camila</div><div>Ácido hialurónico</div><div><span class="status-pill canceled">Cancelada</span></div><div>10 Ago, 2:30 PM</div><div>···</div></div>
+        <div class="schedule-row"><div>239393</div><div>Carmen Emilia</div><div>Ácido hialurónico</div><div><span class="status-pill confirmed">Confirmada</span></div><div>10 Ago, 2:30 PM</div><div>···</div></div>
+        <div class="schedule-row"><div>239393</div><div>Paulina Perez</div><div>Ácido hialurónico</div><div><span class="status-pill confirmed">Confirmada</span></div><div>10 Ago, 2:30 PM</div><div>···</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dec-block">
+    <div class="dec-text">
+      <h3>Daily Schedule</h3>
+      <p>The daily view allows doctors to see all appointments organized by time, making it easy to scan the day. Each appointment shows its status, treatment, and quick actions to contact the patient or manage changes.</p>
+    </div>
+    <div class="dec-image">
+      <div class="schedule-list">
+        <div class="schedule-row" style="grid-template-columns:60px 1.4fr 1fr 80px 1.4fr 40px;"><div>9:00</div><div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:22px; height:22px;"></div><span>Paulina Rojas</span></div><div><span class="status-pill confirmed">Confirmada</span></div><div>📞 ✉️</div><div><span class="status-pill" style="background:#d6efef; color:var(--teal-dark);">Eliminación arrugas</span></div><div>···</div></div>
+        <div class="schedule-row" style="grid-template-columns:60px 1.4fr 1fr 80px 1.4fr 40px;"><div>10:00</div><div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:22px; height:22px;"></div><span>Paulina Rojas</span></div><div><span class="status-pill confirmed">Confirmada</span></div><div>📞 ✉️</div><div><span class="status-pill" style="background:var(--pink-soft); color:#a04050;">Ácido hialurónico</span></div><div>···</div></div>
+        <div class="schedule-row" style="grid-template-columns:60px 1.4fr 1fr 80px 1.4fr 40px; background:#eaf6f6;"><div>11:00</div><div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:22px; height:22px;"></div><span>Paulina Rojas</span></div><div><span class="status-pill confirmed">Confirmada</span></div><div>📞 ✉️</div><div><span class="status-pill canceled">Eliminación ojeras</span></div><div>···</div></div>
+        <div class="schedule-row" style="grid-template-columns:60px 1.4fr 1fr 80px 1.4fr 40px;"><div>12:00</div><div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:22px; height:22px;"></div><span>Paulina Rojas</span></div><div><span class="status-pill confirmed">Confirmada</span></div><div>📞 ✉️</div><div><span class="status-pill" style="background:#fff0d4; color:#b8881e;">Eliminación ojeras</span></div><div>···</div></div>
+        <div class="schedule-row" style="grid-template-columns:60px 1.4fr 1fr 80px 1.4fr 40px;"><div>13:00</div><div style="display:flex; align-items:center; gap:8px;"><div class="avatar" style="width:22px; height:22px;"></div><span>Paulina Rojas</span></div><div><span class="status-pill confirmed">Confirmada</span></div><div>📞 ✉️</div><div><span class="status-pill" style="background:#e8d6f5; color:#7d3a9f;">Rinoplastia</span></div><div>···</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dec-block right">
+    <div class="dec-text">
+      <h3>Appointment Creation</h3>
+      <p>The system allows new medical appointments to be created through a structured form connecting patient, treatment, date, and time in a single flow. Date and availability selection prevents schedule conflicts and ensures every booking is recorded within the system.</p>
+    </div>
+    <div class="dec-image" style="max-width:400px;">
+      <div style="font-weight:700; font-size:15px; margin-bottom:12px;">Crear una cita médica</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div class="search-input">Selecciona una sede ▾</div>
+        <div class="search-input">Selecciona un Tratamiento ▾</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:10px; margin-bottom:14px;">
+        <div class="search-input">📅 Mayo 7, 2022</div>
+        <div class="search-input">9:00 ▾</div>
+        <div class="search-input">9:00 ▾</div>
+      </div>
+      <div style="background:white; border:1px solid var(--border); padding:14px; border-radius:8px;">
+        <div style="font-size:12px; margin-bottom:8px;">Septiembre 2020</div>
+        <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; font-size:10.5px; text-align:center;">
+          <span style="color:var(--muted);">D</span><span style="color:var(--muted);">L</span><span style="color:var(--muted);">M</span><span style="color:var(--muted);">M</span><span style="color:var(--muted);">J</span><span style="color:var(--muted);">V</span><span style="color:var(--muted);">S</span>
+          <span></span><span></span><span></span><span></span><span style="color:#c53d3d;">1</span><span style="color:#c53d3d;">2</span><span style="color:#c53d3d;">3</span>
+          <span style="color:#c53d3d;">4</span><span>5</span><span>6</span><span>7</span><span>8</span><span style="color:#c53d3d;">9</span><span>10</span>
+          <span style="color:#c53d3d;">11</span><span>12</span><span style="color:#c53d3d;">13</span><span style="background:rgba(90,158,160,0.2); border-radius:3px;">14</span><span>15</span><span>16</span><span style="color:#c53d3d;">17</span>
+          <span style="color:#c53d3d;">18</span><span>19</span><span>20</span><span style="color:#c53d3d;">21</span><span style="color:#c53d3d;">22</span><span>23</span><span style="color:#c53d3d;">24</span>
+          <span style="color:#c53d3d;">25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span></span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:12px;">
+          <span style="font-size:12px;">Cancelar</span>
+          <span style="background:var(--teal); color:white; padding:5px 14px; border-radius:6px; font-size:11.5px;">Aceptar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 PRODUCT VALIDATION -->
+<section>
+  <div class="slide-num">07</div>
+  <div class="eyebrow">Implementation and Results</div>
+  <h2 class="title serif">Product Validation and Impact</h2>
+  <p class="lead">The appointment management system was initially launched as a pilot in two key markets to evaluate its adoption and its impact on the booking process. This phase allowed us to measure both the improvement in appointment conversion and the operational efficiency in how doctors manage their schedules.</p>
+
+  <div class="results-grid">
+    <div>
+      <div class="result-block" style="margin-bottom:30px;">
+        <h3>Operational Efficiency and Process Traceability</h3>
+        <p>Centralizing appointment management restored visibility over the entire process from lead generation to confirmed appointment. As a result, <strong>more than 65% of recorded appointments</strong> were tracked within the platform, reducing the reliance on external tools.</p>
+      </div>
+    </div>
+    <div style="position:relative; display:flex; justify-content:center;">
+      <div class="stats-circle">
+        <div class="stat-label s65">65%</div>
+        <div class="stat-label s50">50%</div>
+        <div class="stat-label s45">45%</div>
+        <div class="stat-label s3">3%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-text-row">
+    <div class="result-block">
+      <h3>Implementation and Scaling</h3>
+      <p>The system was first launched as a pilot in Spain and Colombia to evaluate adoption and impact on the booking process. After validating the results, the feature was gradually rolled out to other markets such as Italy and Mexico, representing around <strong>50% of YNS's global coverage</strong>.</p>
+    </div>
+    <div class="result-block">
+      <h3>Adoption of the System by Doctors</h3>
+      <p>The system was progressively adopted by affiliated doctors, who began managing their schedules directly from the dashboard. During the first months, <strong>more than 45% of active doctors used the calendar</strong> as their main appointment management tool.</p>
+    </div>
+    <div class="result-block" style="grid-column:1 / -1;">
+      <h3>Increase in Conversion from Leads to Confirmed Appointments</h3>
+      <p>Integrating the system closed the gap between lead generation and booking within the product. By offering direct confirmation of available time slots and removing manual contact, we observed an approximate <strong>+3% increase in the conversion</strong> from leads to confirmed appointments during the first months.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PRODUCT LEARNINGS -->
+<section>
+  <div class="eyebrow">Product Learnings</div>
+  <h2 class="title serif">Designing Products, Not Just Interfaces</h2>
+
+  <div class="learnings-list">
+    <div class="learning-row">
+      <div class="learning-icon">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="14" width="80" height="60" rx="4" stroke="var(--teal)" stroke-width="3"/>
+          <rect x="10" y="14" width="80" height="10" fill="var(--teal)" opacity="0.3"/>
+          <rect x="18" y="32" width="22" height="22" rx="2" fill="var(--teal)" opacity="0.4"/>
+          <rect x="46" y="32" width="36" height="10" rx="2" fill="var(--teal)" opacity="0.4"/>
+          <rect x="46" y="44" width="36" height="10" rx="2" fill="var(--teal)" opacity="0.25"/>
+          <line x1="18" y1="62" x2="50" y2="62" stroke="var(--teal)" stroke-width="2" opacity="0.5"/>
+          <line x1="18" y1="68" x2="42" y2="68" stroke="var(--teal)" stroke-width="2" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="learning-text">
+        <h3>Designing from the System, Not the Interface</h3>
+        <p>This project showed that many experience problems are not solved only through the interface, but by redesigning the logic of the system. The challenge was not to create a calendar, but to close the loop between patient acquisition and real appointment management within the product.</p>
+      </div>
+    </div>
+
+    <div class="learning-row right">
+      <div class="learning-text">
+        <h3>Research as a Strategic Tool</h3>
+        <p>Interviews with doctors helped us understand how they actually manage their schedules and what conditions a tool must meet to be adopted. This research was key to defining a product aligned with daily operations rather than design assumptions.</p>
+      </div>
+      <div class="learning-icon">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="14" width="72" height="60" rx="6" stroke="var(--teal)" stroke-width="3"/>
+          <line x1="22" y1="62" x2="78" y2="40" stroke="var(--teal)" stroke-width="3"/>
+          <polyline points="64,46 78,40 76,54" stroke="var(--teal)" stroke-width="3" fill="none"/>
+          <circle cx="22" cy="62" r="3.5" fill="var(--teal)"/>
+          <circle cx="78" cy="40" r="3.5" fill="var(--teal)"/>
+          <line x1="50" y1="20" x2="78" y2="20" stroke="var(--teal)" stroke-width="2" opacity="0.5"/>
+          <line x1="50" y1="28" x2="78" y2="28" stroke="var(--teal)" stroke-width="2" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="learning-row">
+      <div class="learning-icon">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="22" stroke="var(--teal)" stroke-width="3" fill="none"/>
+          <circle cx="50" cy="50" r="6" fill="var(--teal)"/>
+          <circle cx="78" cy="34" r="5" fill="var(--teal)"/>
+          <circle cx="84" cy="64" r="4" fill="var(--teal)" opacity="0.7"/>
+          <line x1="58" y1="46" x2="78" y2="34" stroke="var(--teal)" stroke-width="2"/>
+          <line x1="60" y1="56" x2="84" y2="64" stroke="var(--teal)" stroke-width="2"/>
+          <line x1="34" y1="74" x2="20" y2="84" stroke="var(--teal)" stroke-width="2"/>
+          <circle cx="18" cy="86" r="3" fill="var(--teal)"/>
+        </svg>
+      </div>
+      <div class="learning-text">
+        <h3>Aligning Experience, Business, and Operations</h3>
+        <p>The real value of the project emerged by connecting three key parts of the product: the patient experience, the doctor's operations, and business traceability. This approach allowed us to create a viable, scalable solution aligned with the platform's goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- END CTA -->
+<section class="end-cta">
+  <h2>Why this matters for the clinic AI receptionist plan</h2>
+  <p>The product instincts behind Multiestetica — control, simplicity, desktop-first, clear status, no surprises — are the exact instincts already encoded into V1 of the clinic AI receptionist. This case study is the proof-of-execution behind that plan.</p>
+  <a href="index.html" class="cta-btn">← Back to the clinic AI plan</a>
+  <a href="index.html#sec-01" class="cta-btn ghost">See V1 product spec →</a>
+</section>
+
+</body>
+</html>
