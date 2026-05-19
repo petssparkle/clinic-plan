@@ -202,7 +202,15 @@
   .price-card.featured .feat li.star::before { color: var(--accent); }
   .price-card.free .feat li.star { background: linear-gradient(90deg, rgba(245,158,11,0.10), transparent 80%); border-left-color: var(--accent-2); }
   .price-card.free .feat li.star::before { color: var(--accent-2); }
+  .price-card .feat { margin-bottom: 16px; }
   .price-card .plan-cta { display: block; padding: 11px 14px; background: white; border: 2px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 13px; border-radius: 10px; text-decoration: none; letter-spacing: 0.01em; transition: all 0.15s; margin-top: auto; margin-bottom: 0; }
+  .price-card .trial-note { font-size: 10.5px; color: var(--muted); text-align: center; margin: 8px 0 0; line-height: 1.4; font-weight: 500; }
+  .plan-note-strip { margin: 22px 0 6px; padding: 16px 18px; background: linear-gradient(135deg, rgba(13,148,136,0.05), rgba(20,184,166,0.09)); border: 1px solid rgba(13,148,136,0.18); border-radius: 14px; text-align: center; }
+  .plan-note-strip .top { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 8px; }
+  .plan-note-strip .checks { display: inline-flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-size: 12.5px; color: var(--muted); }
+  .plan-note-strip .checks span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text); }
+  .plan-note-strip .checks .tick { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; background: var(--brand); color: white; border-radius: 50%; font-size: 11px; line-height: 1; font-weight: 700; }
+  @media (max-width: 560px) { .plan-note-strip .checks { gap: 8px; font-size: 12px; } }
   .price-card .plan-cta:hover { background: var(--brand); color: white; transform: translateY(-1px); }
   .price-card.featured .plan-cta { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-color: var(--brand); color: white; box-shadow: 0 4px 12px rgba(13,148,136,0.25); }
   .price-card.featured .plan-cta:hover { background: var(--brand-2); transform: translateY(-1px); }
@@ -658,7 +666,7 @@
   <p style="font-size:12.5px; color:var(--muted); margin-top:4px;">Each intent maps to a reply the clinic wrote in the Setup Wizard. The bot classifies the inbound message (or triggers on time for reminders), picks the matching reply, sends it. No generation, no improvisation. Reschedule / cancel, procedure prep, insurance, medication, post-visit care, satisfaction surveys → added in V2.</p>
 
   <h3 style="margin-top:18px;">Simple pricing. Pay monthly or save with annual.</h3>
-  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Every plan starts with a <strong style="color:var(--text);">7-day free trial — no card required</strong>. All plans get a fresh monthly contact allowance (resets on the 1st). Pay monthly, or yearly for <strong style="color:var(--text);">2 months free (~17% off)</strong>.</p>
+  <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Every plan starts with a <strong style="color:var(--text);">14-day free trial — no card required</strong>. All plans get a fresh monthly contact allowance (resets on the 1st). Pay monthly, or yearly for <strong style="color:var(--text);">2 months free (~17% off)</strong>.</p>
 
   <div class="price-toggle-wrap">
     <div class="price-toggle">
@@ -700,10 +708,10 @@
         <li>Built-in booking calendar + email alerts</li>
         <li>Reminders (24h + 2h) + human handoff</li>
         <li>Built-in lead pipeline + basic analytics</li>
-        <li>1 clinic website (ready template, optional)</li>
-        <li>Email support</li>
+        <li>Clinic Setup Wizard + email support</li>
       </ul>
       <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
+      <p class="trial-note">14-day free trial · No credit card required</p>
     </div>
 
     <div class="price-card featured">
@@ -735,11 +743,12 @@
       <ul class="feat">
         <li class="head">Everything in Starter, plus:</li>
         <li>4× the contacts · 2.5× the team</li>
-        <li>Up to 3 clinic websites</li>
-        <li>Analytics dashboard + customer segments + tagging</li>
+        <li>Analytics dashboard</li>
+        <li>Customer segments + tagging</li>
         <li>15-min onboarding + priority support</li>
       </ul>
       <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
+      <p class="trial-note">14-day free trial · No credit card required</p>
     </div>
 
     <div class="price-card">
@@ -770,11 +779,11 @@
       <ul class="feat">
         <li class="head">Everything in Growth, plus</li>
         <li>2.5× the contacts · 2× the team</li>
-        <li>Up to 5 clinic websites (custom branding)</li>
         <li>30-min premium onboarding + monthly check-in</li>
         <li>Direct line to founders</li>
       </ul>
       <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
+      <p class="trial-note">14-day free trial · No credit card required</p>
     </div>
 
     <div class="price-card">
@@ -805,13 +814,21 @@
       <ul class="feat">
         <li class="head">Everything in Agency, plus</li>
         <li>4× the contacts · 2.5× the team</li>
-        <li>Unlimited clinic websites (white-label)</li>
         <li>Done-for-you Wizard + dedicated Slack + quarterly co-design</li>
         <li>White-label resale (your brand · logo · pricing)</li>
       </ul>
       <a href="mailto:hello@halaflow.io?subject=Enterprise%20inquiry" class="plan-cta">Contact us</a>
+      <p class="trial-note">14-day pilot · No credit card required</p>
     </div>
 
+  </div>
+  <div class="plan-note-strip">
+    <div class="top">We notify you when you approach plan limits.</div>
+    <div class="checks">
+      <span><span class="tick">✓</span> All plans include 14-day free trial</span>
+      <span><span class="tick">✓</span> Unlimited bookings</span>
+      <span><span class="tick">✓</span> Cancel anytime</span>
+    </div>
   </div>
   <h3 style="margin-top:28px;">Running out of contacts? Top up instantly.</h3>
   <p style="font-size:13px; color:var(--muted); margin:2px 0 6px;">Buy extra contacts anytime your monthly quota runs low. <strong style="color:var(--text);">No plan changes — just top up when you need to.</strong> Packs stack on any plan and don't expire.</p>
@@ -869,7 +886,7 @@
   </div>
 
   <div class="callout blue">
-    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Every plan starts with a 7-day free trial</strong> — no card required. Convert during or at end of trial; otherwise the trial auto-expires and we follow up by email.
+    <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Every plan starts with a 14-day free trial</strong> — no card required. Convert during or at end of trial; otherwise the trial auto-expires and we follow up by email.
   </div>
 
   <div class="callout green">
@@ -914,7 +931,7 @@
         <td style="background:transparent;"><strong>Us — AI Receptionist for Clinics</strong></td>
         <td style="background:transparent;"><strong>Fixed-reply bot + booking · clinic-specific · full lifecycle</strong></td>
         <td style="background:transparent;"><strong>UAE · Egypt + Gulf + US</strong></td>
-        <td style="background:transparent;"><strong>$15 → $499/mo · 7-day free trial</strong></td>
+        <td style="background:transparent;"><strong>$15 → $499/mo · 14-day free trial</strong></td>
         <td style="background:transparent;">—</td>
       </tr>
     </tbody>
@@ -964,7 +981,7 @@
 
   <div class="chart-card">
     <div class="title">The funnel — 400 inbound conversations → 20 paying clinics</div>
-    <div class="sub">Aug–Dec window. Two paths: <strong>demo-booked</strong> (sales partner closes) and <strong>7-day free trial</strong> (self-serve). ~75% Egypt + Gulf / 25% US (expanded in late Q4).</div>
+    <div class="sub">Aug–Dec window. Two paths: <strong>demo-booked</strong> (sales partner closes) and <strong>14-day free trial</strong> (self-serve). ~75% Egypt + Gulf / 25% US (expanded in late Q4).</div>
     <div style="margin-top:8px;">
       <div class="funnel-row"><div class="funnel-label">Inbound conversations</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">400</div></div><div class="funnel-count">400</div></div>
       <div class="funnel-row"><div class="funnel-label">Demos booked / trials started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:35%;">35%</div></div><div class="funnel-count">140</div></div>
@@ -1022,7 +1039,7 @@
 
   <div class="month-row build"><div class="when">July · M2</div><div class="what"><strong>Finish Build → Go Live → Adjust</strong><span class="sub"><strong>Jul 1–14:</strong> Belal finishes calendar booking + lead capture + human handoff + end-to-end test on a mock clinic. Mahmoud polishes site, finalizes SEO blogs, locks marketing plan, finalizes company docs, sets up CRM. <strong>Social ramp:</strong> 3–4 posts/week, product teasers. <strong>Jul 15:</strong> incorporate (Stripe Atlas $300), domain, Stripe live, <strong>marketing site &amp; blog go live</strong>, inbound begins. <strong>Jul 15–31:</strong> Mahmoud publishes queued LinkedIn posts + SEO blogs + first Instagram DM outreach + partnership outreach. Belal squashes bugs. <em>V1 stable by Jul 28 · full launch Aug 1.</em></span></div><div class="goal">0 paying</div></div>
 
-  <div class="month-row launch"><div class="when">Aug 1 · M3</div><div class="what"><strong>🚀 V1 LIVE — Acquisition Begins</strong><span class="sub">App live + 7-day free trial open + 5 design-partner clinics onboarded free. All 6 inbound channels at full volume. <strong>Mahmoud:</strong> full-time on clinic acquisition (Instagram DMs, LinkedIn, partnerships, SEO). <strong>Belal:</strong> ships fixes from beta + trains each clinic's AI personally.</span></div><div class="goal">5 design partners</div></div>
+  <div class="month-row launch"><div class="when">Aug 1 · M3</div><div class="what"><strong>🚀 V1 LIVE — Acquisition Begins</strong><span class="sub">App live + 14-day free trial open + 5 design-partner clinics onboarded free. All 6 inbound channels at full volume. <strong>Mahmoud:</strong> full-time on clinic acquisition (Instagram DMs, LinkedIn, partnerships, SEO). <strong>Belal:</strong> ships fixes from beta + trains each clinic's AI personally.</span></div><div class="goal">5 design partners</div></div>
 
   <div class="month-row launch"><div class="when">Sep · M4</div><div class="what"><strong>First Paying Clinics</strong><span class="sub">Convert 2 design partners + acquire 3 new paid pilots (50% off, 6 months) · Stripe/Tap live · Day-7/30 check-ins. <strong>Belal:</strong> ships 2 features from beta feedback + joins demos to answer technical questions.</span></div><div class="goal">5 paying</div></div>
 
