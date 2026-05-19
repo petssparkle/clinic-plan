@@ -194,6 +194,12 @@
   .price-card.featured .feat li.star::before { color: var(--accent); }
   .price-card.free .feat li.star { background: linear-gradient(90deg, rgba(245,158,11,0.10), transparent 80%); border-left-color: var(--accent-2); }
   .price-card.free .feat li.star::before { color: var(--accent-2); }
+  .pricing-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+  .pricing-notes .note { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow); }
+  .pricing-notes .note .label { display: inline-block; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); font-weight: 700; padding: 3px 8px; background: rgba(13,148,136,0.08); border-radius: 999px; margin-bottom: 6px; }
+  .pricing-notes .note .body { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .pricing-notes .note .body strong { color: var(--text); }
+  @media (max-width: 768px) { .pricing-notes { grid-template-columns: 1fr; gap: 8px; } }
 
   .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
   .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 2px; font-size: 14.5px; }
@@ -715,9 +721,9 @@
         <span class="p-annual">$3,990<small>/yr</small></span>
       </div>
       <div class="headline-metric">10,000 contacts · 25 users</div>
-      <div class="tagline">We build it. You sign clinics.</div>
+      <div class="tagline">We build it. You sign clinics. White-label included.</div>
       <div class="desc">
-        Clinic groups, hospitals &amp; agency resellers — all V2 included on release.<br/>
+        Clinic groups, hospitals &amp; agency resellers — sell the bot under your own brand.<br/>
         <span class="p-monthly" style="color:var(--brand); font-weight:600;">$3,990/yr · save 17%</span>
         <span class="p-annual" style="color:var(--brand); font-weight:600;">$332.50/mo · 2 months free</span>
       </div>
@@ -726,13 +732,25 @@
         <li>3.3× the contacts · 2.5× the team</li>
         <li>Done-for-you Wizard setup + dedicated Slack</li>
         <li>Quarterly co-design call + priority on roadmap</li>
+        <li>White-label resale (your brand · your logo · your pricing) — auto-enabled when V2 ships</li>
       </ul>
     </div>
 
   </div>
-  <p style="text-align:center; color:var(--muted); font-size:13px; margin-top:8px;"><strong style="color:var(--text);">Beyond Enterprise</strong> — 10,000+ contacts or clinic groups with 25+ users · custom pricing, handled case-by-case</p>
-  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px;"><em>Overage:</em> hit your contact limit and you can either upgrade mid-month or buy extra contact packs ($10 per 500 extra).</p>
-  <p style="text-align:center; color:var(--muted); font-size:12.5px; margin-top:4px; max-width:760px; margin-left:auto; margin-right:auto;"><em>What every tier ships Day 1 — the 12 V1 features:</em> WhatsApp + Instagram + Messenger inbox · Fixed-Reply FAQ Library (EN + AR) · Intent matching · Patient tagging · Booking flow · Google Calendar sync · Email alert on booking · Reminders (24h + 2h on paid · 24h on Free) · Human handoff · Google Sheet sync · Basic analytics · Clinic Setup Wizard. <strong>Everything else — patient reschedule/cancel via bot, pre-loaded template packs, extra channels (Telegram · TikTok · SMS · Web-chat · Google Business Messages), voice AI, multi-workspace agency mode, advanced analytics, API, full Communication Hub — is V2. Agency &amp; Enterprise plans get those automatically when they ship.</strong></p>
+  <div class="pricing-notes">
+    <div class="note">
+      <span class="label">Beyond Enterprise</span>
+      <div class="body">Clinic groups with <strong>10,000+ contacts or 25+ users</strong> — custom pricing handled case-by-case. <strong>Contact us.</strong></div>
+    </div>
+    <div class="note">
+      <span class="label">Overage</span>
+      <div class="body">Hit your contact limit? Either upgrade mid-month or buy <strong>contact packs at $10 per 500 extra</strong>. No surprise overages.</div>
+    </div>
+    <div class="note">
+      <span class="label">V2 auto-included</span>
+      <div class="body">Anything beyond the 12 V1 features — extra channels · voice AI · agency mode · advanced analytics · API · white-label · full Communication Hub — ships in V2 and lands automatically on <strong>Agency &amp; Enterprise</strong> plans.</div>
+    </div>
+  </div>
 
   <div class="callout blue">
     <strong>Annual plans save 2 months</strong> — pay yearly and get ~17% off. Locks in retention from the first sale. <strong>Onboarding ladder:</strong> first 5 clinics (design partners) get 3 months free for weekly feedback. Clinics 6–15 get 50% off for 6 months (paid pilots). Clinics 16–20 pay full price. <strong>Or anyone can start on Free</strong> (50 contacts, no time limit, no card) and upgrade when they hit the limit — automated emails handle the upsell.
