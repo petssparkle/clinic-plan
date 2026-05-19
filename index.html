@@ -202,7 +202,7 @@
   .price-card.featured .feat li.star::before { color: var(--accent); }
   .price-card.free .feat li.star { background: linear-gradient(90deg, rgba(245,158,11,0.10), transparent 80%); border-left-color: var(--accent-2); }
   .price-card.free .feat li.star::before { color: var(--accent-2); }
-  .price-card .plan-cta { display: block; margin: auto 0 0; padding: 11px 14px; background: white; border: 2px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 13px; border-radius: 10px; text-decoration: none; letter-spacing: 0.01em; transition: all 0.15s; margin-top: 14px; }
+  .price-card .plan-cta { display: block; padding: 11px 14px; background: white; border: 2px solid var(--brand); color: var(--brand); text-align: center; font-weight: 700; font-size: 13px; border-radius: 10px; text-decoration: none; letter-spacing: 0.01em; transition: all 0.15s; margin-top: auto; margin-bottom: 0; }
   .price-card .plan-cta:hover { background: var(--brand); color: white; transform: translateY(-1px); }
   .price-card.featured .plan-cta { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-color: var(--brand); color: white; box-shadow: 0 4px 12px rgba(13,148,136,0.25); }
   .price-card.featured .plan-cta:hover { background: var(--brand-2); transform: translateY(-1px); }
@@ -514,12 +514,12 @@
     <div class="card">
       <h4>What changes for the clinic (each pain → V1 fix)</h4>
       <ul class="clean">
-        <li><strong>Lost leads come back</strong> — every inquiry is captured and <strong>auto-tagged</strong> by source · service · status; the clinic has a clean Google Sheet of leads to follow up on (automated win-back sequences come in V2)</li>
+        <li><strong>Lost leads come back</strong> — every inquiry is captured and <strong>auto-tagged</strong> by source · service · status in our <strong>built-in pipeline</strong> (automated win-back sequences come in V2)</li>
         <li><strong>No-shows drop</strong> — automatic <strong>24h + 2h reminders</strong>; if a patient wants to reschedule, human handoff routes to staff (multi-step rebook flow is V2)</li>
         <li><strong>One inbox for the three channels that matter</strong> — <strong>WhatsApp + Instagram + Messenger</strong> DMs unified in one dashboard (Telegram · SMS · web chat · Google Business come in V2)</li>
-        <li><strong>Every patient tagged</strong> — auto-tagged by source, service, urgency, status · custom tags too · all tags flow to the Google Sheet (visual filter / retargeting dashboard is V2)</li>
-        <li><strong>Auto data sync</strong> — every inquiry &amp; booking lands in the clinic's Google Sheet with name · phone · channel · source · service · tags · status · appointment time (HubSpot / Pipedrive / Salesforce integrations are V2)</li>
-        <li><strong>Bookings happen 24/7</strong> — bot pulls free slots straight from Google Calendar, patient picks, appointment is confirmed, owner is emailed instantly</li>
+        <li><strong>Every patient tagged</strong> — auto-tagged by source, service, urgency, status · custom tags too · all tags live in our native pipeline (visual filter / retargeting dashboard is V2)</li>
+        <li><strong>Auto data captured</strong> — every inquiry &amp; booking lands in our <strong>built-in pipeline</strong> with name · phone · channel · source · service · tags · status · appointment time (external CRM / Google Sheets sync is V2)</li>
+        <li><strong>Bookings happen 24/7</strong> — bot pulls free slots from our <strong>built-in calendar</strong>, patient picks, appointment is confirmed, owner is emailed instantly</li>
         <li><strong>Owner stays in control</strong> — bot only sends the pre-approved replies the clinic wrote in the Setup Wizard · never invents text · no hallucinations</li>
       </ul>
       <p style="font-size:12px; color:var(--muted); margin-top:6px;"><em>Reviews · post-visit care · satisfaction surveys · return-appointment suggestion → V2.</em></p>
@@ -555,7 +555,7 @@
       </div>
       <ol class="journey-steps">
         <li><strong>Patient signals booking intent</strong> ("I want an appointment" · "Available tomorrow?" · CTA click)</li>
-        <li><strong>Bot pulls free slots</strong> live from Google Calendar / Outlook / clinic scheduler — only inside working hours</li>
+        <li><strong>Bot pulls free slots</strong> live from our built-in calendar — only inside working hours</li>
         <li><strong>Patient picks a slot</strong> from the carousel / quick-reply buttons</li>
         <li><strong>Bot books the appointment</strong> + syncs to CRM/Sheet + emails the owner instantly</li>
       </ol>
@@ -570,7 +570,7 @@
       <ol class="journey-steps">
         <li><strong>Reminders</strong> auto-sent <strong>24h + 2h</strong> before the appointment to cut no-shows</li>
         <li><strong>Reschedule / cancel</strong> — patient asks → <strong>human handoff</strong> routes to staff (auto-reschedule via bot is V2)</li>
-        <li><strong>Booking status logged</strong> in the Google Sheet — clinic owns the data and can run manual follow-ups against any tag</li>
+        <li><strong>Booking status logged</strong> in the built-in pipeline — clinic owns the data and can run manual follow-ups against any tag</li>
         <li><strong>V2 (later):</strong> 48h reminder · auto no-show recovery · post-visit care + medication · satisfaction surveys · return-appointment suggestion</li>
       </ol>
     </div>
@@ -594,11 +594,11 @@
         <li><strong>3 · Intent Matching</strong> · bot detects what the patient wants: pricing · services · location · hours · booking · before/after photos · human help.</li>
         <li><strong>4 · Patient Tagging</strong> · every patient can be tagged by service · source · urgency · status · interest. Examples: "Botox lead" · "Dental cleaning" · "Hot lead" · "From Instagram Ad" · "Needs follow-up".</li>
         <li><strong>5 · Booking Flow</strong> · patient asks to book → bot shows available slots → patient chooses → appointment is confirmed.</li>
-        <li><strong>6 · Google Calendar Sync</strong> · bot reads and writes to Google Calendar so it only shows free slots and avoids double-booking.</li>
+        <li><strong>6 · Built-in Booking Calendar</strong> · our own native calendar — patients book slots directly, staff can edit appointments in-app. No Google Calendar or Outlook required.</li>
         <li><strong>7 · Email Notification on Booking</strong> · clinic owner / receptionist gets an instant email when a new appointment is booked.</li>
         <li><strong>8 · Appointment Reminders</strong> · automatic reminders 24h and 2h before the appointment to reduce no-shows.</li>
         <li><strong>9 · Human Handoff</strong> · if the bot is unsure or the patient asks for a person, staff can take over from the dashboard.</li>
-        <li><strong>10 · Google Sheet Sync</strong> · every inquiry and booking logged in a Google Sheet — name · phone · channel · source · service · tags · status · appointment time.</li>
+        <li><strong>10 · Built-in Lead Pipeline</strong> · our own native pipeline view — every inquiry and booking logged with name · phone · channel · source · service · tags · status · appointment time. No external CRM or spreadsheet required.</li>
         <li><strong>11 · Basic Analytics</strong> · simple counters: messages answered · bookings made · booking conversion rate · top-requested services · channel performance · handoff cases.</li>
         <li><strong>12 · Clinic Setup Wizard</strong> · during onboarding, the clinic adds services · prices/ranges · working hours · location · doctors · tags · approved replies. One-time, then it's ready to go live.</li>
       </ul>
@@ -613,8 +613,8 @@
         <li><strong>Pre-loaded reply template packs</strong> · ready-made aesthetic / dental / derma libraries you can install in one click (V1: clinic writes its own replies through the Setup Wizard)</li>
         <li><strong>Voice / phone-call AI receptionist</strong> · AI answers phone calls too (V1 is text only)</li>
         <li><strong>Voice notes + image uploads in chat</strong> · audio / photo handling (V1 is text-only; routed to human if attempted)</li>
-        <li><strong>Patient Communication Hub</strong> · rich per-patient message-history view across all channels · in-app notes · follow-up reminders — turns into a full mini-CRM (V1 has tagging + Google Sheet log)</li>
-        <li><strong>Full CRM integrations</strong> · HubSpot · Pipedrive · Salesforce · Zoho sync (V1 is Google Sheet only)</li>
+        <li><strong>Patient Communication Hub</strong> · rich per-patient message-history view across all channels · in-app notes · follow-up reminders — turns into a full mini-CRM (V1 has tagging + built-in pipeline)</li>
+        <li><strong>External CRM &amp; Spreadsheet sync</strong> · Google Sheets export · HubSpot · Pipedrive · Salesforce · Zoho sync · Outlook / iCal calendar sync (V1 uses our own built-in pipeline and calendar — no external sync needed)</li>
         <li><strong>Advanced Analytics Dashboard</strong> · service-mix charts · in-app filters that slice by tag · retargeting-list export (V1 has counters + tags only)</li>
         <li><strong>No-Show Prevention multi-step</strong> · 48h reminder · recovery sequences · rebook automation (V1 has 24h + 2h reminders only)</li>
         <li><strong>Post-Session Feedback + Medication Follow-up</strong> · auto post-visit care notes, medication reminders, satisfaction survey, return-visit suggestion</li>
@@ -696,9 +696,8 @@
         <li>WhatsApp + Instagram + Messenger inbox</li>
         <li>Fixed-Reply FAQ Library (EN + AR)</li>
         <li>Intent matching</li>
-        <li>Booking flow</li>
-        <li>Online booking system</li>
-        <li>Google Sheet sync</li>
+        <li>Built-in booking calendar</li>
+        <li>Built-in lead pipeline</li>
         <li>Email notification on every booking</li>
         <li>Appointment reminders (24h + 2h)</li>
         <li>Human handoff</li>
@@ -735,22 +734,12 @@
         <strong style="color:var(--text); display:block; font-size:13px;">Adds segments + analytics dashboard + priority support — built to scale.</strong>
       </div>
       <ul class="feat">
-        <li class="head">Everything in Starter:</li>
-        <li>WhatsApp + Instagram + Messenger inbox</li>
-        <li>Fixed-Reply FAQ Library (EN + AR)</li>
-        <li>Intent matching</li>
-        <li>Booking flow</li>
-        <li>Online booking system</li>
-        <li>Google Sheet sync</li>
-        <li>Email notification on every booking</li>
-        <li>Appointment reminders (24h + 2h)</li>
-        <li>Human handoff</li>
-        <li>Email support</li>
-        <li class="head">Plus:</li>
+        <li class="head">Everything in Starter, plus:</li>
         <li>4× the messages · 2.5× the team</li>
         <li>Analytics dashboard</li>
         <li>Customer segments + tagging</li>
-        <li>15-min guided onboarding + Priority support</li>
+        <li>15-min guided onboarding</li>
+        <li>Priority support</li>
       </ul>
       <a href="https://halaflow.io/signup" class="plan-cta">Start Free Trial</a>
     </div>
@@ -938,7 +927,7 @@
       <ul class="clean">
         <li><strong>Full patient lifecycle in one product</strong> — DM → FAQ → booking → reminders → no-show prevention → post-visit follow-up → feedback. Competitors only solve one slice.</li>
         <li><strong>Calendar fulfillment built in</strong> — sends free slots, books, auto-reuses cancellations. No Calendly stack on top.</li>
-        <li><strong>CRM &amp; Google Sheet auto-sync</strong> — every action lands where the clinic already works. No manual data entry, ever.</li>
+        <li><strong>Built-in pipeline + auto-tagging</strong> — every action lands in our native lead pipeline. No manual data entry, ever.</li>
         <li><strong>Bilingual EN + AR</strong> — most competitors are English-only or have weak Arabic</li>
         <li><strong>Fixed-reply mechanic</strong> — owner controls every word · bot can't go off-script</li>
         <li><strong>$15/mo starter</strong> — cheapest clinic-specific option in the market</li>
