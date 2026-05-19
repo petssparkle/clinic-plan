@@ -188,6 +188,13 @@
   .pricing-grid.show-annual .price-card .billing-hint .p-monthly { display: none; }
   .pricing-grid:not(.show-annual) .price-card .billing-hint .p-annual { display: none; }
   .price-card .headline-metric { display: inline-block; margin: 4px 0 6px; padding: 4px 9px; background: linear-gradient(135deg, rgba(13,148,136,0.10), rgba(20,184,166,0.16)); color: var(--brand); border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.01em; border: 1px solid rgba(13,148,136,0.20); white-space: nowrap; }
+  .price-card .stats-row { display: flex; align-items: stretch; background: var(--panel-soft); border: 1px solid var(--border); border-radius: 12px; padding: 8px 4px; margin: 6px 0 10px; }
+  .price-card .stats-row .stat { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 0 4px; position: relative; min-width: 0; }
+  .price-card .stats-row .stat + .stat::before { content: ""; position: absolute; left: 0; top: 15%; bottom: 15%; width: 1px; background: var(--border); }
+  .price-card .stats-row .stat .icon { color: var(--brand); width: 14px; height: 14px; flex-shrink: 0; }
+  .price-card.featured .stats-row .stat .icon { color: var(--accent); }
+  .price-card .stats-row .stat .val { font-size: 12px; font-weight: 800; color: var(--text); line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .price-card .stats-row .stat .label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; line-height: 1; }
   .price-card.featured .headline-metric { background: linear-gradient(135deg, rgba(236,72,153,0.10), rgba(245,158,11,0.16)); color: var(--accent); border-color: rgba(236,72,153,0.22); }
   .price-card.free .headline-metric { background: linear-gradient(135deg, rgba(16,185,129,0.10), rgba(245,158,11,0.16)); color: #047857; border-color: rgba(16,185,129,0.30); }
   .price-card .feat li.section { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.10em; color: var(--muted); padding-left: 0; margin: 10px 0 2px; font-weight: 700; border-top: 1px dashed var(--border); padding-top: 7px; }
@@ -649,7 +656,18 @@
         <span class="p-monthly">$0<small>/mo</small></span>
         <span class="p-annual">$0<small>/yr</small></span>
       </div>
-      <div class="headline-metric">50 contacts (one-time) · 1 user</div>
+      <div class="stats-row">
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-1.5a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5V21"/></svg>
+          <div class="val">1 user</div>
+          <div class="label">seat</div>
+        </div>
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <div class="val">50</div>
+          <div class="label">one-time contacts</div>
+        </div>
+      </div>
       <div class="desc">
         <strong style="color:var(--text); display:block; font-size:13px;">Try the bot — free forever.</strong>
       </div>
@@ -671,7 +689,18 @@
         <span class="p-monthly">or $150/yr · save 17%</span>
         <span class="p-annual">= $12.50/mo · 2 months free</span>
       </div>
-      <div class="headline-metric">500 contacts/mo · 2 users</div>
+      <div class="stats-row">
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-1.5a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5V21"/></svg>
+          <div class="val">2 users</div>
+          <div class="label">seats</div>
+        </div>
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <div class="val">500</div>
+          <div class="label">contacts /mo</div>
+        </div>
+      </div>
       <div class="desc">
         <strong style="color:var(--text); display:block; font-size:13px;">Receptionist-grade DMs, fully automated.</strong>
       </div>
@@ -682,10 +711,10 @@
         <li>Patient tagging (custom tags)</li>
         <li>Booking flow</li>
         <li>Google Calendar sync</li>
+        <li>Google Sheet sync</li>
         <li>Email notification on every booking</li>
         <li>Appointment reminders (24h + 2h)</li>
         <li>Human handoff</li>
-        <li>Google Sheet sync</li>
         <li>Basic analytics (6 metrics)</li>
       </ul>
     </div>
@@ -701,7 +730,18 @@
         <span class="p-monthly">or $590/yr · save 17%</span>
         <span class="p-annual">= $49.17/mo · 2 months free</span>
       </div>
-      <div class="headline-metric">2,000 contacts/mo · 5 users</div>
+      <div class="stats-row">
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-1.5a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5V21"/></svg>
+          <div class="val">5 users</div>
+          <div class="label">seats</div>
+        </div>
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <div class="val">2,000</div>
+          <div class="label">contacts /mo</div>
+        </div>
+      </div>
       <div class="desc">
         <strong style="color:var(--text); display:block; font-size:13px;">When one clinic outgrows one inbox.</strong>
       </div>
@@ -713,10 +753,10 @@
         <li>Patient tagging (custom tags)</li>
         <li>Booking flow</li>
         <li>Google Calendar sync</li>
+        <li>Google Sheet sync</li>
         <li>Email notification on every booking</li>
         <li>Appointment reminders (24h + 2h)</li>
         <li>Human handoff</li>
-        <li>Google Sheet sync</li>
         <li>Basic analytics (6 metrics)</li>
         <li class="head">Plus:</li>
         <li>4× the contacts · 2.5× the team</li>
@@ -734,7 +774,18 @@
         <span class="p-monthly">or $1,990/yr · save 17%</span>
         <span class="p-annual">= $165.83/mo · 2 months free</span>
       </div>
-      <div class="headline-metric">5,000 contacts/mo · 10 users</div>
+      <div class="stats-row">
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-1.5a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5V21"/></svg>
+          <div class="val">10 users</div>
+          <div class="label">seats</div>
+        </div>
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <div class="val">5,000</div>
+          <div class="label">contacts /mo</div>
+        </div>
+      </div>
       <div class="desc">
         <strong style="color:var(--text); display:block; font-size:13px;">Multi-doctor clinics with founder support.</strong>
       </div>
@@ -756,7 +807,18 @@
         <span class="p-monthly">or $4,990/yr · save 17%</span>
         <span class="p-annual">= $415.83/mo · 2 months free</span>
       </div>
-      <div class="headline-metric">10,000 contacts/mo · 25 users</div>
+      <div class="stats-row">
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-1.5a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5V21"/></svg>
+          <div class="val">25 users</div>
+          <div class="label">seats</div>
+        </div>
+        <div class="stat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <div class="val">10,000</div>
+          <div class="label">contacts /mo</div>
+        </div>
+      </div>
       <div class="desc">
         <strong style="color:var(--text); display:block; font-size:13px;">For hospitals &amp; big clinic chains. We build it, you sign them. White-label included.</strong>
       </div>
